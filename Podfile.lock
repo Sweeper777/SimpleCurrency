@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.3.0)
+  - ESPullToRefresh (2.6)
+  - Eureka (2.0.1)
+  - SCLAlertView (0.7.0)
+  - SwiftyUtils (0.7.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - ESPullToRefresh
+  - Eureka (~> 2.0.0-beta.1)
+  - SCLAlertView
+  - SwiftyUtils
+
+SPEC CHECKSUMS:
+  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  ESPullToRefresh: 85f4990acf87f78c6a1466bbbee7a75d7de24db9
+  Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
+  SwiftyUtils: 87094996d977846e5a9f2cbe653ff28dc15ba187
+
+PODFILE CHECKSUM: 577507e6998be7c0b3ffafffb3b5907a7d60a4b5
+
+COCOAPODS: 1.1.0.beta.1
