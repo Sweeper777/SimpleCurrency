@@ -3,6 +3,7 @@ PODS:
   - ESPullToRefresh (2.6)
   - Eureka (2.0.1)
   - SCLAlertView (0.7.0)
+  - SwiftyJSON (3.1.4)
   - SwiftyUtils (0.7.0)
 
 DEPENDENCIES:
@@ -10,6 +11,7 @@ DEPENDENCIES:
   - ESPullToRefresh
   - Eureka (~> 2.0.0-beta.1)
   - SCLAlertView
+  - SwiftyJSON
   - SwiftyUtils
 
 SPEC CHECKSUMS:
@@ -17,8 +19,9 @@ SPEC CHECKSUMS:
   ESPullToRefresh: 85f4990acf87f78c6a1466bbbee7a75d7de24db9
   Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyUtils: 87094996d977846e5a9f2cbe653ff28dc15ba187
 
-PODFILE CHECKSUM: 577507e6998be7c0b3ffafffb3b5907a7d60a4b5
+PODFILE CHECKSUM: e5fd50824e11b28a4eb8dcf2a2f3d6a698f72b74
 
 COCOAPODS: 1.1.0.beta.1

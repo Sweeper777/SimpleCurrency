@@ -10,5 +10,6 @@ target 'SimpleCurrency' do
   pod 'ESPullToRefresh'
   pod 'SCLAlertView'
   pod 'Eureka', '~> 2.0.0-beta.1'
+  pod 'SwiftyJSON'
 
 end
