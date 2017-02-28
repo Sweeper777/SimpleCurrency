@@ -10,7 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         if lastUsedBuild == 0 {
             UserDefaults.standard.set("USD", forKey: "baseCurrency")
-            UserDefaults.standard.set(1.0, forKey: "baseAmount")
+            UserDefaults.standard.set(1 as Int, forKey: "baseAmount")
             let currencies: [String] = [Currencies.EUR, .JPY, .GBP, .AUD, .CAD].map { $0.currencyCode }
             UserDefaults.standard.set(currencies, forKey: "currencies")
         }
