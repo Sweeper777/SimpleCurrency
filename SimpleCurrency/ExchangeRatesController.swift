@@ -51,5 +51,17 @@ class ExchangeRatesController: UITableViewController {
         return currencies.count
     }
     
-    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        cell.imageView!.image = UIImage(named: currencies[indexPath.row])
+        cell.textLabel!.text = NSLocalizedString("No Data", comment: "")
+        cell.detailTextLabel!.text = Currencies.fullNameDict[Currencies(rawValue: currencies[indexPath.row])!]!
+        
+        guard let json = self.json else { return cell }
+        guard let rate = json["rates"][currencies[indexPath.row]].double else { return cell }
+        
+        cell.textLabel!.text = "\(rate) \(currencies[indexPath.row])"
+        
+        return cell
+    }
 }
