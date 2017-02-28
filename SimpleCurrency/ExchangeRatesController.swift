@@ -14,8 +14,10 @@ class ExchangeRatesController: UITableViewController {
     override func viewDidLoad() {
         currencies = UserDefaults.standard.array(forKey: "currencies")!.map { $0 as! String }
         baseCurrency = UserDefaults.standard.string(forKey: "baseCurrency")
-        Alamofire.request("https://api.fixer.io/latest?base=\(baseCurrency)&symbols=\(currencies.joined(separator: ","))&amount=\(baseAmount)").responseData {
         baseAmount = UserDefaults.standard.integer(forKey: "baseAmount")
+        let url = "https://api.fixer.io/latest?base=\(baseCurrency!)&symbols=\(currencies.joined(separator: ","))&amount=\(baseAmount!)"
+        print(url)
+        Alamofire.request(url).responseString {
             [weak self]
             response in
             if let _ = response.error {
@@ -23,11 +25,17 @@ class ExchangeRatesController: UITableViewController {
                 return
             }
             
-            let json = JSON(data: response.value!)
+            let json = JSON(parseJSON: response.value!)
             if let _ = json["error"].string {
                 _ = SCLAlertView().showError(NSLocalizedString("Error", comment: ""), subTitle: NSLocalizedString("Unable to get exchange rates.", comment: ""))
+                return
             }
             self?.json = json
+            Timer.after(0.1) {
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            }
         }
     }
     
