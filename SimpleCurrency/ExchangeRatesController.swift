@@ -40,7 +40,7 @@ class ExchangeRatesController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "\(baseAmount) \(baseCurrency) = ?"
+        return "\(baseAmount!) \(baseCurrency!) = ?"
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
