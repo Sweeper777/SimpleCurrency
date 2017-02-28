@@ -13,6 +13,7 @@
 		5A191C811E5C335C00ECC13B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A191C801E5C335C00ECC13B /* Assets.xcassets */; };
 		5A191C841E5C335C00ECC13B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A191C821E5C335C00ECC13B /* LaunchScreen.storyboard */; };
 		5A191C8C1E5CAA1200ECC13B /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A191C8B1E5CAA1200ECC13B /* Currencies.swift */; };
+		5A1AEC181E64B430005369BB /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1AEC171E64B430005369BB /* SettingsController.swift */; };
 		6E12533261AB6C59FB753362 /* Pods_SimpleCurrency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A613F2D304F175C8ED5269B1 /* Pods_SimpleCurrency.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		5A191C831E5C335C00ECC13B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A191C851E5C335C00ECC13B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A191C8B1E5CAA1200ECC13B /* Currencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currencies.swift; sourceTree = "<group>"; };
+		5A1AEC171E64B430005369BB /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		A613F2D304F175C8ED5269B1 /* Pods_SimpleCurrency.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleCurrency.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C360ED55DDA9F8CC99FA2E65 /* Pods-SimpleCurrency.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCurrency.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCurrency/Pods-SimpleCurrency.debug.xcconfig"; sourceTree = "<group>"; };
 		D295204E4A13776956D5917C /* Pods-SimpleCurrency.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCurrency.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCurrency/Pods-SimpleCurrency.release.xcconfig"; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			children = (
 				5A191C791E5C335C00ECC13B /* AppDelegate.swift */,
 				5A191C7B1E5C335C00ECC13B /* ExchangeRatesController.swift */,
+				5A1AEC171E64B430005369BB /* SettingsController.swift */,
 				5A191C8B1E5CAA1200ECC13B /* Currencies.swift */,
 				5A191C7D1E5C335C00ECC13B /* Main.storyboard */,
 				5A191C801E5C335C00ECC13B /* Assets.xcassets */,
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A1AEC181E64B430005369BB /* SettingsController.swift in Sources */,
 				5A191C8C1E5CAA1200ECC13B /* Currencies.swift in Sources */,
 				5A191C7C1E5C335C00ECC13B /* ExchangeRatesController.swift in Sources */,
 				5A191C7A1E5C335C00ECC13B /* AppDelegate.swift in Sources */,
@@ -348,6 +352,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.SimpleCurrency;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -363,6 +368,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.SimpleCurrency;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
