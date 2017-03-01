@@ -12,6 +12,10 @@ class ExchangeRatesController: UITableViewController {
     var json: JSON!
     
     override func viewDidLoad() {
+        loadSettings()
+    }
+    
+    func loadSettings() {
         currencies = UserDefaults.standard.array(forKey: "currencies")!.map { $0 as! String }
         baseCurrency = UserDefaults.standard.string(forKey: "baseCurrency")
         baseAmount = UserDefaults.standard.integer(forKey: "baseAmount")
