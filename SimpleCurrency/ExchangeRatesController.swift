@@ -14,6 +14,12 @@ class ExchangeRatesController: UITableViewController {
     override func viewDidLoad() {
         loadSettings()
         requestData(completion: nil)
+        
+        tableView.es_addPullToRefresh {
+            self.requestData(completion: { 
+                self.tableView.es_stopPullToRefresh()
+            })
+        }
     }
     
     func loadSettings() {
