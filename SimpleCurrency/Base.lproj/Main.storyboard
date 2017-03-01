@@ -13,7 +13,7 @@
         <scene sceneID="NXa-ty-rR1">
             <objects>
                 <tableViewController id="3dC-Bi-ycF" customClass="ExchangeRatesController" customModule="SimpleCurrency" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" id="f4h-re-ZsV">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" id="f4h-re-ZsV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -48,11 +48,57 @@
                             <outlet property="delegate" destination="3dC-Bi-ycF" id="ral-DW-JTP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Exchange Rates" id="VcW-Iu-dPu"/>
+                    <navigationItem key="navigationItem" title="Exchange Rates" id="VcW-Iu-dPu">
+                        <barButtonItem key="rightBarButtonItem" image="settings" id="c9l-HS-qGe">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="zY7-4B-fES" kind="presentation" modalPresentationStyle="formSheet" id="l1A-89-rFN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Igq-hl-J4f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-906.5" y="-165.5"/>
+            <point key="canvasLocation" x="-1817" y="-443"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zm7-a5-SQl">
+            <objects>
+                <navigationController id="zY7-4B-fES" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="E7m-qh-lXu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="d3m-AM-F8H" kind="relationship" relationship="rootViewController" id="DRw-4g-DwU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ycx-e4-ZTc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-977" y="-443"/>
+        </scene>
+        <!--Settings Controller-->
+        <scene sceneID="oi4-H8-smC">
+            <objects>
+                <viewController id="d3m-AM-F8H" customClass="SettingsController" customModule="SimpleCurrency" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ezz-GT-8aN"/>
+                        <viewControllerLayoutGuide type="bottom" id="tid-ny-pUk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vnt-c3-Gqm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3Ed-zz-ThA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jvf-A5-ftL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-230" y="-443"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RW4-bR-AF3">
@@ -75,4 +121,7 @@
             <point key="canvasLocation" x="-1626" y="-165"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="settings" width="25" height="25"/>
+    </resources>
 </document>
