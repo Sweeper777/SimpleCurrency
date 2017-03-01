@@ -45,7 +45,7 @@ class ExchangeRatesController: UITableViewController {
                 return
             }
             self?.json = json
-            Timer.after(0.1) {
+            _ = Timer.after(0.1) {
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
