@@ -13,12 +13,16 @@ class ExchangeRatesController: UITableViewController {
     
     override func viewDidLoad() {
         loadSettings()
+        requestData(completion: nil)
     }
     
     func loadSettings() {
         currencies = UserDefaults.standard.array(forKey: "currencies")!.map { $0 as! String }
         baseCurrency = UserDefaults.standard.string(forKey: "baseCurrency")
         baseAmount = UserDefaults.standard.integer(forKey: "baseAmount")
+    }
+    
+    func requestData(completion: (() -> Void)?) {
         let url = "https://api.fixer.io/latest?base=\(baseCurrency!)&symbols=\(currencies.joined(separator: ","))&amount=\(baseAmount!)"
         print(url)
         Alamofire.request(url).responseString {
