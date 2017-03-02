@@ -15,5 +15,11 @@ class SettingsController: FormViewController {
             row.value = Currencies(rawValue: UserDefaults.standard.string(forKey: "baseCurrency")!)!
         }
         
+        <<< IntRow(tagBaseAmount) {
+            row in
+            row.title = NSLocalizedString("Base Amount", comment: "")
+            row.value = UserDefaults.standard.integer(forKey: "baseAmount")
+        }
+        
     }
 }
