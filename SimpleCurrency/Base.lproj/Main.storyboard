@@ -58,6 +58,7 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Igq-hl-J4f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="qr7-la-VnC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1817" y="-443"/>
         </scene>
@@ -94,7 +95,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="3Ed-zz-ThA"/>
+                    <navigationItem key="navigationItem" id="3Ed-zz-ThA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="nuA-fd-jSg">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="done" destination="d3m-AM-F8H" id="3wG-lu-JRo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="qr7-la-VnC" kind="unwind" unwindAction="unwindFromSettings:" id="3QK-cZ-zFP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jvf-A5-ftL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
