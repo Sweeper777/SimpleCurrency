@@ -85,4 +85,9 @@ class ExchangeRatesController: UITableViewController {
         
         return cell
     }
+    
+    @IBAction func unwindFromSettings(_ segue: UIStoryboardSegue) {
+        loadSettings()
+        requestData(completion: nil)
+    }
 }

@@ -35,4 +35,8 @@ class SettingsController: FormViewController {
             }
         }
     }
+    
+    @IBAction func done() {
+        performSegue(withIdentifier: "unwindToExchangeRates", sender: self)
+    }
 }
