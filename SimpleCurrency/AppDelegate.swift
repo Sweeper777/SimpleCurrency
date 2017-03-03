@@ -8,6 +8,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        window?.tintColor = UIColor(hex: "3b7b3b")
+        UINavigationBar.appearance().barStyle = .black
         if lastUsedBuild == 0 {
             UserDefaults.standard.set("USD", forKey: "baseCurrency")
             UserDefaults.standard.set(1 as Int, forKey: "baseAmount")
