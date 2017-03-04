@@ -8,10 +8,9 @@ class SettingsController: FormViewController {
         
         title = NSLocalizedString("Settings", comment: "")
         
-        form +++ PickerInlineRow<Currencies>(tagBaseCurrency) {
+        form +++ CurrencySelectorRow(tag: tagBaseCurrency) {
             row in
             row.title = NSLocalizedString("Base Currency", comment: "")
-            row.options = Currencies.allValues
             row.value = Currencies(rawValue: UserDefaults.standard.string(forKey: "baseCurrency")!)!
         }
         
