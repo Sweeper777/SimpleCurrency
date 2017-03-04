@@ -104,7 +104,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="qr7-la-VnC" kind="unwind" unwindAction="unwindFromSettings:" id="3QK-cZ-zFP"/>
+                        <segue destination="qr7-la-VnC" kind="unwind" identifier="unwindToExchangeRates" unwindAction="unwindFromSettings:" id="3QK-cZ-zFP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jvf-A5-ftL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -131,16 +131,16 @@
             </objects>
             <point key="canvasLocation" x="-2522" y="-443"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Currency Selector Controller-->
         <scene sceneID="EBg-1n-z58">
             <objects>
-                <tableViewController id="aG0-vw-WVY" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CurrencySelectorController" id="aG0-vw-WVY" customClass="CurrencySelectorController" customModule="SimpleCurrency" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Rrx-ZC-lRt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="CeZ-Xh-3QS" detailTextLabel="dvO-VH-wrw" style="IBUITableViewCellStyleSubtitle" id="fsp-Di-fbi">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="CeZ-Xh-3QS" detailTextLabel="dvO-VH-wrw" style="IBUITableViewCellStyleSubtitle" id="fsp-Di-fbi">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fsp-Di-fbi" id="Dge-rC-yc7">
