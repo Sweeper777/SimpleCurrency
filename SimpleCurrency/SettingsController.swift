@@ -29,6 +29,11 @@ class SettingsController: FormViewController {
                 $0.value = (UserDefaults.standard.array(forKey: "currencies") as! [String]).contains(currency.currencyCode)
                 $0.cellStyle = .subtitle
                 $0.baseCell.imageView!.image = UIImage(named: currency.currencyCode)
+                $0.hidden = Condition.function([tagBaseCurrency]) {
+                    form in
+                    let baseCurrencyRow: CurrencySelectorRow = form.rowBy(tag: tagBaseCurrency)!
+                    return currency == baseCurrencyRow.value
+                }
             }.cellUpdate { cell, _ in
                     cell.detailTextLabel!.text = Currencies.fullNameDict[currency]!
             }
