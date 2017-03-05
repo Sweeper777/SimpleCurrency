@@ -41,6 +41,18 @@ class SettingsController: FormViewController {
     }
     
     @IBAction func done() {
+        let values = form.values(includeHidden: false)
+        if let baseCurrency = values[tagBaseCurrency] as? Currencies {
+            UserDefaults.standard.set(baseCurrency.currencyCode, forKey: "baseCurrency")
+        }
+        
+        if let baseAmount = values[tagBaseAmount] as? Int {
+            UserDefaults.standard.set(baseAmount, forKey: "baseAmount")
+        }
+        
+        let currencies = Currencies.allValues.filter { (values[$0.currencyCode] as? Bool) == true }.map { $0.currencyCode }
+        UserDefaults.standard.set(currencies, forKey: "currencies")
+        
         performSegue(withIdentifier: "unwindToExchangeRates", sender: self)
     }
 }
