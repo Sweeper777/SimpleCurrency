@@ -2,6 +2,8 @@ import Eureka
 import UIKit
 
 class SettingsController: FormViewController {
+    var settingsHasChanged = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,16 +44,31 @@ class SettingsController: FormViewController {
     
     @IBAction func done() {
         let values = form.values(includeHidden: false)
+        var baseCurrencyChanged = false
+        var baseAmountChanged = false
+        var currenciesChanged = false
         if let baseCurrency = values[tagBaseCurrency] as? Currencies {
-            UserDefaults.standard.set(baseCurrency.currencyCode, forKey: "baseCurrency")
+            if baseCurrency.currencyCode != UserDefaults.standard.string(forKey: "baseCurrency") {
+                baseCurrencyChanged = true
+                UserDefaults.standard.set(baseCurrency.currencyCode, forKey: "baseCurrency")
+            }
         }
         
         if let baseAmount = values[tagBaseAmount] as? Int {
-            UserDefaults.standard.set(baseAmount, forKey: "baseAmount")
+            if baseAmount != UserDefaults.standard.integer(forKey: "baseAmount") {
+                baseAmountChanged = true
+                UserDefaults.standard.set(baseAmount, forKey: "baseAmount")
+            }
         }
         
         let currencies = Currencies.allValues.filter { (values[$0.currencyCode] as? Bool) == true }.map { $0.currencyCode }
-        UserDefaults.standard.set(currencies, forKey: "currencies")
+        let oldArray = UserDefaults.standard.array(forKey: "currencies") as! [String]
+        if !(currencies.contains(array: oldArray) && currencies.count == oldArray.count) {
+            currenciesChanged = true
+            UserDefaults.standard.set(currencies, forKey: "currencies")
+        }
+        
+        settingsHasChanged = baseCurrencyChanged || baseAmountChanged || currenciesChanged
         
         performSegue(withIdentifier: "unwindToExchangeRates", sender: self)
     }

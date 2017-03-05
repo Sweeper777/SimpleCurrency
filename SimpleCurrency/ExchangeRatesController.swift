@@ -87,7 +87,11 @@ class ExchangeRatesController: UITableViewController {
     }
     
     @IBAction func unwindFromSettings(_ segue: UIStoryboardSegue) {
-        loadSettings()
-        requestData(completion: nil)
+        if let vc = segue.source as? SettingsController {
+            if vc.settingsHasChanged {
+                loadSettings()
+                requestData(completion: nil)
+            }
+        }
     }
 }
