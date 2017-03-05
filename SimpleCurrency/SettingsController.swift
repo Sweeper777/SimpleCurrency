@@ -2,11 +2,11 @@ import Eureka
 import UIKit
 
 class SettingsController: FormViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = NSLocalizedString("Settings", comment: "")
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         
         form +++ CurrencySelectorRow(tag: tagBaseCurrency) {
             row in
