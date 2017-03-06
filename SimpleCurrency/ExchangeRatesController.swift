@@ -12,6 +12,9 @@ class ExchangeRatesController: UITableViewController {
     var json: JSON!
     
     override func viewDidLoad() {
+        if let cache = UserDefaults.standard.data(forKey: "lastData") {
+            json = JSON(data: cache)
+        }
         loadSettings()
         requestData(completion: nil)
         
@@ -51,6 +54,7 @@ class ExchangeRatesController: UITableViewController {
                 return
             }
             self?.json = json
+            UserDefaults.standard.set(try? json.rawData(), forKey: "lastData")
             _ = Timer.after(0.1) {
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
