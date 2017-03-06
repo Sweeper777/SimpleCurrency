@@ -38,6 +38,19 @@ class SettingsController: FormViewController {
             }
         }
         
+        section <<< ButtonRow(tagDeselectAll) {
+            row in
+            row.title = NSLocalizedString("Deselect All", comment: "")
+            }.onCellSelection {
+                _ in
+                for currency in Currencies.allValues {
+                    if let row: CheckRow = self.form.rowBy(tag: currency.currencyCode) {
+                        row.value = false
+                        row.updateCell()
+                    }
+                }
+        }
+        
         for currency in Currencies.allValues {
             section <<< CheckRow(currency.currencyCode) {
                 $0.title = currency.currencyCode
