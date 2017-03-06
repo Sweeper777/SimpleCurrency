@@ -81,7 +81,7 @@ class SettingsController: FormViewController {
         }
         
         if let baseAmount = values[tagBaseAmount] as? Int {
-            if baseAmount != UserDefaults.standard.integer(forKey: "baseAmount") {
+            if baseAmount != UserDefaults.standard.integer(forKey: "baseAmount") && baseAmount != 0 {
                 baseAmountChanged = true
                 UserDefaults.standard.set(baseAmount, forKey: "baseAmount")
             }
