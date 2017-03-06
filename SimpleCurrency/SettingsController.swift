@@ -25,6 +25,19 @@ class SettingsController: FormViewController {
         let section = Section(NSLocalizedString("Currencies", comment: ""))
         form +++ section
         
+        section <<< ButtonRow(tagSelectAll) {
+            row in
+            row.title = NSLocalizedString("Select All", comment: "")
+        }.onCellSelection {
+            _ in
+            for currency in Currencies.allValues {
+                if let row: CheckRow = self.form.rowBy(tag: currency.currencyCode) {
+                    row.value = true
+                    row.updateCell()
+                }
+            }
+        }
+        
         for currency in Currencies.allValues {
             section <<< CheckRow(currency.currencyCode) {
                 $0.title = currency.currencyCode
