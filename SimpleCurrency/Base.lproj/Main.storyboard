@@ -13,7 +13,7 @@
         <scene sceneID="NXa-ty-rR1">
             <objects>
                 <tableViewController id="3dC-Bi-ycF" customClass="ExchangeRatesController" customModule="SimpleCurrency" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" id="f4h-re-ZsV">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" id="f4h-re-ZsV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -56,6 +56,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="sKK-Bz-aGN" kind="show" identifier="showConverter" id="FAA-ph-beY"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Igq-hl-J4f" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="qr7-la-VnC" userLabel="Exit" sceneMemberID="exit"/>
@@ -174,6 +177,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jyc-zi-2jM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2523" y="287"/>
+        </scene>
+        <!--Converter-->
+        <scene sceneID="wSk-3Q-T8b">
+            <objects>
+                <viewController id="sKK-Bz-aGN" customClass="CurrencyConverterController" customModule="SimpleCurrency" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="baU-xI-2A7"/>
+                        <viewControllerLayoutGuide type="bottom" id="Iev-tL-Y6S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="moH-bu-1Wg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Converter" id="k0L-0O-P8V"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jWW-td-6KJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1818" y="287"/>
         </scene>
     </scenes>
     <resources>
