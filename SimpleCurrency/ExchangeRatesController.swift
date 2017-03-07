@@ -8,6 +8,7 @@ class ExchangeRatesController: UITableViewController {
     var baseCurrency: String!
     var baseAmount: Double!
     var currencies: [String]!
+    var currencyToPass: Currencies!
     
     var json: JSON!
     
@@ -87,6 +88,22 @@ class ExchangeRatesController: UITableViewController {
         cell.textLabel!.text = "\(rate) \(currencies[indexPath.row])"
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let _ = json["rates"][currencies[indexPath.row]].double {
+            currencyToPass = Currencies(rawValue: currencies[indexPath.row])
+            performSegue(withIdentifier: "showConverter", sender: self)
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? CurrencyConverterController {
+            vc.currency1 = Currencies(rawValue: baseCurrency)
+            vc.currency2 = currencyToPass
+            vc.rate = json["rates"][currencyToPass.currencyCode].doubleValue / baseAmount
+        }
     }
     
     @IBAction func unwindFromSettings(_ segue: UIStoryboardSegue) {
