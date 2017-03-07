@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A18D5D41E6D9C8B0026AF76 /* CurrencyConverterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A18D5D31E6D9C8B0026AF76 /* CurrencyConverterController.swift */; };
 		5A191C7A1E5C335C00ECC13B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A191C791E5C335C00ECC13B /* AppDelegate.swift */; };
 		5A191C7C1E5C335C00ECC13B /* ExchangeRatesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A191C7B1E5C335C00ECC13B /* ExchangeRatesController.swift */; };
 		5A191C7F1E5C335C00ECC13B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A191C7D1E5C335C00ECC13B /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A18D5D31E6D9C8B0026AF76 /* CurrencyConverterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyConverterController.swift; sourceTree = "<group>"; };
 		5A191C761E5C335C00ECC13B /* SimpleCurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleCurrency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A191C791E5C335C00ECC13B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A191C7B1E5C335C00ECC13B /* ExchangeRatesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				5A191C7B1E5C335C00ECC13B /* ExchangeRatesController.swift */,
 				5A1AEC171E64B430005369BB /* SettingsController.swift */,
 				5A1D7B721E65F8C300BCD3B8 /* CurrencySelectorController.swift */,
+				5A18D5D31E6D9C8B0026AF76 /* CurrencyConverterController.swift */,
 				5A1D7B701E65F86800BCD3B8 /* CurrencySelectorRow.swift */,
 				5A191C8B1E5CAA1200ECC13B /* Currencies.swift */,
 				5A1D7B6E1E655C9400BCD3B8 /* FormTags.swift */,
@@ -228,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A1D7B711E65F86800BCD3B8 /* CurrencySelectorRow.swift in Sources */,
+				5A18D5D41E6D9C8B0026AF76 /* CurrencyConverterController.swift in Sources */,
 				5A1AEC181E64B430005369BB /* SettingsController.swift in Sources */,
 				5A191C8C1E5CAA1200ECC13B /* Currencies.swift in Sources */,
 				5A191C7C1E5C335C00ECC13B /* ExchangeRatesController.swift in Sources */,

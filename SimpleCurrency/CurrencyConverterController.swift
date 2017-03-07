@@ -22,5 +22,10 @@ class CurrencyConverterController: FormViewController {
             row.title = "1 \(currency1!) = \(rate!) \(currency2!)"
         }
         
+        <<< LabelRow(tagFromRate) {
+            row in
+            row.title = "1 \(currency2!) = \(reverseRate) \(currency1!)"
+        }
+        
     }
 }
