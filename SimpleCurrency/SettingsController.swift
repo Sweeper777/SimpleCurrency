@@ -66,6 +66,46 @@ class SettingsController: FormViewController {
                     cell.detailTextLabel!.text = Currencies.fullNameDict[currency]!
             }
         }
+        
+        var dependentRowTags = Currencies.allValues.map { $0.currencyCode }
+        dependentRowTags.append(tagBaseCurrency)
+        form.rowBy(tag: tagSelectAll)?.hidden = Condition.function(dependentRowTags) {
+            form in
+            let baseCurrency = (form.rowBy(tag: tagBaseCurrency) as! CurrencySelectorRow).value
+            for currency in Currencies.allValues where currency != baseCurrency {
+                guard let row: CheckRow = form.rowBy(tag: currency.currencyCode) else {
+                    return false
+                }
+                
+                if row.isHidden {
+                    continue
+                }
+                
+                if row.value == false {
+                    return false
+                }
+            }
+            return true
+        }
+        form.rowBy(tag: tagDeselectAll)?.hidden = Condition.function(dependentRowTags) {
+            form in
+            let baseCurrency = (form.rowBy(tag: tagBaseCurrency) as! CurrencySelectorRow).value
+            for currency in Currencies.allValues where currency != baseCurrency {
+                guard let row: CheckRow = form.rowBy(tag: currency.currencyCode) else {
+                    return false
+                }
+                
+                if row.isHidden {
+                    continue
+                }
+                
+                if row.value == false {
+                    return false
+                }
+            }
+            return true
+        }
+        form.allRows.forEach { $0.updateCell() }
     }
     
     @IBAction func done() {
