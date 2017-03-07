@@ -6,7 +6,7 @@ import SCLAlertView
 
 class ExchangeRatesController: UITableViewController {
     var baseCurrency: String!
-    var baseAmount: Int!
+    var baseAmount: Double!
     var currencies: [String]!
     
     var json: JSON!
@@ -28,7 +28,7 @@ class ExchangeRatesController: UITableViewController {
     func loadSettings() {
         currencies = UserDefaults.standard.array(forKey: "currencies")!.map { $0 as! String }
         baseCurrency = UserDefaults.standard.string(forKey: "baseCurrency")
-        baseAmount = UserDefaults.standard.integer(forKey: "baseAmount")
+        baseAmount = UserDefaults.standard.double(forKey: "baseAmount")
     }
     
     func requestData(completion: (() -> Void)?) {

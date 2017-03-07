@@ -16,10 +16,10 @@ class SettingsController: FormViewController {
             row.value = Currencies(rawValue: UserDefaults.standard.string(forKey: "baseCurrency")!)!
         }
         
-        <<< IntRow(tagBaseAmount) {
+        <<< DecimalRow(tagBaseAmount) {
             row in
             row.title = NSLocalizedString("Base Amount", comment: "")
-            row.value = UserDefaults.standard.integer(forKey: "baseAmount")
+            row.value = UserDefaults.standard.double(forKey: "baseAmount")
         }
         
         let section = Section(NSLocalizedString("Currencies", comment: ""))
@@ -80,8 +80,8 @@ class SettingsController: FormViewController {
             }
         }
         
-        if let baseAmount = values[tagBaseAmount] as? Int {
-            if baseAmount != UserDefaults.standard.integer(forKey: "baseAmount") && baseAmount != 0 {
+        if let baseAmount = values[tagBaseAmount] as? Double {
+            if baseAmount != UserDefaults.standard.double(forKey: "baseAmount") && baseAmount != 0 {
                 baseAmountChanged = true
                 UserDefaults.standard.set(baseAmount, forKey: "baseAmount")
             }
