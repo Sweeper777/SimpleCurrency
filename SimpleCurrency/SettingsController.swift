@@ -25,7 +25,7 @@ class SettingsController: FormViewController {
         let section = Section(NSLocalizedString("Currencies", comment: ""))
         form +++ section
         
-        section <<< ButtonRow(tagSelectAll) {
+        let selectButton = ButtonRow(tagSelectAll) {
             row in
             row.title = NSLocalizedString("Select All", comment: "")
         }.onCellSelection {
@@ -37,8 +37,9 @@ class SettingsController: FormViewController {
                 }
             }
         }
+        section <<< selectButton
         
-        section <<< ButtonRow(tagDeselectAll) {
+        let deselectButton = ButtonRow(tagDeselectAll) {
             row in
             row.title = NSLocalizedString("Deselect All", comment: "")
             }.onCellSelection {
@@ -50,6 +51,7 @@ class SettingsController: FormViewController {
                     }
                 }
         }
+        section <<< deselectButton
         
         for currency in Currencies.allValues {
             section <<< CheckRow(currency.currencyCode) {
@@ -69,7 +71,7 @@ class SettingsController: FormViewController {
         
         var dependentRowTags = Currencies.allValues.map { $0.currencyCode }
         dependentRowTags.append(tagBaseCurrency)
-        form.rowBy(tag: tagSelectAll)?.hidden = Condition.function(dependentRowTags) {
+        selectButton.hidden = Condition.function(dependentRowTags) {
             form in
             let baseCurrency = (form.rowBy(tag: tagBaseCurrency) as! CurrencySelectorRow).value
             for currency in Currencies.allValues where currency != baseCurrency {
@@ -87,7 +89,7 @@ class SettingsController: FormViewController {
             }
             return true
         }
-        form.rowBy(tag: tagDeselectAll)?.hidden = Condition.function(dependentRowTags) {
+        deselectButton.hidden = Condition.function(dependentRowTags) {
             form in
             let baseCurrency = (form.rowBy(tag: tagBaseCurrency) as! CurrencySelectorRow).value
             for currency in Currencies.allValues where currency != baseCurrency {
@@ -105,7 +107,8 @@ class SettingsController: FormViewController {
             }
             return true
         }
-        form.allRows.forEach { $0.updateCell() }
+        (form.allRows[10] as! CheckRow).value = !(form.allRows[10] as! CheckRow).value!
+        (form.allRows[10] as! CheckRow).value = !(form.allRows[10] as! CheckRow).value!
     }
     
     @IBAction func done() {
