@@ -25,12 +25,12 @@ class CurrencyConverterController: FormViewController {
         
         form +++ LabelRow(tagToRate) {
             row in
-            row.title = "1 \(currency1!) = \(rate!) \(currency2!)"
+            row.title = "1 \(currency1!) = \(formatter.string(from: rate as NSNumber)!) \(currency2!)"
         }
         
         <<< LabelRow(tagFromRate) {
             row in
-            row.title = "1 \(currency2!) = \(reverseRate) \(currency1!)"
+            row.title = "1 \(currency2!) = \(formatter.string(from: reverseRate as NSNumber)!) \(currency1!)"
         }
         
     }
