@@ -101,7 +101,7 @@ class SettingsController: FormViewController {
                     continue
                 }
                 
-                if row.value == false {
+                if row.value == true {
                     return false
                 }
             }
