@@ -3,6 +3,7 @@ import Eureka
 import Alamofire
 import SCLAlertView
 import SwiftyJSON
+import SwiftyUtils
 
 class CurrencyConverterController: FormViewController {
 
@@ -10,7 +11,7 @@ class CurrencyConverterController: FormViewController {
     var currency2: Currencies!
     var rate: Double!
     var reverseRate: Double {
-        return pow(rate!, -1)
+        return pow(rate, -1)
     }
     
     override func viewDidLoad() {
