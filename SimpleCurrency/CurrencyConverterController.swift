@@ -33,5 +33,10 @@ class CurrencyConverterController: FormViewController {
             row.title = "1 \(currency2!) = \(formatter.string(from: reverseRate as NSNumber)!) \(currency1!)"
         }
         
+        form +++ DecimalRow(tagCurrency1Convert) {
+            row in
+            row.title = "\(currency1.currencyCode):"
+            row.cell.textField.placeholder = "0.00"
+        }
     }
 }
