@@ -14,9 +14,14 @@ class CurrencyConverterController: FormViewController {
         return pow(rate, -1)
     }
     
+    var formatter = NumberFormatter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.white
+        formatter.maximumFractionDigits = 3
+        formatter.minimumFractionDigits = 3
+        formatter.numberStyle = .decimal
         
         form +++ LabelRow(tagToRate) {
             row in
