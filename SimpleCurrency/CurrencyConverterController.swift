@@ -38,11 +38,26 @@ class CurrencyConverterController: FormViewController {
             row.title = "\(currency1.currencyCode):"
             row.cell.textField.placeholder = "0.00"
         }
+        .onChange {
+            row in
+            if let value = row.value {
+                let resultRow: DecimalRow = self.form.rowBy(tag: tagCurrency2Convert)!
+                resultRow.cell.textField.text = self.formatter.string(from: (value * self.rate) as NSNumber)!
+            }
+        }
         
         <<< DecimalRow(tagCurrency2Convert) {
             row in
             row.title = "\(currency2.currencyCode):"
             row.cell.textField.placeholder = "0.00"
         }
+        .onChange {
+            row in
+            if let value = row.value {
+                let resultRow: DecimalRow = self.form.rowBy(tag: tagCurrency1Convert)!
+                resultRow.cell.textField.text = self.formatter.string(from: (value * self.reverseRate) as NSNumber)!
+            }
+        }
+        
     }
 }
