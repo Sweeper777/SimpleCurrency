@@ -38,5 +38,11 @@ class CurrencyConverterController: FormViewController {
             row.title = "\(currency1.currencyCode):"
             row.cell.textField.placeholder = "0.00"
         }
+        
+        <<< DecimalRow(tagCurrency2Convert) {
+            row in
+            row.title = "\(currency2.currencyCode):"
+            row.cell.textField.placeholder = "0.00"
+        }
     }
 }
