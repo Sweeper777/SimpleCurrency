@@ -68,5 +68,29 @@ class CurrencyConverterController: FormViewController {
         }
     }
 
+    func getRate(completion: (() -> Void)?) {
+        let url = "https://api.fixer.io/latest?base=\(currency1!)&symbols=\(currency2!)"
+        Alamofire.request(url).responseString {
+            [weak self]
+            response in
+            if let _ = response.error {
+                let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton:false))
+                alert.addButton(NSLocalizedString("OK", comment: ""), action: {})
+                alert.showError(NSLocalizedString("Error", comment: ""), subTitle: NSLocalizedString("Unable to get exchange rates.", comment: ""))
+                completion?()
+                return
+            }
+            
+            let json = JSON(parseJSON: response.value!)
+            if let _ = json["error"].string {
+                let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton:false))
+                alert.addButton(NSLocalizedString("OK", comment: ""), action: {})
+                alert.showError(NSLocalizedString("Error", comment: ""), subTitle: NSLocalizedString("Unable to get exchange rates.", comment: ""))
+                completion?()
+                return
+            }
+            
+        }
+    }
     }
 }
