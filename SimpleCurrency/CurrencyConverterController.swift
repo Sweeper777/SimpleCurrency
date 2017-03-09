@@ -59,5 +59,14 @@ class CurrencyConverterController: FormViewController {
             }
         }
         
+        tableView!.es_addPullToRefresh {
+            [weak self] in
+            self?.getRate {
+                self?.reloadRates()
+                self?.tableView?.es_stopPullToRefresh()
+            }
+        }
+    }
+
     }
 }
