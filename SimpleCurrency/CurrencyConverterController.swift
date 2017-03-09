@@ -90,6 +90,12 @@ class CurrencyConverterController: FormViewController {
                 return
             }
             
+            if self != nil {
+                if let rate = json["rates"][self!.currency2.currencyCode].double {
+                    self?.rate = rate
+                }
+            }
+            completion?()
         }
     }
     }
