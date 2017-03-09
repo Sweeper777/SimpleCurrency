@@ -98,5 +98,12 @@ class CurrencyConverterController: FormViewController {
             completion?()
         }
     }
+    
+    func reloadRates() {
+        var row: LabelRow = form.rowBy(tag: tagToRate)!
+        row.title = "1 \(currency1!) = \(rate!) \(currency2!)"
+        row = form.rowBy(tag: tagFromRate)!
+        row.title = "1 \(currency2!) = \(reverseRate) \(currency1!)"
+        
     }
 }
