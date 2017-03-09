@@ -105,5 +105,10 @@ class CurrencyConverterController: FormViewController {
         row = form.rowBy(tag: tagFromRate)!
         row.title = "1 \(currency2!) = \(reverseRate) \(currency1!)"
         
+        var resultRow: DecimalRow = form.rowBy(tag: tagCurrency1Convert)!
+        resultRow.value = 0
+        resultRow = form.rowBy(tag: tagCurrency2Convert)!
+        resultRow.value = 0
+        form.allRows.forEach { $0.updateCell() }
     }
 }
