@@ -33,31 +33,48 @@ class CurrencyConverterController: FormViewController {
             row.title = "1 \(currency2!) = \(formatter.string(from: reverseRate as NSNumber)!) \(currency1!)"
         }
         
-        form +++ DecimalRow(tagCurrency1Convert) {
+        form +++ CurrencyConverterRow(tagCurrency1Convert) {
             row in
             row.title = "\(currency1.currencyCode):"
             row.cell.textField.placeholder = "0.00"
             row.cell.imageView!.image = UIImage(named: currency1.currencyCode)
+            row.formatter = nil
         }
         .onChange {
             row in
             if let value = row.value {
-                let resultRow: DecimalRow = self.form.rowBy(tag: tagCurrency2Convert)!
+                let resultRow: CurrencyConverterRow = self.form.rowBy(tag: tagCurrency2Convert)!
                 resultRow.cell.textField.text = self.formatter.string(from: (value * self.rate) as NSNumber)!
             }
         }
+        .onEndEditing {
+            row in
+            if let value = row.value {
+                let resultRow: CurrencyConverterRow = self.form.rowBy(tag: tagCurrency2Convert)!
+                resultRow.value = value * self.rate
+            }
+        }
         
-        <<< DecimalRow(tagCurrency2Convert) {
+        <<< CurrencyConverterRow(tagCurrency2Convert) {
             row in
             row.title = "\(currency2.currencyCode):"
             row.cell.textField.placeholder = "0.00"
             row.cell.imageView!.image = UIImage(named: currency2.currencyCode)
+            row.formatter = nil
         }
         .onChange {
             row in
             if let value = row.value {
-                let resultRow: DecimalRow = self.form.rowBy(tag: tagCurrency1Convert)!
+                let resultRow: CurrencyConverterRow = self.form.rowBy(tag: tagCurrency1Convert)!
+                print("\(value) * \(self.reverseRate) = \(value * self.reverseRate)")
                 resultRow.cell.textField.text = self.formatter.string(from: (value * self.reverseRate) as NSNumber)!
+            }
+        }
+        .onEndEditing {
+            row in
+            if let value = row.value {
+                let resultRow: CurrencyConverterRow = self.form.rowBy(tag: tagCurrency1Convert)!
+                resultRow.value = value * self.reverseRate
             }
         }
         
@@ -107,7 +124,7 @@ class CurrencyConverterController: FormViewController {
         row = form.rowBy(tag: tagFromRate)!
         row.title = "1 \(currency2!) = \(reverseRate) \(currency1!)"
         
-        var resultRow: DecimalRow = form.rowBy(tag: tagCurrency1Convert)!
+        var resultRow: CurrencyConverterRow = form.rowBy(tag: tagCurrency1Convert)!
         resultRow.value = 0
         resultRow = form.rowBy(tag: tagCurrency2Convert)!
         resultRow.value = 0
