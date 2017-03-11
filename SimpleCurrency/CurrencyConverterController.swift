@@ -37,6 +37,7 @@ class CurrencyConverterController: FormViewController {
             row in
             row.title = "\(currency1.currencyCode):"
             row.cell.textField.placeholder = "0.00"
+            row.cell.imageView!.image = UIImage(named: currency1.currencyCode)
         }
         .onChange {
             row in
@@ -50,6 +51,7 @@ class CurrencyConverterController: FormViewController {
             row in
             row.title = "\(currency2.currencyCode):"
             row.cell.textField.placeholder = "0.00"
+            row.cell.imageView!.image = UIImage(named: currency2.currencyCode)
         }
         .onChange {
             row in
