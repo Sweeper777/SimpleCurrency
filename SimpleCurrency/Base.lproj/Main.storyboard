@@ -49,6 +49,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Exchange Rates" id="VcW-Iu-dPu">
+                        <barButtonItem key="backBarButtonItem" title=" " id="OF3-mL-bC7"/>
                         <barButtonItem key="rightBarButtonItem" image="settings" id="c9l-HS-qGe">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -191,7 +192,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Converter" id="k0L-0O-P8V"/>
+                    <navigationItem key="navigationItem" title="Converter" id="k0L-0O-P8V">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Ho0-qW-djF"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jWW-td-6KJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
