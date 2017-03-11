@@ -3,6 +3,7 @@ import Eureka
 
 final class CurrencyConverterCell: DecimalCell {
     override func textFieldDidEndEditing(_ textField: UITextField) {
+        super.textFieldDidEndEditing(textField)
         if let row = self.row as? CurrencyConverterRow {
             row.onEndEditingCallback?(row)
         }
