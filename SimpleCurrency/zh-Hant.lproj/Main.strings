@@ -9,13 +9,13 @@
 "OF3-mL-bC7.title" = " ";
 
 /* Class = "UINavigationItem"; title = "Exchange Rates"; ObjectID = "VcW-Iu-dPu"; */
-"VcW-Iu-dPu.title" = "Exchange Rates";
+"VcW-Iu-dPu.title" = "匯率";
 
 /* Class = "UILabel"; text = "Subtitle"; ObjectID = "dvO-VH-wrw"; */
 "dvO-VH-wrw.text" = "Subtitle";
 
 /* Class = "UINavigationItem"; title = "Converter"; ObjectID = "k0L-0O-P8V"; */
-"k0L-0O-P8V.title" = "Converter";
+"k0L-0O-P8V.title" = "換算";
 
 /* Class = "UILabel"; text = "Subtitle"; ObjectID = "oBH-mI-J1n"; */
 "oBH-mI-J1n.text" = "Subtitle";
