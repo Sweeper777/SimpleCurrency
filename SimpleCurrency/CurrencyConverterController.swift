@@ -35,7 +35,7 @@ class CurrencyConverterController: FormViewController {
         
         form +++ CurrencyConverterRow(tagCurrency1Convert) {
             row in
-            row.title = "\(currency1.currencyCode):"
+            row.title = "\(currency1.currencyCode) (\(Currencies.symbolDict[currency1]!)):"
             row.cell.textField.placeholder = "0.00"
             row.cell.imageView!.image = UIImage(named: currency1.currencyCode)
             row.formatter = nil
@@ -57,7 +57,7 @@ class CurrencyConverterController: FormViewController {
         
         <<< CurrencyConverterRow(tagCurrency2Convert) {
             row in
-            row.title = "\(currency2.currencyCode):"
+            row.title = "\(currency2.currencyCode) (\(Currencies.symbolDict[currency2]!)):"
             row.cell.textField.placeholder = "0.00"
             row.cell.imageView!.image = UIImage(named: currency2.currencyCode)
             row.formatter = nil

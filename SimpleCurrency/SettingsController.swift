@@ -55,7 +55,7 @@ class SettingsController: FormViewController {
         
         for currency in Currencies.allValues {
             section <<< CheckRow(currency.currencyCode) {
-                $0.title = currency.currencyCode
+                $0.title = "\(currency.currencyCode) (\(Currencies.symbolDict[currency]!))"
                 $0.value = (UserDefaults.standard.array(forKey: "currencies") as! [String]).contains(currency.currencyCode)
                 $0.cellStyle = .subtitle
                 $0.baseCell.imageView!.image = UIImage(named: currency.currencyCode)
