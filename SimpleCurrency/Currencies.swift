@@ -44,4 +44,40 @@ enum Currencies: String {
             .ZAR: "South African Rand",
         ]
     }
+    
+    static var symbolDict: [Currencies:String] {
+        return [
+            .AUD: "$",
+            .BGN: "лв",
+            .BRL: "R$",
+            .CAD: "$",
+            .CHF: "CHF",
+            .CNY: "¥",
+            .CZK: "Kč",
+            .DKK: "kr",
+            .EUR: "€",
+            .GBP: "£",
+            .HKD: "$",
+            .HRK: "kn",
+            .HUF: "Ft",
+            .IDR: "Rp",
+            .ILS: "₪",
+            .INR: "₹",
+            .JPY: "¥",
+            .KRW: "₩",
+            .MXN: "$",
+            .MYR: "RM",
+            .NOK: "kr",
+            .PHP: "₱",
+            .PLN: "zł",
+            .RON: "lei",
+            .RUB: "₽",
+            .SEK: "kr",
+            .SGD: "$",
+            .THB: "฿",
+            .TRY: "₺",
+            .USD: "$",
+            .ZAR: "R",
+        ]
+    }
 }
