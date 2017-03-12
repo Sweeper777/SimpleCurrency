@@ -37,6 +37,12 @@
 		5A1D7B6E1E655C9400BCD3B8 /* FormTags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTags.swift; sourceTree = "<group>"; };
 		5A1D7B701E65F86800BCD3B8 /* CurrencySelectorRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencySelectorRow.swift; sourceTree = "<group>"; };
 		5A1D7B721E65F8C300BCD3B8 /* CurrencySelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencySelectorController.swift; sourceTree = "<group>"; };
+		5A234E3C1E754D850008A5FF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		5A234E3D1E754D850008A5FF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		5A234E3E1E754D8C0008A5FF /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		5A234E3F1E754D8C0008A5FF /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		5A234E401E754D920008A5FF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		5A234E411E754D920008A5FF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A613F2D304F175C8ED5269B1 /* Pods_SimpleCurrency.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleCurrency.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C360ED55DDA9F8CC99FA2E65 /* Pods-SimpleCurrency.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCurrency.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCurrency/Pods-SimpleCurrency.debug.xcconfig"; sourceTree = "<group>"; };
 		D295204E4A13776956D5917C /* Pods-SimpleCurrency.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCurrency.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCurrency/Pods-SimpleCurrency.release.xcconfig"; sourceTree = "<group>"; };
@@ -252,6 +258,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				5A191C7E1E5C335C00ECC13B /* Base */,
+				5A234E3C1E754D850008A5FF /* zh-Hans */,
+				5A234E3E1E754D8C0008A5FF /* zh-Hant */,
+				5A234E401E754D920008A5FF /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -260,6 +269,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				5A191C831E5C335C00ECC13B /* Base */,
+				5A234E3D1E754D850008A5FF /* zh-Hans */,
+				5A234E3F1E754D8C0008A5FF /* zh-Hant */,
+				5A234E411E754D920008A5FF /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -271,6 +283,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -321,6 +334,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
