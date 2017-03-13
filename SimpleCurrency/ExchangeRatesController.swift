@@ -85,7 +85,7 @@ class ExchangeRatesController: UITableViewController {
         guard let json = self.json else { return cell }
         guard let rate = json["rates"][currencies[indexPath.row]].double else { return cell }
         
-        cell.textLabel!.text = "\(rate) \(currencies[indexPath.row]) (\(Currencies.symbolDict[Currencies(rawValue: currencies[indexPath.row])!]!))"
+        cell.textLabel!.text = "\(rate) \(currencies[indexPath.row]) (\(Currencies(rawValue: currencies[indexPath.row])!.symbol))"
         
         return cell
     }

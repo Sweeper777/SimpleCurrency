@@ -22,7 +22,7 @@ class CurrencySelectorController: UITableViewController, TypedRowControllerType 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel!.text = "\(Currencies.allValues[indexPath.row].currencyCode) (\(Currencies.symbolDict[Currencies.allValues[indexPath.row]]!))"
+        cell.textLabel!.text = "\(Currencies.allValues[indexPath.row].currencyCode) (\(Currencies.allValues[indexPath.row].symbol))"
         cell.imageView!.image = UIImage(named: Currencies.allValues[indexPath.row].currencyCode)
         cell.detailTextLabel!.text = Currencies.allValues[indexPath.row].fullName
         return cell
