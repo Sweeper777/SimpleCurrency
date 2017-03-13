@@ -1,14 +1,14 @@
-"Error" = "Error";
+"Error" = "エラー";
 "OK" = "OK";
-"Unable to get exchange rates." = "Unable to get exchange rates.";
+"Unable to get exchange rates." = "為替レートを取得できません";
 
-"Settings" = "Settings";
-"Base Currency" = "Base Currency";
-"Base Amount" = "Base Amount";
-"Select All" = "Select All";
-"Deselect All" = "Deselect All";
+"Settings" = "設定";
+"Base Currency" = "基本通貨";
+"Base Amount" = "金額";
+"Select All" = "すべて選択";
+"Deselect All" = "すべての選択を解除";
 
-"Select a currency" = "Select a currency";
+"Select a currency" = "通貨を選択してくだいさい";
 
 "Australian Dollar" = "Australian Dollar";
 "Bulgarian Lev" = "Bulgarian Lev";
