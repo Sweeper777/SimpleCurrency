@@ -1,14 +1,14 @@
-"Error" = "Error";
-"OK" = "OK";
-"Unable to get exchange rates." = "Unable to get exchange rates.";
+"Error" = "错误";
+"OK" = "确定";
+"Unable to get exchange rates." = "无法获取汇率";
 
-"Settings" = "Settings";
-"Base Currency" = "Base Currency";
-"Base Amount" = "Base Amount";
-"Select All" = "Select All";
-"Deselect All" = "Deselect All";
+"Settings" = "设置";
+"Base Currency" = "基楚货币";
+"Base Amount" = "币值";
+"Select All" = "全部选择";
+"Deselect All" = "全部取消选择";
 
-"Select a currency" = "Select a currency";
+"Select a currency" = "选择一个货币";
 
 "Australian Dollar" = "Australian Dollar";
 "Bulgarian Lev" = "Bulgarian Lev";
