@@ -24,7 +24,7 @@ class CurrencySelectorController: UITableViewController, TypedRowControllerType 
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel!.text = "\(Currencies.allValues[indexPath.row].currencyCode) (\(Currencies.symbolDict[Currencies.allValues[indexPath.row]]!))"
         cell.imageView!.image = UIImage(named: Currencies.allValues[indexPath.row].currencyCode)
-        cell.detailTextLabel!.text = Currencies.fullNameDict[Currencies.allValues[indexPath.row]]!
+        cell.detailTextLabel!.text = Currencies.allValues[indexPath.row].fullName
         return cell
     }
     

@@ -80,7 +80,7 @@ class ExchangeRatesController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
         cell.imageView!.image = UIImage(named: currencies[indexPath.row])
         cell.textLabel!.text = NSLocalizedString("No Data", comment: "")
-        cell.detailTextLabel!.text = Currencies.fullNameDict[Currencies(rawValue: currencies[indexPath.row])!]!
+        cell.detailTextLabel!.text = Currencies(rawValue: currencies[indexPath.row])!.fullName
         
         guard let json = self.json else { return cell }
         guard let rate = json["rates"][currencies[indexPath.row]].double else { return cell }

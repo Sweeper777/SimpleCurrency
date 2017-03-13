@@ -65,7 +65,7 @@ class SettingsController: FormViewController {
                     return currency == baseCurrencyRow.value
                 }
             }.cellUpdate { cell, _ in
-                    cell.detailTextLabel!.text = Currencies.fullNameDict[currency]!
+                    cell.detailTextLabel!.text = currency.fullName
             }
         }
         
