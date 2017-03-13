@@ -11,6 +11,10 @@ enum Currencies: String {
         return NSLocalizedString(Currencies.fullNameDict[self]!, comment: "")
     }
     
+    var symbol: String {
+        return Currencies.symbolDict[self]!
+    }
+    
     static var allValues: [Currencies] {
         return [.AUD, .BGN, .BRL, .CAD, .CHF, .CNY, .CZK, .DKK, .EUR, .GBP, .HKD, .HRK, .HUF, .IDR, .ILS, .INR, .JPY, .KRW, .MXN, .MYR, .NOK, .PHP, .PLN, .RON, .RUB, .SEK, .SGD, .THB, .TRY, .USD, .ZAR]
     }
@@ -51,7 +55,7 @@ enum Currencies: String {
         ]
     }
     
-    static var symbolDict: [Currencies:String] {
+    private static var symbolDict: [Currencies:String] {
         return [
             .AUD: "$",
             .BGN: "лв",
