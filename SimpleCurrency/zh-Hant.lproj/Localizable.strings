@@ -3,7 +3,7 @@
 "Unable to get exchange rates." = "無法獲取匯率";
 
 "Settings" = "設置";
-"Base Currency" = "基楚貨幣";
+"Base Currency" = "基礎貨幣";
 "Base Amount" = "幣值";
 "Select All" = "全部選擇";
 "Deselect All" = "全部取消選擇";
