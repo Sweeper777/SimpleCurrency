@@ -7,6 +7,7 @@ import SwiftyUtils
 
 class CurrencyConverterController: FormViewController {
 
+    var shouldBeEmpty = true
     var currency1: Currencies!
     var currency2: Currencies!
     var rate: Double!
@@ -22,7 +23,13 @@ class CurrencyConverterController: FormViewController {
         formatter.maximumFractionDigits = 3
         formatter.minimumFractionDigits = 3
         formatter.numberStyle = .decimal
-        
+        if shouldBeEmpty {
+            form +++ LabelRow(tagNothing) {
+                row in
+                row.title = NSLocalizedString("Please select a currency!", comment: "")
+            }
+            return
+        }
         form +++ LabelRow(tagToRate) {
             row in
             row.title = "1 \(currency1!) = \(formatter.string(from: rate as NSNumber)!) \(currency2!)"
