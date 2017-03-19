@@ -135,10 +135,10 @@
             </objects>
             <point key="canvasLocation" x="-2522" y="-443"/>
         </scene>
-        <!--Split View Controller-->
+        <!--My Split View Controller-->
         <scene sceneID="T7f-kw-p9e">
             <objects>
-                <splitViewController id="vJg-89-X7x" sceneMemberID="viewController">
+                <splitViewController id="vJg-89-X7x" customClass="MySplitViewController" customModule="SimpleCurrency" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="5kb-0H-Sgb" kind="relationship" relationship="masterViewController" id="aA9-HH-Fhl"/>
                         <segue destination="RUn-lx-cMQ" kind="relationship" relationship="detailViewController" id="64O-Zx-dHl"/>
@@ -196,7 +196,7 @@
         <scene sceneID="9bQ-aW-qfr">
             <objects>
                 <navigationController id="RUn-lx-cMQ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mOj-i3-Umj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mOj-i3-Umj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -238,6 +238,6 @@
         <image name="settings" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7Pi-Su-Yd6"/>
+        <segue reference="64O-Zx-dHl"/>
     </inferredMetricsTieBreakers>
 </document>

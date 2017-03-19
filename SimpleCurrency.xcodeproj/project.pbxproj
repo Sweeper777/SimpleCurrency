@@ -20,6 +20,7 @@
 		5A1D7B6F1E655C9400BCD3B8 /* FormTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D7B6E1E655C9400BCD3B8 /* FormTags.swift */; };
 		5A1D7B711E65F86800BCD3B8 /* CurrencySelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D7B701E65F86800BCD3B8 /* CurrencySelectorRow.swift */; };
 		5A1D7B731E65F8C300BCD3B8 /* CurrencySelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D7B721E65F8C300BCD3B8 /* CurrencySelectorController.swift */; };
+		5A208A321E7E77F100B1E68D /* MySplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A208A311E7E77F100B1E68D /* MySplitViewController.swift */; };
 		5A234E441E75518C0008A5FF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A234E461E75518C0008A5FF /* Localizable.strings */; };
 		6E12533261AB6C59FB753362 /* Pods_SimpleCurrency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A613F2D304F175C8ED5269B1 /* Pods_SimpleCurrency.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,7 @@
 		5A1D7B6E1E655C9400BCD3B8 /* FormTags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTags.swift; sourceTree = "<group>"; };
 		5A1D7B701E65F86800BCD3B8 /* CurrencySelectorRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencySelectorRow.swift; sourceTree = "<group>"; };
 		5A1D7B721E65F8C300BCD3B8 /* CurrencySelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencySelectorController.swift; sourceTree = "<group>"; };
+		5A208A311E7E77F100B1E68D /* MySplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySplitViewController.swift; sourceTree = "<group>"; };
 		5A234E3C1E754D850008A5FF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		5A234E3D1E754D850008A5FF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5A234E3E1E754D8C0008A5FF /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				5A1AEC171E64B430005369BB /* SettingsController.swift */,
 				5A1D7B721E65F8C300BCD3B8 /* CurrencySelectorController.swift */,
 				5A18D5D31E6D9C8B0026AF76 /* CurrencyConverterController.swift */,
+				5A208A311E7E77F100B1E68D /* MySplitViewController.swift */,
 				5A1D7B701E65F86800BCD3B8 /* CurrencySelectorRow.swift */,
 				5A1A86011E73EB4900565278 /* CurrencyConverterRow.swift */,
 				5A191C8B1E5CAA1200ECC13B /* Currencies.swift */,
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A1D7B711E65F86800BCD3B8 /* CurrencySelectorRow.swift in Sources */,
+				5A208A321E7E77F100B1E68D /* MySplitViewController.swift in Sources */,
 				5A18D5D41E6D9C8B0026AF76 /* CurrencyConverterController.swift in Sources */,
 				5A1AEC181E64B430005369BB /* SettingsController.swift in Sources */,
 				5A191C8C1E5CAA1200ECC13B /* Currencies.swift in Sources */,
