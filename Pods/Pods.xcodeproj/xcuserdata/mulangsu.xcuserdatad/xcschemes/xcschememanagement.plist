@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-SimpleCurrency.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,6 +52,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>024F31C405EB4D78601D8CF6272F093D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>290E56E5F0B028FCA2D992BC71F267D6</key>
 		<dict>
 			<key>primary</key>
@@ -57,17 +67,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3FCAABD6BC84AB616C41EAA368355695</key>
+		<key>5AF9C4FD10EF3393110193DE75C736D8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>59D3F51F3ABB4CE3B0E4CA351B771C91</key>
+		<key>61F85467DBA9CB9BD1997E6AE7A9936E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>68F6C424A3C264E06B7A1DD6D3B419CC</key>
+		<key>70DCA6D4663046A983558CBEAA39EDE0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,7 +92,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>887EB6EEEA8F41EEDA3FD5E23F1E6F72</key>
+		<key>92BB131FA876445E027D20AE23EA7B5F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
