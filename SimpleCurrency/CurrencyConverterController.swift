@@ -85,6 +85,15 @@ class CurrencyConverterController: FormViewController {
             }
         }
         
+        form +++ ButtonRow(tagHistoriicalRates) {
+            row in
+            row.title = NSLocalizedString("Historical Rates", comment: "")
+        }
+        .onCellSelection {
+            _ in
+            performSegue(withIdentifier: "showHistorical", sender: self)
+        }
+        
         tableView!.es_addPullToRefresh {
             [weak self] in
             self?.getRate {
