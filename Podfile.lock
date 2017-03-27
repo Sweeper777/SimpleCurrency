@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.3.0)
+  - Alamofire (4.4.0)
   - ESPullToRefresh (2.6)
   - Eureka (2.0.1)
   - Firebase/Core (3.15.0):
@@ -16,6 +16,7 @@ PODS:
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - SCLAlertView (0.7.0)
+  - SwiftChart (0.4.0)
   - SwiftyJSON (3.1.4)
   - SwiftyUtils (0.7.0)
 
@@ -25,11 +26,12 @@ DEPENDENCIES:
   - Eureka (~> 2.0.0-beta.1)
   - Firebase/Core
   - SCLAlertView
+  - SwiftChart
   - SwiftyJSON
   - SwiftyUtils
 
 SPEC CHECKSUMS:
-  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   ESPullToRefresh: 85f4990acf87f78c6a1466bbbee7a75d7de24db9
   Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
   Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
@@ -38,9 +40,10 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
+  SwiftChart: 3e7482795bdb095234bc35835cc6666c8d5ebca1
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyUtils: 87094996d977846e5a9f2cbe653ff28dc15ba187
 
-PODFILE CHECKSUM: 998731453d3a36329571f9146cb62453cec678de
+PODFILE CHECKSUM: ce6503a3cbb7088f245b2094f7b9a4529eeda1db
 
 COCOAPODS: 1.1.0.beta.1
