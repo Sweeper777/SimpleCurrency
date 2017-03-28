@@ -10,4 +10,9 @@ class HistoricalRatesController: UITableViewController {
         
         getRate(completion: nil)
     }
+    
+    @IBAction func done() {
+        dismiss(animated: true, completion: nil)
+    }
+
 }
