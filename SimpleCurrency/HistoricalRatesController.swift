@@ -5,6 +5,10 @@ import SwiftyJSON
 import SCLAlertView
 
 class HistoricalRatesController: UITableViewController {
+    
+    @IBOutlet var sevenDayChart: Chart!
+    @IBOutlet var thirtyDayChart: Chart!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
