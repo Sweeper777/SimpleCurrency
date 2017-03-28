@@ -18,6 +18,11 @@ class HistoricalRatesController: UITableViewController {
         
         return dates
     }()
+    
+    var last7Days: [Date] {
+        return Array(last30Days.dropFirst(23))
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
