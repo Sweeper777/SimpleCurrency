@@ -9,6 +9,15 @@ class HistoricalRatesController: UITableViewController {
     @IBOutlet var sevenDayChart: Chart!
     @IBOutlet var thirtyDayChart: Chart!
     
+    let last30Days: [Date] = {
+        var dates = [Date]()
+        for i in 0...29 {
+            let day = Date().date.addingTimeInterval(Double(-60 * 60 * 24 * (29 - i)))
+            dates.append(day)
+        }
+        
+        return dates
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         
