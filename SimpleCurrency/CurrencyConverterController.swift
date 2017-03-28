@@ -91,7 +91,7 @@ class CurrencyConverterController: FormViewController {
         }
         .onCellSelection {
             _ in
-            performSegue(withIdentifier: "showHistorical", sender: self)
+            self.performSegue(withIdentifier: "showHistorical", sender: self)
         }
         
         tableView!.es_addPullToRefresh {
