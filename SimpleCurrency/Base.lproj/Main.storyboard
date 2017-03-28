@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -195,7 +196,7 @@
         <!--Historical Rates-->
         <scene sceneID="Hy2-8v-0rf">
             <objects>
-                <tableViewController id="pQE-2U-04w" sceneMemberID="viewController">
+                <tableViewController id="pQE-2U-04w" customClass="HistoricalRatesController" customModule="SimpleCurrency" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="6il-nC-qwP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -204,11 +205,23 @@
                             <tableViewSection headerTitle="Past 7 days" id="FDb-jb-NZT">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="375" id="UMQ-zV-Z9h">
-                                        <rect key="frame" x="0.0" y="56" width="375" height="375"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="375"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UMQ-zV-Z9h" id="gSm-UY-Fo2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IdA-vR-DL5" customClass="Chart" customModule="SwiftChart">
+                                                    <rect key="frame" x="8" y="8" width="359" height="359"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="IdA-vR-DL5" firstAttribute="trailing" secondItem="gSm-UY-Fo2" secondAttribute="trailingMargin" id="2Zo-xa-jQf"/>
+                                                <constraint firstItem="IdA-vR-DL5" firstAttribute="leading" secondItem="gSm-UY-Fo2" secondAttribute="leadingMargin" id="HUT-tV-toE"/>
+                                                <constraint firstItem="IdA-vR-DL5" firstAttribute="top" secondItem="gSm-UY-Fo2" secondAttribute="topMargin" id="Lvm-Af-2B4"/>
+                                                <constraint firstItem="IdA-vR-DL5" firstAttribute="centerY" secondItem="gSm-UY-Fo2" secondAttribute="centerY" id="ZAR-a1-3gG"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -216,11 +229,23 @@
                             <tableViewSection headerTitle="Past 30 days" id="TVt-9F-TTb">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="375" id="yhb-hr-K6b">
-                                        <rect key="frame" x="0.0" y="488" width="375" height="375"/>
+                                        <rect key="frame" x="0.0" y="486.5" width="375" height="375"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yhb-hr-K6b" id="OfM-Dk-L6m">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bYI-Pa-ca4" customClass="Chart" customModule="SwiftChart">
+                                                    <rect key="frame" x="8" y="8" width="359" height="359"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="bYI-Pa-ca4" firstAttribute="top" secondItem="OfM-Dk-L6m" secondAttribute="topMargin" id="1iS-QP-Kj8"/>
+                                                <constraint firstItem="bYI-Pa-ca4" firstAttribute="leading" secondItem="OfM-Dk-L6m" secondAttribute="leadingMargin" id="BCB-EV-8TA"/>
+                                                <constraint firstItem="bYI-Pa-ca4" firstAttribute="centerY" secondItem="OfM-Dk-L6m" secondAttribute="centerY" id="KnA-eD-djZ"/>
+                                                <constraint firstItem="bYI-Pa-ca4" firstAttribute="trailing" secondItem="OfM-Dk-L6m" secondAttribute="trailingMargin" id="plb-dH-BFD"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -231,7 +256,18 @@
                             <outlet property="delegate" destination="pQE-2U-04w" id="Xgg-8J-1aZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Historical Rates" id="XI3-jE-eCu"/>
+                    <navigationItem key="navigationItem" title="Historical Rates" id="XI3-jE-eCu">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="C1a-Z3-7ZD">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="done" destination="pQE-2U-04w" id="mmA-zl-Cw3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="sevenDayChart" destination="IdA-vR-DL5" id="XLR-aC-eAA"/>
+                        <outlet property="thirtyDayChart" destination="bYI-Pa-ca4" id="uPF-k9-qDb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pef-bt-yNX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -241,7 +277,7 @@
         <scene sceneID="Wb4-cu-Jsj">
             <objects>
                 <navigationController id="jqe-09-9vE" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ck6-kC-rGG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ck6-kC-rGG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
