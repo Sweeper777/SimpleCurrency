@@ -78,4 +78,12 @@ class HistoricalRatesController: UITableViewController {
             completion?()
         }
     }
+    
+    func refreshCharts() {
+        let thirtyDaysData = ChartSeries(rates.map{$0}.sorted{$0.0 < $1.0}.map{Float($0.value)})
+        thirtyDaysData.area = true
+        thirtyDayChart.add(thirtyDaysData)
+        thirtyDayChart.setNeedsDisplay()
+        
+    }
 }
