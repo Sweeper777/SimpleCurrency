@@ -85,5 +85,9 @@ class HistoricalRatesController: UITableViewController {
         thirtyDayChart.add(thirtyDaysData)
         thirtyDayChart.setNeedsDisplay()
         
+        let sevenDaysData = ChartSeries(last7DaysRates.map{$0}.sorted{$0.0 < $1.0}.map{Float($0.value)})
+        sevenDaysData.area = true
+        sevenDayChart.add(sevenDaysData)
+        sevenDayChart.setNeedsDisplay()
     }
 }
