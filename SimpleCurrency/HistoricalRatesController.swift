@@ -5,6 +5,7 @@ import SwiftyJSON
 import SCLAlertView
 
 class HistoricalRatesController: UITableViewController {
+    var currency: Currencies!
     
     @IBOutlet var sevenDayChart: Chart!
     @IBOutlet var thirtyDayChart: Chart!

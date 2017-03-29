@@ -146,4 +146,10 @@ class CurrencyConverterController: FormViewController {
         resultRow.value = 0
         form.allRows.forEach { $0.updateCell() }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = (segue.destination as? UINavigationController)?.topViewController as? HistoricalRatesController {
+            vc.currency = currency2
+        }
+    }
 }
