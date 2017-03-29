@@ -6,6 +6,14 @@ import SCLAlertView
 
 class HistoricalRatesController: UITableViewController {
     var currency: Currencies!
+    var rates: [Date: Double] = [:]
+        {
+        didSet {
+            if rates.count == 30 {
+                refreshCharts()
+            }
+        }
+    }
     
     @IBOutlet var sevenDayChart: Chart!
     @IBOutlet var thirtyDayChart: Chart!

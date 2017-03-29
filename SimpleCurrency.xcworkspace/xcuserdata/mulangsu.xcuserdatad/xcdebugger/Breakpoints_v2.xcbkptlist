@@ -35,5 +35,68 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SimpleCurrency/HistoricalRatesController.swift"
+            timestampString = "512326358.730571"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "refreshCharts()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SimpleCurrency.HistoricalRatesController.(refreshCharts () -&gt; ()).(closure #1)"
+                  moduleName = "SimpleCurrency"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mulangsu/Documents/SimpleCurrency/SimpleCurrency/HistoricalRatesController.swift"
+                  timestampString = "512326600.182026"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "14">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SimpleCurrency.HistoricalRatesController.(refreshCharts () -&gt; ()).(closure #2)"
+                  moduleName = "SimpleCurrency"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mulangsu/Documents/SimpleCurrency/SimpleCurrency/HistoricalRatesController.swift"
+                  timestampString = "512326600.184529"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SimpleCurrency.HistoricalRatesController.(refreshCharts () -&gt; ()).(closure #3)"
+                  moduleName = "SimpleCurrency"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mulangsu/Documents/SimpleCurrency/SimpleCurrency/HistoricalRatesController.swift"
+                  timestampString = "512326600.187219"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "14">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
