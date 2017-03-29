@@ -24,6 +24,14 @@ class HistoricalRatesController: UITableViewController {
         return Array(last30Days.dropFirst(23))
     }
     
+    var last7DaysRates: [Date: Double] {
+        var rates = [Date: Double]()
+        for date in last7Days {
+            rates[date] = self.rates[date]
+        }
+        return rates
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
