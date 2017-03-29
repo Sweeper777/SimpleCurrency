@@ -34,4 +34,40 @@ class HistoricalRatesController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
 
+    func getRate(completion: (() -> Void)?) {
+        let baseCurrency = UserDefaults.standard.string(forKey: "baseCurrency")
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        for date in last30Days {
+            let dateString = formatter.string(from: date)
+            let url = "https://api.fixer.io/\(dateString)?base=\(baseCurrency!)&symbols=\(currency!)"
+            Alamofire.request(url).responseString {
+                [weak self]
+                response in
+                if let _ = response.error {
+                    let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton:false))
+                    alert.addButton(NSLocalizedString("OK", comment: ""), action: {})
+                    alert.showError(NSLocalizedString("Error", comment: ""), subTitle: NSLocalizedString("Unable to get exchange rates.", comment: ""))
+                    completion?()
+                    return
+                }
+                
+                let json = JSON(parseJSON: response.value!)
+                if let _ = json["error"].string {
+                    let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton:false))
+                    alert.addButton(NSLocalizedString("OK", comment: ""), action: {})
+                    alert.showError(NSLocalizedString("Error", comment: ""), subTitle: NSLocalizedString("Unable to get exchange rates.", comment: ""))
+                    completion?()
+                    return
+                }
+                
+                if self != nil {
+                    if let rate = json["rates"][self!.currency.currencyCode].double {
+                        self!.rates[date] = rate
+                    }
+                }
+            }
+            completion?()
+        }
+    }
 }
