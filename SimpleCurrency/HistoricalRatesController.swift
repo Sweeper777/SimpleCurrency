@@ -88,14 +88,14 @@ class HistoricalRatesController: UITableViewController {
     }
     
     func refreshCharts() {
-        let thirtyDaysData = ChartSeries(rates.map{$0}.sorted{$0.0 < $1.0}.map{Float($0.value)})
-        thirtyDaysData.area = true
-        thirtyDayChart.add(thirtyDaysData)
-        thirtyDayChart.setNeedsDisplay()
+        func refresh(chart: Chart, with dataArray: [Float]) {
+            let data = ChartSeries(dataArray)
+            data.area = true
+            chart.add(data)
+            chart.setNeedsDisplay()
+        }
         
-        let sevenDaysData = ChartSeries(last7DaysRates.map{$0}.sorted{$0.0 < $1.0}.map{Float($0.value)})
-        sevenDaysData.area = true
-        sevenDayChart.add(sevenDaysData)
-        sevenDayChart.setNeedsDisplay()
+        refresh(chart: thirtyDayChart, with: rates.map{$0}.sorted{$0.0 < $1.0}.map{Float($0.value)})
+        refresh(chart: sevenDayChart, with: last7DaysRates.map{$0}.sorted{$0.0 < $1.0}.map{Float($0.value)})
     }
 }
