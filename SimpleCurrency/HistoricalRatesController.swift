@@ -92,6 +92,15 @@ class HistoricalRatesController: UITableViewController {
             let data = ChartSeries(dataArray)
             data.area = false
             chart.add(data)
+            let min = dataArray.min()!
+            let max = dataArray.max()!
+            let range = max - min
+            let order = ceil(log(Double(range)) / M_LN10)
+            let delta = Float(pow(10.0, order) * 0.1)
+            chart.minY = min - delta  < 0 ? 0 : min - delta
+            chart.maxY = max + delta
+            chart.yLabels = Array(stride(from: chart.minY!, through: chart.maxY!, by: (chart.maxY! - chart.minY!) / 10))
+            chart.yLabelsFormatter = { _, float in return float.description }
             chart.setNeedsDisplay()
         }
         
