@@ -104,7 +104,7 @@ class HistoricalRatesController: UITableViewController {
             if dataArray.count == 7 {
                 chart.xLabels = Array(stride(from: 0.0, to: Float(dataArray.count), by: 1))
             } else {
-                chart.xLabels = Array(stride(from: 0.0, to: Float(dataArray.count), by: 3))
+                chart.xLabels = Array(stride(from: 0.0, to: Float(dataArray.count), by: 5))
             }
             chart.xLabelsFormatter = { index, _ in
                 let formatter = DateFormatter()
@@ -113,12 +113,10 @@ class HistoricalRatesController: UITableViewController {
                 if dataArray.count == 7 {
                     return formatter.string(from: self.last7Days[index])
                 } else {
-                    if index % 3 != 0 {
-                        return ""
-                    }
-                    return formatter.string(from: self.last30Days[index])
+                    return formatter.string(from: self.last30Days[index * 5])
                 }
             }
+            chart.labelFont = UIFont.systemFont(ofSize: 10)
             chart.setNeedsDisplay()
         }
         
