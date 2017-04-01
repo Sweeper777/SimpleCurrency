@@ -90,7 +90,7 @@ class HistoricalRatesController: UITableViewController {
     func refreshCharts() {
         func refresh(chart: Chart, with dataArray: [Float]) {
             let data = ChartSeries(dataArray)
-            data.area = true
+            data.area = false
             chart.add(data)
             chart.setNeedsDisplay()
         }
