@@ -101,6 +101,24 @@ class HistoricalRatesController: UITableViewController {
             chart.maxY = max + delta
             chart.yLabels = Array(stride(from: chart.minY!, through: chart.maxY!, by: (chart.maxY! - chart.minY!) / 10))
             chart.yLabelsFormatter = { _, float in return float.description }
+            if dataArray.count == 7 {
+                chart.xLabels = Array(stride(from: 0.0, to: Float(dataArray.count), by: 1))
+            } else {
+                chart.xLabels = Array(stride(from: 0.0, to: Float(dataArray.count), by: 3))
+            }
+            chart.xLabelsFormatter = { index, _ in
+                let formatter = DateFormatter()
+                formatter.timeStyle = .none
+                formatter.dateFormat = "dd/MM"
+                if dataArray.count == 7 {
+                    return formatter.string(from: self.last7Days[index])
+                } else {
+                    if index % 3 != 0 {
+                        return ""
+                    }
+                    return formatter.string(from: self.last30Days[index])
+                }
+            }
             chart.setNeedsDisplay()
         }
         
