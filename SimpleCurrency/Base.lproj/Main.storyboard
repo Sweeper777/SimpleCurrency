@@ -282,7 +282,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="sevenDayChart" destination="IdA-vR-DL5" id="XLR-aC-eAA"/>
+                        <outlet property="sevenDayLabel" destination="Wyw-On-Zey" id="Eey-d3-4aq"/>
+                        <outlet property="sevenDayLeadingConstraint" destination="kiN-hM-Bcv" id="GmB-hv-mPL"/>
                         <outlet property="thirtyDayChart" destination="bYI-Pa-ca4" id="uPF-k9-qDb"/>
+                        <outlet property="thirtyDayLabel" destination="Xi4-ly-2I8" id="W9p-HQ-7im"/>
+                        <outlet property="thirtyDayLeadingConstraint" destination="fzE-nG-02O" id="tgX-zP-clM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pef-bt-yNX" userLabel="First Responder" sceneMemberID="firstResponder"/>

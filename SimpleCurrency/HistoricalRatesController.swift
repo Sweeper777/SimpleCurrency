@@ -17,6 +17,10 @@ class HistoricalRatesController: UITableViewController {
     
     @IBOutlet var sevenDayChart: Chart!
     @IBOutlet var thirtyDayChart: Chart!
+    @IBOutlet var sevenDayLabel: UILabel!
+    @IBOutlet var thirtyDayLabel: UILabel!
+    @IBOutlet var sevenDayLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet var thirtyDayLeadingConstraint: NSLayoutConstraint!
     
     let last30Days: [Date] = {
         var dates = [Date]()
