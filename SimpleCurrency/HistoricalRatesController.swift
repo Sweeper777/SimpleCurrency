@@ -4,7 +4,7 @@ import Alamofire
 import SwiftyJSON
 import SCLAlertView
 
-class HistoricalRatesController: UITableViewController {
+class HistoricalRatesController: UITableViewController, ChartDelegate {
     var currency: Currencies!
     var rates: [Date: Double] = [:]
         {
@@ -46,7 +46,8 @@ class HistoricalRatesController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        sevenDayChart.delegate = self
+        thirtyDayChart.delegate = self
         getRate(completion: nil)
     }
     
@@ -126,5 +127,53 @@ class HistoricalRatesController: UITableViewController {
         
         refresh(chart: thirtyDayChart, with: rates.map{$0}.sorted{$0.0 < $1.0}.map{Float($0.value)})
         refresh(chart: sevenDayChart, with: last7DaysRates.map{$0}.sorted{$0.0 < $1.0}.map{Float($0.value)})
+    }
+    
+    func didTouchChart(_ chart: Chart, indexes: Array<Int?>, x: Float, left: CGFloat) {
+        var label: UILabel
+        var labelLeadingMarginConstraint: NSLayoutConstraint
+        var days: [Date]
+        if chart == thirtyDayChart {
+            label = thirtyDayLabel
+            days = last30Days
+            labelLeadingMarginConstraint = thirtyDayLeadingConstraint
+        } else {
+            label = sevenDayLabel
+            days = last7Days
+            labelLeadingMarginConstraint = sevenDayLeadingConstraint
+        }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM"
+        
+        if let value = chart.valueForSeries(0, atIndex: indexes[0]) {
+            label.isHidden = false
+            let labelLeadingMarginInitialConstant = CGFloat(0)
+            label.text = "\(formatter.string(from: days[indexes[0]!])): \(value)"
+            
+            // Align the label to the touch left position, centered
+            var constant = labelLeadingMarginInitialConstant + left - (label.frame.width / 2)
+            
+            // Avoid placing the label on the left of the chart
+            if constant < labelLeadingMarginInitialConstant {
+                constant = labelLeadingMarginInitialConstant
+            }
+            
+            // Avoid placing the label on the right of the chart
+            let rightMargin = chart.frame.width - label.frame.width
+            if constant > rightMargin {
+                constant = rightMargin
+            }
+            
+            labelLeadingMarginConstraint.constant = constant
+            
+        }
+    }
+    
+    func didFinishTouchingChart(_ chart: Chart) {
+        if chart == thirtyDayChart {
+            thirtyDayLabel.isHidden = true
+        } else {
+            sevenDayLabel.isHidden = true
+        }
     }
 }
