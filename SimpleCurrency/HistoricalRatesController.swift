@@ -66,17 +66,11 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
                 [weak self]
                 response in
                 if let _ = response.error {
-                    let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton:false))
-                    alert.addButton(NSLocalizedString("OK", comment: ""), action: {})
-                    alert.showError(NSLocalizedString("Error", comment: ""), subTitle: NSLocalizedString("Unable to get exchange rates.", comment: ""))
                     return
                 }
                 
                 let json = JSON(parseJSON: response.value!)
                 if let _ = json["error"].string {
-                    let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton:false))
-                    alert.addButton(NSLocalizedString("OK", comment: ""), action: {})
-                    alert.showError(NSLocalizedString("Error", comment: ""), subTitle: NSLocalizedString("Unable to get exchange rates.", comment: ""))
                     return
                 }
                 
