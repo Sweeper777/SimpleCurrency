@@ -48,14 +48,14 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
         super.viewDidLoad()
         sevenDayChart.delegate = self
         thirtyDayChart.delegate = self
-        getRate(completion: nil)
+        getRate()
     }
     
     @IBAction func done() {
         dismiss(animated: true, completion: nil)
     }
 
-    func getRate(completion: (() -> Void)?) {
+    func getRate() {
         let baseCurrency = UserDefaults.standard.string(forKey: "baseCurrency")
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -69,7 +69,6 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
                     let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton:false))
                     alert.addButton(NSLocalizedString("OK", comment: ""), action: {})
                     alert.showError(NSLocalizedString("Error", comment: ""), subTitle: NSLocalizedString("Unable to get exchange rates.", comment: ""))
-                    completion?()
                     return
                 }
                 
@@ -78,7 +77,6 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
                     let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton:false))
                     alert.addButton(NSLocalizedString("OK", comment: ""), action: {})
                     alert.showError(NSLocalizedString("Error", comment: ""), subTitle: NSLocalizedString("Unable to get exchange rates.", comment: ""))
-                    completion?()
                     return
                 }
                 
@@ -88,7 +86,6 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
                     }
                 }
             }
-            completion?()
         }
     }
     
