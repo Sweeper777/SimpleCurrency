@@ -24,5 +24,5 @@
 "pV3-FL-SSs.text" = "Title";
 
 "XI3-jE-eCu.title" = "历史汇率";
-"FDb-jb-NZT.header" = "过去7日";
-"TVt-9F-TTb.header" = "过去30日";
+"FDb-jb-NZT.headerTitle" = "过去7日";
+"TVt-9F-TTb.headerTitle" = "过去30日";
