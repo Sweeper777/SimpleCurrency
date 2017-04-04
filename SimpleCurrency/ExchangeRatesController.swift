@@ -13,6 +13,7 @@ class ExchangeRatesController: UITableViewController {
     var json: JSON!
     
     override func viewDidLoad() {
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         if let cache = UserDefaults.standard.data(forKey: "lastData") {
             json = JSON(data: cache)
         }
