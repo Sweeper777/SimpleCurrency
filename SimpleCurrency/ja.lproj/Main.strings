@@ -22,3 +22,7 @@
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "pV3-FL-SSs"; */
 "pV3-FL-SSs.text" = "Title";
+
+"XI3-jE-eCu.title" = "過去のレート";
+"FDb-jb-NZT.header" = "過去7日間";
+"TVt-9F-TTb.header" = "過去30日間";
