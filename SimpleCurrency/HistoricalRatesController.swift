@@ -90,6 +90,9 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
             if !errorOccurred {
                 self.rates = responses
             } else {
+                let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton:false))
+                alert.addButton(NSLocalizedString("OK", comment: ""), action: {})
+                alert.showError(NSLocalizedString("Error", comment: ""), subTitle: NSLocalizedString("Unable to get exchange rates.", comment: ""))
             }
             completion?()
         }
