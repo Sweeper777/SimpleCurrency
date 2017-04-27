@@ -3,6 +3,7 @@ import ESPullToRefresh
 import Alamofire
 import SwiftyJSON
 import SCLAlertView
+import GoogleMobileAds
 
 class ExchangeRatesController: UITableViewController {
     var baseCurrency: String!
@@ -78,6 +79,17 @@ class ExchangeRatesController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ad")!
+            let banner = cell.viewWithTag(1) as! GADBannerView
+            let request = GADRequest()
+            request.testDevices = [kGADSimulatorID]
+            banner.rootViewController = self
+            banner.adUnitID = adUnitID1
+            banner.load(request)
+            return cell
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
         cell.imageView!.image = UIImage(named: currencies[indexPath.row])
         cell.textLabel!.text = NSLocalizedString("No Data", comment: "")
