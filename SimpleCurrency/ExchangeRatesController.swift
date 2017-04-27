@@ -75,7 +75,7 @@ class ExchangeRatesController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currencies.count
+        return currencies.count + 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -91,21 +91,21 @@ class ExchangeRatesController: UITableViewController {
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-        cell.imageView!.image = UIImage(named: currencies[indexPath.row])
+        cell.imageView!.image = UIImage(named: currencies[indexPath.row - 1])
         cell.textLabel!.text = NSLocalizedString("No Data", comment: "")
-        cell.detailTextLabel!.text = Currencies(rawValue: currencies[indexPath.row])!.fullName
+        cell.detailTextLabel!.text = Currencies(rawValue: currencies[indexPath.row - 1])!.fullName
         
         guard let json = self.json else { return cell }
-        guard let rate = json["rates"][currencies[indexPath.row]].double else { return cell }
+        guard let rate = json["rates"][currencies[indexPath.row - 1]].double else { return cell }
         
-        cell.textLabel!.text = "\(rate) \(currencies[indexPath.row]) (\(Currencies(rawValue: currencies[indexPath.row])!.symbol))"
+        cell.textLabel!.text = "\(rate) \(currencies[indexPath.row - 1]) (\(Currencies(rawValue: currencies[indexPath.row - 1])!.symbol))"
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let _ = json["rates"][currencies[indexPath.row]].double {
-            currencyToPass = Currencies(rawValue: currencies[indexPath.row])
+        if let _ = json["rates"][currencies[indexPath.row - 1]].double {
+            currencyToPass = Currencies(rawValue: currencies[indexPath.row - 1])
             performSegue(withIdentifier: "showConverter", sender: self)
         }
     }
