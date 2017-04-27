@@ -12,5 +12,6 @@ target 'SimpleCurrency' do
   pod 'Eureka', '~> 2.0.0-beta.1'
   pod 'SwiftyJSON'
   pod 'Firebase/Core'
+  pod 'Firebase/AdMob'
   pod 'SwiftChart'
 end
