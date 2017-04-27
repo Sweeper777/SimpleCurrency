@@ -17,6 +17,7 @@
 		5A1966101E89382E00A09AC6 /* HistoricalRatesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19660F1E89382E00A09AC6 /* HistoricalRatesController.swift */; };
 		5A1A86021E73EB4900565278 /* CurrencyConverterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1A86011E73EB4900565278 /* CurrencyConverterRow.swift */; };
 		5A1AEC181E64B430005369BB /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1AEC171E64B430005369BB /* SettingsController.swift */; };
+		5A1CFCB71EAE0D6D00EAF8A7 /* SecretStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1CFCB61EAE0D6D00EAF8A7 /* SecretStuff.swift */; };
 		5A1D14E31E7D38BB0006BB61 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A1D14E51E7D38BB0006BB61 /* InfoPlist.strings */; };
 		5A1D5D2A1E879A1800714BBC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A1D5D291E879A1800714BBC /* GoogleService-Info.plist */; };
 		5A1D7B6F1E655C9400BCD3B8 /* FormTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D7B6E1E655C9400BCD3B8 /* FormTags.swift */; };
@@ -40,6 +41,7 @@
 		5A19660F1E89382E00A09AC6 /* HistoricalRatesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoricalRatesController.swift; sourceTree = "<group>"; };
 		5A1A86011E73EB4900565278 /* CurrencyConverterRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyConverterRow.swift; sourceTree = "<group>"; };
 		5A1AEC171E64B430005369BB /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		5A1CFCB61EAE0D6D00EAF8A7 /* SecretStuff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretStuff.swift; sourceTree = "<group>"; };
 		5A1D14E41E7D38BB0006BB61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5A1D14E61E7D38BD0006BB61 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		5A1D14E71E7D38C10006BB61 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				5A1A86011E73EB4900565278 /* CurrencyConverterRow.swift */,
 				5A191C8B1E5CAA1200ECC13B /* Currencies.swift */,
 				5A1D7B6E1E655C9400BCD3B8 /* FormTags.swift */,
+				5A1CFCB61EAE0D6D00EAF8A7 /* SecretStuff.swift */,
 				5A191C7D1E5C335C00ECC13B /* Main.storyboard */,
 				5A191C801E5C335C00ECC13B /* Assets.xcassets */,
 				5A191C821E5C335C00ECC13B /* LaunchScreen.storyboard */,
@@ -276,6 +279,7 @@
 				5A1A86021E73EB4900565278 /* CurrencyConverterRow.swift in Sources */,
 				5A1D7B6F1E655C9400BCD3B8 /* FormTags.swift in Sources */,
 				5A1D7B731E65F8C300BCD3B8 /* CurrencySelectorController.swift in Sources */,
+				5A1CFCB71EAE0D6D00EAF8A7 /* SecretStuff.swift in Sources */,
 				5A191C7A1E5C335C00ECC13B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
