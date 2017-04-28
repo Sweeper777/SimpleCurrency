@@ -6,7 +6,7 @@ import SwiftyJSON
 import SwiftyUtils
 import GoogleMobileAds
 
-class CurrencyConverterController: FormViewController {
+class CurrencyConverterController: FormViewController, GADInterstitialDelegate {
 
     var shouldBeEmpty = true
     var currency1: Currencies!
@@ -160,5 +160,21 @@ class CurrencyConverterController: FormViewController {
         if let vc = (segue.destination as? UINavigationController)?.topViewController as? HistoricalRatesController {
             vc.currency = currency2
         }
+    }
+    
+    func interstitialWillDismissScreen(_ ad: GADInterstitial) {
+        interstitialAd = GADInterstitial(adUnitID: adUnitID2)
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        interstitialAd.load(request)
+        interstitialAd.delegate = self
+    }
+    
+    func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
+        interstitialAd = GADInterstitial(adUnitID: adUnitID2)
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        interstitialAd.load(request)
+        interstitialAd.delegate = self
     }
 }
