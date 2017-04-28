@@ -4,6 +4,7 @@ import Alamofire
 import SCLAlertView
 import SwiftyJSON
 import SwiftyUtils
+import GoogleMobileAds
 
 class CurrencyConverterController: FormViewController {
 
@@ -11,6 +12,8 @@ class CurrencyConverterController: FormViewController {
     var currency1: Currencies!
     var currency2: Currencies!
     var rate: Double!
+    var interstitialAd: GADInterstitial!
+    
     var reverseRate: Double {
         return pow(rate, -1)
     }
@@ -101,6 +104,12 @@ class CurrencyConverterController: FormViewController {
                 self?.tableView?.es_stopPullToRefresh()
             }
         }
+        
+        interstitialAd = GADInterstitial(adUnitID: adUnitID2)
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        interstitialAd.load(request)
+        interstitialAd.delegate = self
     }
 
     func getRate(completion: (() -> Void)?) {
