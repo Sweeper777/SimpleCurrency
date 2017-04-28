@@ -56,6 +56,13 @@ class CurrencyConverterController: FormViewController, GADInterstitialDelegate {
                 let resultRow: CurrencyConverterRow = self.form.rowBy(tag: tagCurrency2Convert)!
                 resultRow.cell.textField.text = self.formatter.string(from: (value * self.rate) as NSNumber)!
             }
+            let randomNumber = arc4random_uniform(100)
+            print(randomNumber)
+            if randomNumber < 6 {
+                if self.interstitialAd.isReady && !self.interstitialAd.hasBeenUsed {
+                    self.interstitialAd.present(fromRootViewController: self)
+                }
+            }
         }
         .onEndEditing {
             row in
@@ -76,8 +83,13 @@ class CurrencyConverterController: FormViewController, GADInterstitialDelegate {
             row in
             if let value = row.value {
                 let resultRow: CurrencyConverterRow = self.form.rowBy(tag: tagCurrency1Convert)!
-                print("\(value) * \(self.reverseRate) = \(value * self.reverseRate)")
                 resultRow.cell.textField.text = self.formatter.string(from: (value * self.reverseRate) as NSNumber)!
+            }
+            let randomNumber = arc4random_uniform(100)
+            if randomNumber < 6 {
+                if self.interstitialAd.isReady && !self.interstitialAd.hasBeenUsed {
+                    self.interstitialAd.present(fromRootViewController: self)
+                }
             }
         }
         .onEndEditing {
