@@ -53,6 +53,8 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
         super.viewDidLoad()
         sevenDayChart.delegate = self
         thirtyDayChart.delegate = self
+        sevenDayChart.xLabelsOrientation = .vertical
+        thirtyDayChart.xLabelsOrientation = .vertical
         getRate()
         
         tableView.es_addPullToRefresh {
@@ -124,11 +126,11 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
             chart.maxY = max + delta
             chart.yLabels = Array(stride(from: chart.minY!, through: chart.maxY!, by: (chart.maxY! - chart.minY!) / 10))
             chart.yLabelsFormatter = { _, float in return float.description }
-            if dataArray.count == 7 {
+//            if dataArray.count == 7 {
                 chart.xLabels = Array(stride(from: 0.0, to: Float(dataArray.count), by: 1))
-            } else {
-                chart.xLabels = Array(stride(from: 0.0, to: Float(dataArray.count), by: 5))
-            }
+//            } else {
+//                chart.xLabels = Array(stride(from: 0.0, to: Float(dataArray.count), by: 5))
+//            }
             chart.xLabelsFormatter = { index, _ in
                 let formatter = DateFormatter()
                 formatter.timeStyle = .none
@@ -136,7 +138,7 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
                 if dataArray.count == 7 {
                     return formatter.string(from: self.last7Days[index])
                 } else {
-                    return formatter.string(from: self.last30Days[index * 5])
+                    return formatter.string(from: self.last30Days[index])
                 }
             }
             chart.labelFont = UIFont.systemFont(ofSize: 10)
