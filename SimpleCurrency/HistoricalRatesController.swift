@@ -5,6 +5,11 @@ import SwiftyJSON
 import SCLAlertView
 
 class HistoricalRatesController: UITableViewController, ChartDelegate {
+    
+    public func didEndTouchingChart(_ chart: Chart) {
+        
+    }
+
     var currency: Currencies!
     var rates: [Date: Double] = [:]
         {
@@ -25,7 +30,7 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
     let last30Days: [Date] = {
         var dates = [Date]()
         for i in 0...29 {
-            let day = Date().date.addingTimeInterval(Double(-60 * 60 * 24 * (29 - i)))
+            let day = Date().addingTimeInterval(Double(-60 * 60 * 24 * (29 - i)))
             dates.append(day)
         }
         

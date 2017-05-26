@@ -132,7 +132,7 @@ class SettingsController: FormViewController {
         
         let currencies = Currencies.allValues.filter { (values[$0.currencyCode] as? Bool) == true }.map { $0.currencyCode }
         let oldArray = UserDefaults.standard.array(forKey: "currencies") as! [String]
-        if !(currencies.contains(array: oldArray) && currencies.count == oldArray.count) {
+        if !(currencies.contains(oldArray) && currencies.count == oldArray.count) {
             currenciesChanged = true
             UserDefaults.standard.set(currencies, forKey: "currencies")
         }
