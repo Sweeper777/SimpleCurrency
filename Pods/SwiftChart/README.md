@@ -138,6 +138,10 @@ class MyViewController: UIViewController, ChartDelegate {
     func didFinishTouchingChart(chart: Chart) {
         // Do something when finished
     }
+
+    func didEndTouchingChart(chart: Chart) {
+        // Do something when ending touching chart
+    }
 }
 ```
 
@@ -162,6 +166,20 @@ The `left: CGFloat` is the x position on the chart’s view, starting from the l
 
 <img src="https://cloud.githubusercontent.com/assets/120693/11602678/660d660e-9adc-11e5-8a67-0c3036c20862.gif" height="200">
 
+## Common issues and solutions
+
+If you have issue with this library, please tag your question with `swiftcharts` on [Stack Overflow](http://stackoverflow.com/tags/swiftcharts/info).
+
+### The chart is not showing
+
+The `Chart` class inherits from `UIView`, so if your chart is not displaying it is likely a problem related to the view's size. Check your view constraints and make sure you initialize it on `viewDidLoad`, when UIKit can calculate the view dimensions.
+
+Some tips for debugging an hidden chart:
+
+* start your app and then debug the UI Hierarchy from the Debug navigator
+* initialize a simple UIView with a colored background instead of the chart to easily see how the view is positioned
+* try to not to nest the chart in a subview for better debugging
+
 ## Reference
 
 ![reference](https://cloud.githubusercontent.com/assets/120693/5094993/e3a3e10e-6f65-11e4-8619-b7a05d18190e.png)
@@ -170,39 +188,48 @@ The `left: CGFloat` is the x position on the chart’s view, starting from the l
 
 #### Chart options
 
-* `areaAlphaComponent`: alpha factor for the area’s color.
-* `axesColor`: the axes’ color.
-* `bottomInset`: height of the area at the bottom of the chart, containing the labels for the x-axis.
-* `delegate`: the delegate for listening to touch events.
-* `highlightLineColor`: color of the highlight line.
-* `highlightLineWidth`: width of the highlight line.
-* `gridColor`: the grid color.
-* `labelColor`: the color of the labels.
-* `labelFont`: the font used for the labels.
-* `lineWidth`: width of the chart’s lines.
-* `maxX`: custom maximum x-value.
-* `maxY`: custom maximum y-value.
-* `minX`: minimum x-value.
-* `minY`: minimum y-value.
-* `topInset`: height of the area at the top of the chart, acting a padding to make place for the top y-axis label.
-* `xLabelsFormatter`: formats the labels on the x-axis.
-* `xLabelsTextAlignment`: text-alignment for the x-labels.
-* `yLabelsFormatter`: formats the labels on the y-axis.
-* `yLabelsOnRightSide`: place the y-labels on the right side.
+* `areaAlphaComponent` – alpha factor for the area’s color.
+* `axesColor` – the axes’ color.
+* `bottomInset` – height of the area at the bottom of the chart, containing the labels for the x-axis.
+* `delegate` – the delegate for listening to touch events.
+* `highlightLineColor` – color of the highlight line.
+* `highlightLineWidth` – width of the highlight line.
+* `gridColor` – the grid color.
+* `labelColor` – the color of the labels.
+* `labelFont` – the font used for the labels.
+* `lineWidth` – width of the chart’s lines.
+* `maxX` – custom maximum x-value.
+* `maxY` – custom maximum y-value.
+* `minX` – minimum x-value.
+* `minY` – minimum y-value.
+* `topInset` – height of the area at the top of the chart, acting a padding to make place for the top y-axis label.
+* `xLabelsFormatter` – formats the labels on the x-axis.
+* `xLabelsOrientation` – sets the x-axis labels orientation to vertical or horizontal.
+* `xLabelsTextAlignment` – text-alignment for the x-labels.
+* `xLabelsSkipLast` (default `true`) - Skip the last x-label. Setting this to `false` will make the label overflow the frame width, so use carefully!
+* `yLabelsFormatter` – formats the labels on the y-axis.
+* `yLabelsOnRightSide` – place the y-labels on the right side.
 
 #### Methods
 
-* `add(series: ChartSeries)`: add a series to the chart.
-* `removeSeries()`: remove all the series from the chart.
-* `removeSeriesAtIndex(index: Int)`: remove a series at the specified index. 
-* `valueForSeries()`: get the value of the specified series at the specified index.
+* `add(series: ChartSeries)` – add a series to the chart.
+* `removeSeries()` – remove all the series from the chart.
+* `removeSeriesAtIndex(index: Int)` – remove a series at the specified index. 
+* `valueForSeries()` – get the value of the specified series at the specified index.
 
 ### ChartSeries class
 
-* `area`: draws an area below the series’ line.
-* `line`: set it to `false` to hide the line (useful for drawing only the area).
-* `color`: the series color.
-* `colors`: a touple to specify the color above or below the zero. For example, `(above: ChartsColors.redColor(), below: ChartsColors.blueColor(), -4)` will use red for values above `-4`, and blue for values below -4. 
+* `area` – draws an area below the series’ line.
+* `line` – set it to `false` to hide the line (useful for drawing only the area).
+* `color` – the series color.
+* `colors` – a touple to specify the color above or below the zero. For example, `(above: ChartsColors.redColor(), below: ChartsColors.blueColor(), -4)` will use red for values above `-4`, and blue for values below -4. 
+
+### ChartDelegate
+
+* `didTouchChart` – tells the delegate that the specified chart has been touched.
+* `didFinishTouchingChart` – tells the delegate that the user finished touching the chart. The user will "finish" touching the chart only swiping left/right outside the chart.
+* `didEndTouchingChart` – tells the delegate that the user ended touching the chart. The user will "end" touching the chart whenever the touchesDidEnd method is being called. 
+
 
 ## License
 

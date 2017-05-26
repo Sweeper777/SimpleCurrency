@@ -2,27 +2,28 @@ PODS:
   - Alamofire (4.4.0)
   - ESPullToRefresh (2.6)
   - Eureka (2.0.1)
-  - Firebase/AdMob (3.15.0):
+  - Firebase/AdMob (4.0.0):
     - Firebase/Core
-    - Google-Mobile-Ads-SDK (= 7.19.0)
-  - Firebase/Core (3.15.0):
-    - FirebaseAnalytics (= 3.7.0)
-    - FirebaseCore (= 3.5.2)
-  - FirebaseAnalytics (3.7.0):
-    - FirebaseCore (~> 3.5)
-    - FirebaseInstanceID (~> 1.0)
+    - Google-Mobile-Ads-SDK (= 7.20.0)
+  - Firebase/Core (4.0.0):
+    - FirebaseAnalytics (= 4.0.0)
+    - FirebaseCore (= 4.0.0)
+  - FirebaseAnalytics (4.0.0):
+    - FirebaseCore (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseCore (3.5.2):
+  - FirebaseCore (4.0.0):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseInstanceID (1.0.9)
-  - Google-Mobile-Ads-SDK (7.19.0)
+  - FirebaseInstanceID (2.0.0):
+    - FirebaseCore (~> 4.0)
+  - Google-Mobile-Ads-SDK (7.20.0)
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - SCLAlertView (0.7.0)
-  - SwiftChart (0.4.0)
+  - SwiftChart (0.5.0)
   - SwiftyJSON (3.1.4)
-  - SwiftyUtils (0.7.0)
+  - SwiftyUtils (1.0.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -39,16 +40,16 @@ SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   ESPullToRefresh: 85f4990acf87f78c6a1466bbbee7a75d7de24db9
   Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
-  Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
-  FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
-  FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
-  FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
-  Google-Mobile-Ads-SDK: d1bcdbd8347a105a687345b8511701172a5074e9
+  Firebase: 284eea779b73fdff309791817da7c68bff8dd572
+  FirebaseAnalytics: 6f08e746f7d66f5452931bc2e822b5df9c66b64a
+  FirebaseCore: 85ad466044c2f013cdb167f85d426d15b128114a
+  FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
+  Google-Mobile-Ads-SDK: 168312cdc167fa22746d4ea8e839fc4825dd2966
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
-  SwiftChart: 3e7482795bdb095234bc35835cc6666c8d5ebca1
+  SwiftChart: d1d22d2b1c4582f4d561edf97a210059c00ee256
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  SwiftyUtils: 87094996d977846e5a9f2cbe653ff28dc15ba187
+  SwiftyUtils: f48a22d2fa8eece42a11d8bbb4d01a9758dd0602
 
 PODFILE CHECKSUM: b27aec2cec62d4cd539b41c16b2f4bdd2c4b248d
 
