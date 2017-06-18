@@ -20,6 +20,17 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
+  - PromiseKit (4.2.2):
+    - PromiseKit/Foundation (= 4.2.2)
+    - PromiseKit/QuartzCore (= 4.2.2)
+    - PromiseKit/UIKit (= 4.2.2)
+  - PromiseKit/CorePromise (4.2.2)
+  - PromiseKit/Foundation (4.2.2):
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (4.2.2):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (4.2.2):
+    - PromiseKit/CorePromise
   - SCLAlertView (0.7.0)
   - SwiftChart (0.5.0)
   - SwiftyJSON (3.1.4)
@@ -31,6 +42,7 @@ DEPENDENCIES:
   - Eureka (~> 2.0.0-beta.1)
   - Firebase/AdMob
   - Firebase/Core
+  - PromiseKit
   - SCLAlertView
   - SwiftChart
   - SwiftyJSON
@@ -46,11 +58,12 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
   Google-Mobile-Ads-SDK: 168312cdc167fa22746d4ea8e839fc4825dd2966
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  PromiseKit: 00e8886881f151c7e573d06b437915b0bb2970ec
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SwiftChart: d1d22d2b1c4582f4d561edf97a210059c00ee256
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyUtils: f48a22d2fa8eece42a11d8bbb4d01a9758dd0602
 
-PODFILE CHECKSUM: b27aec2cec62d4cd539b41c16b2f4bdd2c4b248d
+PODFILE CHECKSUM: 68f8fc247a16e0c563d8c5ab2d32acfe7f338c09
 
 COCOAPODS: 1.1.0.beta.1

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "290E56E5F0B028FCA2D992BC71F267D6"
-               BuildableName = "ESPullToRefresh.framework"
-               BlueprintName = "ESPullToRefresh"
+               BlueprintIdentifier = "E9B4CA84B614D2C0E8C6BC679C3B2035"
+               BuildableName = "PromiseKit.framework"
+               BlueprintName = "PromiseKit"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "290E56E5F0B028FCA2D992BC71F267D6"
-            BuildableName = "ESPullToRefresh.framework"
-            BlueprintName = "ESPullToRefresh"
+            BlueprintIdentifier = "E9B4CA84B614D2C0E8C6BC679C3B2035"
+            BuildableName = "PromiseKit.framework"
+            BlueprintName = "PromiseKit"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
