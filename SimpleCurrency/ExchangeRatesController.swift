@@ -20,12 +20,10 @@ class ExchangeRatesController: UITableViewController {
             json = JSON(data: cache)
         }
         loadSettings()
-        requestData(completion: nil)
+        requestData()
         
         tableView.es_addPullToRefresh {
-            self.requestData(completion: { 
-                self.tableView.es_stopPullToRefresh()
-            })
+            self.requestData()
         }
     }
     
@@ -35,7 +33,7 @@ class ExchangeRatesController: UITableViewController {
         baseAmount = UserDefaults.standard.double(forKey: "baseAmount")
     }
     
-    func requestData(completion: (() -> Void)?) {
+    func requestData() {
         let url = "https://api.fixer.io/latest?base=\(baseCurrency!)&symbols=\(currencies.joined(separator: ","))&amount=\(baseAmount!)"
         
         Promise<String> { fulfill, reject in
@@ -128,7 +126,7 @@ class ExchangeRatesController: UITableViewController {
         if let vc = segue.source as? SettingsController {
             if vc.settingsHasChanged {
                 loadSettings()
-                requestData(completion: nil)
+                requestData()
             }
         }
     }
