@@ -49,13 +49,10 @@ class ExchangeRatesController: UITableViewController {
         }.then { str in
             Promise<JSON> { fulfill, reject in
                 let json = JSON(parseJSON: str)
-                if let success = json["success"].bool {
-                    if success {
-                        fulfill(json)
-                    }
-                    reject(NSError(domain: "simplecurrency", code: -1, userInfo: nil))
+                if let _ = json["error"].string {
+                    reject(NSError())
                 } else {
-                    reject(NSError(domain: "simplecurrency", code: -1, userInfo: nil))
+                    fulfill(json)
                 }
             }
         }.then { json -> Promise<JSON> in
