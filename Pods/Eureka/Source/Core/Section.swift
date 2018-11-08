@@ -204,8 +204,6 @@ open class Section {
 
 
 extension Section : MutableCollection, BidirectionalCollection {
-    public typealias SubSequence = ArraySlice<BaseRow>
-    public typealias Index = Int
     
     //MARK: MutableCollectionType
     
