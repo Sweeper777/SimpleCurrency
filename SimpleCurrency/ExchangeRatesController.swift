@@ -34,7 +34,7 @@ class ExchangeRatesController: UITableViewController {
     }
     
     func requestData() {
-        let url = "http://data.fixer.io/latest?access_key=\(apiKey)&base=\(baseCurrency!)&symbols=\(currencies.joined(separator: ","))"
+        let url = "https://api.fixer.io/latest?base=\(baseCurrency!)&symbols=\(currencies.joined(separator: ","))&amount=\(baseAmount!)"
         
         Promise<String> { fulfill, reject in
             Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseString {
