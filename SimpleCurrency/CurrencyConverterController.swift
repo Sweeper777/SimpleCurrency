@@ -5,7 +5,6 @@ import SCLAlertView
 import SwiftyJSON
 import SwiftyUtils
 import GoogleMobileAds
-import PromiseKit
 
 class CurrencyConverterController: FormViewController, GADInterstitialDelegate {
 
@@ -112,7 +111,10 @@ class CurrencyConverterController: FormViewController, GADInterstitialDelegate {
         
         tableView!.es_addPullToRefresh {
             [weak self] in
-            self?.getRate()
+            self?.getRate {
+                self?.reloadRates()
+                self?.tableView?.es_stopPullToRefresh()
+            }
         }
         
         interstitialAd = GADInterstitial(adUnitID: adUnitID2)
@@ -122,7 +124,7 @@ class CurrencyConverterController: FormViewController, GADInterstitialDelegate {
         interstitialAd.delegate = self
     }
 
-    func getRate() {
+    func getRate(completion: (() -> Void)?) {
         let url = "https://api.fixer.io/latest?base=\(currency1!)&symbols=\(currency2!)"
         Promise<String> { fulfill, reject in
             Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseString {
@@ -157,6 +159,16 @@ class CurrencyConverterController: FormViewController, GADInterstitialDelegate {
                 let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton:false))
                 alert.addButton(NSLocalizedString("OK", comment: ""), action: {})
                 alert.showError(NSLocalizedString("Error", comment: ""), subTitle: NSLocalizedString("Unable to get exchange rates.", comment: ""))
+                completion?()
+                return
+            }
+            
+            if self != nil {
+                if let rate = json["rates"][self!.currency2.currencyCode].double {
+                    self?.rate = rate
+                }
+            }
+            completion?()
         }
     }
     
