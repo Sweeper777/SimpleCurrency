@@ -4,7 +4,6 @@ import Alamofire
 import SwiftyJSON
 import SCLAlertView
 import GoogleMobileAds
-import PromiseKit
 
 class ExchangeRatesController: UITableViewController {
     var baseCurrency: String!
@@ -37,37 +36,33 @@ class ExchangeRatesController: UITableViewController {
     
     func requestData(completion: (() -> Void)?) {
         let url = "https://api.fixer.io/latest?base=\(baseCurrency!)&symbols=\(currencies.joined(separator: ","))&amount=\(baseAmount!)"
-        
-        Promise<String> { fulfill, reject in
-            Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseString {
-                response in
-                if let err = response.error {
-                    reject(err)
-                    return
-                } else {
-                    fulfill(response.value!)
-                }
+        Alamofire.request(url).responseString {
+            [weak self]
+            response in
+            if let _ = response.error {
+                let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton:false))
+                alert.addButton(NSLocalizedString("OK", comment: ""), action: {})
+                alert.showError(NSLocalizedString("Error", comment: ""), subTitle: NSLocalizedString("Unable to get exchange rates.", comment: ""))
+                completion?()
+                return
             }
-        }.then { str in
-            Promise<JSON> { fulfill, reject in
-                let json = JSON(parseJSON: str)
-                if let _ = json["error"].string {
-                    reject(NSError())
-                } else {
-                    fulfill(json)
-                }
+            
+            let json = JSON(parseJSON: response.value!)
+            if let _ = json["error"].string {
+                let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton:false))
+                alert.addButton(NSLocalizedString("OK", comment: ""), action: {})
+                alert.showError(NSLocalizedString("Error", comment: ""), subTitle: NSLocalizedString("Unable to get exchange rates.", comment: ""))
+                completion?()
+                return
             }
-        }.then { json -> Promise<JSON> in
-            self.json = json
+            self?.json = json
             UserDefaults.standard.set(try? json.rawData(), forKey: "lastData")
-            self.tableView.reloadData()
-            return Promise(value: json)
-        }.always {
-            self.tableView.es_stopPullToRefresh()
-        }.catch {_ in
-            let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton:false))
-            alert.addButton(NSLocalizedString("OK", comment: ""), action: {})
-            alert.showError(NSLocalizedString("Error", comment: ""), subTitle: NSLocalizedString("Unable to get exchange rates.", comment: ""))
+            _ = Timer.after(0.1) {
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                    completion?()
+                }
+            }
         }
     }
     
