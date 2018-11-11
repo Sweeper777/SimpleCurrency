@@ -126,36 +126,19 @@ class CurrencyConverterController: FormViewController, GADInterstitialDelegate {
 
     func getRate(completion: (() -> Void)?) {
         let url = "https://api.fixer.io/latest?base=\(currency1!)&symbols=\(currency2!)"
-        Promise<String> { fulfill, reject in
-            Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseString {
-                                response in
-                                if let err = response.error {
-                                    reject(err)
-                                    return
-                                } else {
-                                    fulfill(response.value!)
-                                }
+        Alamofire.request(url).responseString {
+            [weak self]
+            response in
+            if let _ = response.error {
+                let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton:false))
+                alert.addButton(NSLocalizedString("OK", comment: ""), action: {})
+                alert.showError(NSLocalizedString("Error", comment: ""), subTitle: NSLocalizedString("Unable to get exchange rates.", comment: ""))
+                completion?()
+                return
             }
-            }.then { str in
-                Promise<JSON> { fulfill, reject in
-                    let json = JSON(parseJSON: str)
-                    if let _ = json["error"].string {
-                        reject(NSError())
-                    } else {
-                        fulfill(json)
-                    }
-                }
-            }.then { json -> Promise<JSON> in
-                if let rate = json["rates"][self.currency2.currencyCode].double {
-                    self.rate = rate
-                }
-                UserDefaults.standard.set(try? json.rawData(), forKey: "lastData")
-                self.tableView?.reloadData()
-                return Promise(value: json)
-            }.always {
-                self.reloadRates()
-                self.tableView?.es_stopPullToRefresh()
-            }.catch {_ in
+            
+            let json = JSON(parseJSON: response.value!)
+            if let _ = json["error"].string {
                 let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton:false))
                 alert.addButton(NSLocalizedString("OK", comment: ""), action: {})
                 alert.showError(NSLocalizedString("Error", comment: ""), subTitle: NSLocalizedString("Unable to get exchange rates.", comment: ""))
