@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C3DD51C40E583DFEDA17EEBB79BA5488'
-               BlueprintName = 'SwiftChart'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SwiftChart.framework'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F0D7B46142DF5430BC8BA50C71BBAE4D"
+               BlueprintName = "SwiftChart"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "SwiftChart.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
