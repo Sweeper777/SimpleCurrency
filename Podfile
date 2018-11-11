@@ -14,5 +14,4 @@ target 'SimpleCurrency' do
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
   pod 'SwiftChart'
-  pod 'PromiseKit'
 end
