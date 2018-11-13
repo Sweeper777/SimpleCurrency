@@ -1,7 +1,7 @@
 import UIKit
 import Eureka
 
-final class CurrencySelectorRow: SelectorRow<PushSelectorCell<Currencies>, CurrencySelectorController>, RowType {
+final class CurrencySelectorRow: SelectorRow<PushSelectorCell<Currencies>>, RowType {
     required init(tag: String?, _ initializer: ((CurrencySelectorRow) -> ())) {
         super.init(tag: tag)
         initializer(self)
@@ -15,6 +15,6 @@ final class CurrencySelectorRow: SelectorRow<PushSelectorCell<Currencies>, Curre
     }
     
     required convenience init(tag: String?) {
-        self.init(tag: tag)
+        self.init(tag, {_ in})
     }
 }
