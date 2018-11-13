@@ -109,11 +109,11 @@ class CurrencyConverterController: FormViewController, GADInterstitialDelegate {
             self.performSegue(withIdentifier: "showHistorical", sender: self)
         }
         
-        tableView!.es_addPullToRefresh {
+        tableView!.es.addPullToRefresh {
             [weak self] in
             self?.getRate {
                 self?.reloadRates()
-                self?.tableView?.es_stopPullToRefresh()
+                self?.tableView?.es.stopPullToRefresh()
             }
         }
         
