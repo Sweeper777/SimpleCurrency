@@ -16,14 +16,14 @@ class ExchangeRatesController: UITableViewController {
     override func viewDidLoad() {
         self.navigationController?.navigationBar.tintColor = UIColor.white
         if let cache = UserDefaults.standard.data(forKey: "lastData") {
-            json = JSON(data: cache)
+            json = try! JSON(data: cache)
         }
         loadSettings()
         requestData(completion: nil)
         
-        tableView.es_addPullToRefresh {
+        tableView.es.addPullToRefresh {
             self.requestData(completion: { 
-                self.tableView.es_stopPullToRefresh()
+                self.tableView.es.stopPullToRefresh()
             })
         }
     }
