@@ -125,7 +125,7 @@ class CurrencyConverterController: FormViewController, GADInterstitialDelegate {
     }
 
     func getRate(completion: (() -> Void)?) {
-        let url = "https://api.fixer.io/latest?base=\(currency1!)&symbols=\(currency2!)"
+        let url = "https://api.exchangeratesapi.io/latest?base=\(currency1!)&symbols=\(currency2!)"
         Alamofire.request(url).responseString {
             [weak self]
             response in
