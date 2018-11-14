@@ -5,8 +5,7 @@ import SwiftyJSON
 import SCLAlertView
 
 class HistoricalRatesController: UITableViewController, ChartDelegate {
-    
-    public func didEndTouchingChart(_ chart: Chart) {
+    func didEndTouchingChart(_ chart: Chart) {
         
     }
 
@@ -55,10 +54,10 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
         thirtyDayChart.delegate = self
         getRate()
         
-        tableView.es_addPullToRefresh {
+        tableView.es.addPullToRefresh {
             [weak self] in
             self?.getRate() {
-                self?.tableView.es_stopPullToRefresh()
+                self?.tableView.es.stopPullToRefresh()
             }
         }
     }
@@ -111,7 +110,7 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
     }
     
     func refreshCharts() {
-        func refresh(chart: Chart, with dataArray: [Float]) {
+        func refresh(chart: Chart, with dataArray: [Double]) {
             let data = ChartSeries(dataArray)
             data.area = false
             chart.add(data)
@@ -119,15 +118,15 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
             let max = dataArray.max()!
             let range = max - min
             let order = ceil(log(Double(range)) / M_LN10)
-            let delta = Float(pow(10.0, order) * 0.1)
+            let delta = pow(10.0, order) * 0.1
             chart.minY = min - delta  < 0 ? 0 : min - delta
             chart.maxY = max + delta
             chart.yLabels = Array(stride(from: chart.minY!, through: chart.maxY!, by: (chart.maxY! - chart.minY!) / 10))
             chart.yLabelsFormatter = { _, float in return float.description }
             if dataArray.count == 7 {
-                chart.xLabels = Array(stride(from: 0.0, to: Float(dataArray.count), by: 1))
+                chart.xLabels = Array(stride(from: 0.0, to: Double(dataArray.count), by: 1))
             } else {
-                chart.xLabels = Array(stride(from: 0.0, to: Float(dataArray.count), by: 5))
+                chart.xLabels = Array(stride(from: 0.0, to: Double(dataArray.count), by: 5))
             }
             chart.xLabelsFormatter = { index, _ in
                 let formatter = DateFormatter()
@@ -143,11 +142,11 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
             chart.setNeedsDisplay()
         }
         
-        refresh(chart: thirtyDayChart, with: rates.map{$0}.sorted{$0.0 < $1.0}.map{Float($0.value)})
-        refresh(chart: sevenDayChart, with: last7DaysRates.map{$0}.sorted{$0.0 < $1.0}.map{Float($0.value)})
+        refresh(chart: thirtyDayChart, with: rates.map{$0}.sorted{$0.0 < $1.0}.map{$0.value})
+        refresh(chart: sevenDayChart, with: last7DaysRates.map{$0}.sorted{$0.0 < $1.0}.map{$0.value})
     }
     
-    func didTouchChart(_ chart: Chart, indexes: Array<Int?>, x: Float, left: CGFloat) {
+    func didTouchChart(_ chart: Chart, indexes: [Int?], x: Double, left: CGFloat) {
         var label: UILabel
         var labelLeadingMarginConstraint: NSLayoutConstraint
         var days: [Date]
