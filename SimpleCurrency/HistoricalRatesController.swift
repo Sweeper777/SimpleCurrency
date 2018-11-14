@@ -76,7 +76,7 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
         for date in last30Days {
             group.enter()
             let dateString = formatter.string(from: date)
-            let url = "https://api.fixer.io/\(dateString)?base=\(baseCurrency!)&symbols=\(currency!)"
+            let url = "https://api.exchangeratesapi.io/\(dateString)?base=\(baseCurrency!)&symbols=\(currency!)"
             Alamofire.request(url).responseString {
                 [weak self]
                 response in
