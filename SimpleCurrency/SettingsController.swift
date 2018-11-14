@@ -10,7 +10,9 @@ class SettingsController: FormViewController {
         title = NSLocalizedString("Settings", comment: "")
         self.navigationController?.navigationBar.tintColor = UIColor.white
         
-        form +++ CurrencySelectorRow(tag: tagBaseCurrency) {
+        form +++ Section()
+        
+        <<< CurrencySelectorRow(tag: tagBaseCurrency) {
             row in
             row.title = NSLocalizedString("Base Currency", comment: "")
             row.value = Currencies(rawValue: UserDefaults.standard.string(forKey: "baseCurrency")!)!
@@ -132,7 +134,7 @@ class SettingsController: FormViewController {
         
         let currencies = Currencies.allValues.filter { (values[$0.currencyCode] as? Bool) == true }.map { $0.currencyCode }
         let oldArray = UserDefaults.standard.array(forKey: "currencies") as! [String]
-        if !(currencies.contains(oldArray) && currencies.count == oldArray.count) {
+        if !(oldArray.allSatisfy(currencies.contains) && currencies.count == oldArray.count) {
             currenciesChanged = true
             UserDefaults.standard.set(currencies, forKey: "currencies")
         }
