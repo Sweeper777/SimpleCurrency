@@ -21,11 +21,11 @@ class ExchangeRatesController: UITableViewController {
         loadSettings()
         requestData(completion: nil)
         
-        tableView.es.addPullToRefresh {
-            self.requestData(completion: { 
-                self.tableView.es.stopPullToRefresh()
-            })
-        }
+//        tableView.es.addPullToRefresh {
+//            self.requestData(completion: {
+//                self.tableView.es.stopPullToRefresh()
+//            })
+//        }
     }
     
     func loadSettings() {
