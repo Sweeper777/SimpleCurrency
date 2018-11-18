@@ -109,13 +109,13 @@ class CurrencyConverterController: FormViewController, GADInterstitialDelegate {
             self.performSegue(withIdentifier: "showHistorical", sender: self)
         }
         
-        tableView!.es.addPullToRefresh {
-            [weak self] in
-            self?.getRate {
-                self?.reloadRates()
-                self?.tableView?.es.stopPullToRefresh()
-            }
-        }
+//        tableView!.es.addPullToRefresh {
+//            [weak self] in
+//            self?.getRate {
+//                self?.reloadRates()
+//                self?.tableView?.es.stopPullToRefresh()
+//            }
+//        }
         
         interstitialAd = GADInterstitial(adUnitID: adUnitID2)
         let request = GADRequest()
