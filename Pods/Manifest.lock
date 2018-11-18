@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (4.7.3)
-  - ESPullToRefresh (2.7)
   - Eureka (4.3.0)
   - Firebase/AdMob (5.12.0):
     - Firebase/Core
@@ -55,6 +54,7 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - PullToRefreshSwift (3.0.3)
   - SCLAlertView (0.8)
   - SwiftChart (1.0.1)
   - SwiftyJSON (4.2.0)
@@ -62,10 +62,10 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - ESPullToRefresh
   - Eureka
   - Firebase/AdMob
   - Firebase/Core
+  - PullToRefreshSwift
   - SCLAlertView
   - SwiftChart
   - SwiftyJSON
@@ -74,7 +74,6 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - ESPullToRefresh
     - Eureka
     - Firebase
     - FirebaseAnalytics
@@ -84,6 +83,7 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUtilities
     - nanopb
+    - PullToRefreshSwift
     - SCLAlertView
     - SwiftChart
     - SwiftyJSON
@@ -100,7 +100,6 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  ESPullToRefresh: 119e2710b82b75536aab2bbe4883ba119fca35c8
   Eureka: 6d711cb30ca333b4bc893110285a722ae3840114
   Firebase: 9190018e296139d938b99521cde0c15a6e8d2946
   FirebaseAnalytics: 63202d2665de4e6adcbdce189135255d8b5962ba
@@ -110,11 +109,12 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 5029d78f2b438bd30ffb44e6c558b57c21622727
   GoogleUtilities: abb092d2c12e817fa3e0e7b274987dd72fb86ec3
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  PullToRefreshSwift: 0743b818072bfd7c9464addc2d1b987b131057ca
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SwiftChart: ba767a678d568a5ee22d419e146a0582865e1aff
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   SwiftyUtils: 9d09fedd742f9959e5682784657e913d5c554e6d
 
-PODFILE CHECKSUM: ce8c3ea56d991b054c3dbcad891221c84288b2d0
+PODFILE CHECKSUM: d5f212039c375fe83286bb6527a2da342651c2ef
 
 COCOAPODS: 1.5.3

@@ -7,11 +7,11 @@ target 'SimpleCurrency' do
 
   pod 'SwiftyUtils', :git => 'https://github.com/tbaranes/SwiftyUtils.git', :commit => '982bffaadf8e831e75d3444dfba56af4d3962224'
   pod 'Alamofire'
-  pod 'ESPullToRefresh'
   pod 'SCLAlertView'
   pod 'Eureka'
   pod 'SwiftyJSON'
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
   pod 'SwiftChart'
+  pod 'PullToRefreshSwift'
 end

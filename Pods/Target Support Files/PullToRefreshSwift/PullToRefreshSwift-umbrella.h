@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double ESPullToRefreshVersionNumber;
-FOUNDATION_EXPORT const unsigned char ESPullToRefreshVersionString[];
+FOUNDATION_EXPORT double PullToRefreshSwiftVersionNumber;
+FOUNDATION_EXPORT const unsigned char PullToRefreshSwiftVersionString[];
 
