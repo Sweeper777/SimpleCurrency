@@ -116,6 +116,14 @@ class CurrencyConverterController: FormViewController, GADInterstitialDelegate {
 //                self?.tableView?.es.stopPullToRefresh()
 //            }
 //        }
+        tableView.addPullRefresh {
+            [weak self] in
+            self?.getRate(completion: {
+                [weak self] in
+                self?.reloadRates()
+                self?.tableView.stopPullRefreshEver()
+            })
+        }
         
         interstitialAd = GADInterstitial(adUnitID: adUnitID2)
         let request = GADRequest()
