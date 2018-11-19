@@ -1,5 +1,5 @@
 import UIKit
-import ESPullToRefresh
+import PullToRefreshSwift
 import Alamofire
 import SwiftyJSON
 import SCLAlertView
@@ -21,11 +21,13 @@ class ExchangeRatesController: UITableViewController {
         loadSettings()
         requestData(completion: nil)
         
-//        tableView.es.addPullToRefresh {
-//            self.requestData(completion: {
-//                self.tableView.es.stopPullToRefresh()
-//            })
-//        }
+        tableView.addPullRefresh {
+            [weak self] in
+            self?.requestData(completion: {
+                [weak self] in
+                self?.tableView.stopPullRefreshEver()
+            })
+        }
     }
     
     func loadSettings() {
