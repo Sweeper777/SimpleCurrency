@@ -165,9 +165,9 @@ class CurrencyConverterController: FormViewController, GADInterstitialDelegate {
     
     func reloadRates() {
         var row: LabelRow = form.rowBy(tag: tagToRate)!
-        row.title = "1 \(currency1!) = \(rate!) \(currency2!)"
+        row.title = "1 \(currency1!) = \(formatter.string(from: rate! as NSNumber)!) \(currency2!)"
         row = form.rowBy(tag: tagFromRate)!
-        row.title = "1 \(currency2!) = \(reverseRate) \(currency1!)"
+        row.title = "1 \(currency2!) = \(formatter.string(from: reverseRate as NSNumber)!) \(currency1!)"
         
         var resultRow: CurrencyConverterRow = form.rowBy(tag: tagCurrency1Convert)!
         resultRow.value = 0
