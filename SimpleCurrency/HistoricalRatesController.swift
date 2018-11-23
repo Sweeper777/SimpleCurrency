@@ -54,12 +54,13 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
         thirtyDayChart.delegate = self
         getRate()
         
-//        tableView.es.addPullToRefresh {
-//            [weak self] in
-//            self?.getRate() {
-//                self?.tableView.es.stopPullToRefresh()
-//            }
-//        }
+        tableView.addPullRefresh {
+            [weak self] in
+            self?.getRate(completion: {
+                [weak self] in
+                self?.tableView.stopPullRefreshEver()
+            })
+        }
     }
     
     @IBAction func done() {
