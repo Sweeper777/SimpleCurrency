@@ -72,11 +72,29 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
 
     func getRate(completion: (() -> Void)! = nil) {
         let baseCurrency = UserDefaults.standard.string(forKey: "baseCurrency")
-            }
+
+        let startDateString = apiDateFormatter.string(from: last30Days.first!)
+        let endDateString = apiDateFormatter.string(from: last30Days.last!)
+        let url = "https://api.exchangeratesapi.io/history?start_at=\(startDateString)&end_at=\(endDateString)&symbols=\(currency!)&base=\(baseCurrency!)"
+        Alamofire.request(url).responseString { [weak self] (response) in
+            guard let `self` = self else { return }
+            if let _ = response.error {
                 let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton:false))
                 alert.addButton(NSLocalizedString("OK", comment: ""), action: {})
                 alert.showError(NSLocalizedString("Error", comment: ""), subTitle: NSLocalizedString("Unable to get exchange rates.", comment: ""))
+                completion?()
+                return
             }
+            let json = JSON(parseJSON: response.value!)
+            if let _ = json["error"].string {
+                let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton:false))
+                alert.addButton(NSLocalizedString("OK", comment: ""), action: {})
+                alert.showError(NSLocalizedString("Error", comment: ""), subTitle: NSLocalizedString("Unable to get exchange rates.", comment: ""))
+                completion?()
+                return
+            }
+            let rates = json["rates"].map { ($0.0, $0.1[self.currency!.currencyCode].doubleValue) }
+            self.rates = Dictionary(uniqueKeysWithValues: rates)
             completion?()
         }
 //        for date in last30Days {
