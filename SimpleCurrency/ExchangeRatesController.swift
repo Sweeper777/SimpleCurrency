@@ -100,7 +100,11 @@ class ExchangeRatesController: UITableViewController {
         guard let json = self.json else { return cell }
         guard let rate = json["rates"][currencies[indexPath.row - 1]].double else { return cell }
         
-        cell.textLabel!.text = "\(rate) \(currencies[indexPath.row - 1]) (\(Currencies(rawValue: currencies[indexPath.row - 1])!.symbol))"
+        let formatter = NumberFormatter()
+        formatter.maximumSignificantDigits = 5
+        let rateString = formatter.string(from: rate as NSNumber)!
+        
+        cell.textLabel!.text = "\(rateString) \(currencies[indexPath.row - 1]) (\(Currencies(rawValue: currencies[indexPath.row - 1])!.symbol))"
         
         return cell
     }
