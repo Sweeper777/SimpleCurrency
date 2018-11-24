@@ -10,12 +10,10 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
     }
 
     var currency: Currencies!
-    var rates: [Date: Double] = [:]
+    var rates: [String: Double] = [:]
         {
         didSet {
-            if rates.count == 30 {
-                refreshCharts()
-            }
+            refreshCharts()
         }
     }
     
@@ -40,10 +38,11 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
         return Array(last30Days.dropFirst(23))
     }
     
-    var last7DaysRates: [Date: Double] {
-        var rates = [Date: Double]()
+    var last7DaysRates: [String: Double] {
+        var rates = [String: Double]()
         for date in last7Days {
-            rates[date] = self.rates[date]
+            let dateString = apiDateFormatter.string(from: date)
+            rates[dateString] = self.rates[dateString]
         }
         return rates
     }
