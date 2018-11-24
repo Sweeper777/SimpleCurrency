@@ -47,10 +47,14 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
         return rates
     }
     
+    var apiDateFormatter: DateFormatter!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         sevenDayChart.delegate = self
         thirtyDayChart.delegate = self
+        apiDateFormatter = DateFormatter()
+        apiDateFormatter.dateFormat = "yyyy-MM-dd"
         getRate()
         
         tableView.addPullRefresh {
