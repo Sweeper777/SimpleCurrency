@@ -143,4 +143,10 @@ class SettingsController: FormViewController {
         
         performSegue(withIdentifier: "unwindToExchangeRates", sender: self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? CurrencySelectorController {
+            vc.row = self.form.rowBy(tag: tagBaseCurrency)
+        }
+    }
 }
