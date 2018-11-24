@@ -69,45 +69,37 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
 
     func getRate(completion: (() -> Void)! = nil) {
         let baseCurrency = UserDefaults.standard.string(forKey: "baseCurrency")
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        let group = DispatchGroup()
-        var errorOccurred = false
-        var responses = [Date: Double]()
-        for date in last30Days {
-            group.enter()
-            let dateString = formatter.string(from: date)
-            let url = "https://api.exchangeratesapi.io/\(dateString)?base=\(baseCurrency!)&symbols=\(currency!)"
-            Alamofire.request(url).responseString {
-                [weak self]
-                response in
-                defer { group.leave() }
-                if let _ = response.error {
-                    errorOccurred = true
-                    return
-                }
-                
-                let json = JSON(parseJSON: response.value!)
-                if let _ = json["error"].string {
-                    errorOccurred = true
-                    return
-                }
-                
-                if let rate = json["rates"][self!.currency.currencyCode].double {
-                    responses[date] = rate
-                }
             }
-        }
-        group.notify(queue: .main) {
-            if !errorOccurred {
-                self.rates = responses
-            } else {
                 let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton:false))
                 alert.addButton(NSLocalizedString("OK", comment: ""), action: {})
                 alert.showError(NSLocalizedString("Error", comment: ""), subTitle: NSLocalizedString("Unable to get exchange rates.", comment: ""))
             }
             completion?()
         }
+//        for date in last30Days {
+//            group.enter()
+//            let dateString = formatter.string(from: date)
+//            let url = "https://api.exchangeratesapi.io/\(dateString)?base=\(baseCurrency!)&symbols=\(currency!)"
+//            Alamofire.request(url).responseString {
+//                [weak self]
+//                response in
+//                defer { group.leave() }
+//                if let _ = response.error {
+//                    errorOccurred = true
+//                    return
+//                }
+//
+//                let json = JSON(parseJSON: response.value!)
+//                if let _ = json["error"].string {
+//                    errorOccurred = true
+//                    return
+//                }
+//
+//                if let rate = json["rates"][self!.currency.currencyCode].double {
+//                    responses[date] = rate
+//                }
+//            }
+//        }
     }
     
     func refreshCharts() {
