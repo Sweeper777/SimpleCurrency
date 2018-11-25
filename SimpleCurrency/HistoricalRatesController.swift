@@ -97,30 +97,6 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
             self.rates = Dictionary(uniqueKeysWithValues: rates)
             completion?()
         }
-//        for date in last30Days {
-//            group.enter()
-//            let dateString = formatter.string(from: date)
-//            let url = "https://api.exchangeratesapi.io/\(dateString)?base=\(baseCurrency!)&symbols=\(currency!)"
-//            Alamofire.request(url).responseString {
-//                [weak self]
-//                response in
-//                defer { group.leave() }
-//                if let _ = response.error {
-//                    errorOccurred = true
-//                    return
-//                }
-//
-//                let json = JSON(parseJSON: response.value!)
-//                if let _ = json["error"].string {
-//                    errorOccurred = true
-//                    return
-//                }
-//
-//                if let rate = json["rates"][self!.currency.currencyCode].double {
-//                    responses[date] = rate
-//                }
-//            }
-//        }
     }
     
     func refreshCharts() {
