@@ -35,7 +35,7 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
     }()
     
     var last7Days: [Date] {
-        return Array(last30Days.dropFirst(23))
+        return Array(last30Days.dropFirst(last30Days.count - 7))
     }
     
     var last7DaysRates: [String: Double] {
