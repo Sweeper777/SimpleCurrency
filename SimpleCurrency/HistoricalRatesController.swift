@@ -11,11 +11,6 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
 
     var currency: Currencies!
     var rates: [String: Double] = [:]
-        {
-        didSet {
-            refreshCharts()
-        }
-    }
     
     @IBOutlet var sevenDayChart: Chart!
     @IBOutlet var thirtyDayChart: Chart!
