@@ -21,10 +21,15 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
     
     let last30Days: [Date] = {
         var dates = [Date]()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
         for i in 0...29 {
             let day = Date().addingTimeInterval(Double(-60 * 60 * 24 * (29 - i)))
-            dates.append(day)
+            let string = formatter.string(from: day)
+            let dayWithoutTime = formatter.date(from: string)!
+            dates.append(dayWithoutTime)
         }
+        dates = Array(dates.drop(while: { [1,7].contains(Calendar(identifier: .gregorian).dateComponents([.weekday], from: $0).weekday)}))
         
         return dates
     }()
