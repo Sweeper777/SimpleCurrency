@@ -94,7 +94,15 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
                 return
             }
             let rates = json["rates"].map { ($0.0, $0.1[self.currency!.currencyCode].doubleValue) }
-            self.rates = Dictionary(uniqueKeysWithValues: rates)
+            let ratesDict = Dictionary(uniqueKeysWithValues: rates)
+            self.rates = [:]
+            var lastRate = 0.0
+            for day in self.last30Days {
+                let dateString = self.apiDateFormatter.string(from: day)
+                let rate = ratesDict[dateString] ?? lastRate
+                self.rates[dateString] = rate
+                lastRate = rate
+            }
             completion?()
         }
     }
