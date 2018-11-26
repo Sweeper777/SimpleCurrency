@@ -10,7 +10,7 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
     }
 
     var currency: Currencies!
-    var rates: [String: Double] = [:]
+    var rates: [Date: Double] = [:]
     
     @IBOutlet var sevenDayChart: Chart!
     @IBOutlet var thirtyDayChart: Chart!
