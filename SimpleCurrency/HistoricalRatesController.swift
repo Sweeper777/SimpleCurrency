@@ -55,13 +55,14 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
         thirtyDayChart.delegate = self
         apiDateFormatter = DateFormatter()
         apiDateFormatter.dateFormat = "yyyy-MM-dd"
-        getRate()
+        getRate(completion: refreshCharts)
         
         tableView.addPullRefresh {
             [weak self] in
             self?.getRate(completion: {
                 [weak self] in
                 self?.tableView.stopPullRefreshEver()
+                self?.refreshCharts()
             })
         }
     }
