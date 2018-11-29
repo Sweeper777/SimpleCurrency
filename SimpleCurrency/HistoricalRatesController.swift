@@ -100,7 +100,7 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
             for day in self.last30Days {
                 let dateString = self.apiDateFormatter.string(from: day)
                 let rate = ratesDict[dateString] ?? lastRate
-                self.rates[dateString] = rate
+                self.rates[day] = rate
                 lastRate = rate
             }
             completion?()
