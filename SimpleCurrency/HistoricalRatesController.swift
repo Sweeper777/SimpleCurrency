@@ -170,7 +170,9 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
             label.isHidden = false
             let labelLeadingMarginInitialConstant = CGFloat(0)
             let baseCurrency = UserDefaults.standard.string(forKey: "baseCurrency")
-            label.text = "\(formatter.string(from: days[indexes[0]!])): 1 \(baseCurrency!) = \(value) \(currency.currencyCode)"
+            let numberFormatter = NumberFormatter()
+            numberFormatter.maximumFractionDigits = 3
+            label.text = "\(formatter.string(from: days[indexes[0]!])): 1 \(baseCurrency!) = \(numberFormatter.string(from: value as NSNumber)!) \(currency.currencyCode)"
             
             // Align the label to the touch left position, centered
             var constant = labelLeadingMarginInitialConstant + left - (label.frame.width / 2)
