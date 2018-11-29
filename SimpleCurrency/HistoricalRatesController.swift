@@ -124,7 +124,9 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
 //                chart.maxY! += 0.005
 //            }
             chart.yLabels = Array(stride(from: chart.minY!, through: chart.maxY!, by: (chart.maxY! - chart.minY!) / 10))
-            chart.yLabelsFormatter = { _, float in return float.description }
+            let formatter = NumberFormatter()
+            formatter.maximumFractionDigits = 3
+            chart.yLabelsFormatter = { _, float in return formatter.string(from: float as NSNumber)! }
             if dataArray.count == 7 {
                 chart.xLabels = Array(stride(from: 0.0, to: Double(dataArray.count), by: 1))
             } else {
