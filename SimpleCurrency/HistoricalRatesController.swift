@@ -38,11 +38,10 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
         return Array(last30Days.dropFirst(last30Days.count - 7))
     }
     
-    var last7DaysRates: [String: Double] {
-        var rates = [String: Double]()
+    var last7DaysRates: [Date: Double] {
+        var rates = [Date: Double]()
         for date in last7Days {
-            let dateString = apiDateFormatter.string(from: date)
-            rates[dateString] = self.rates[dateString]
+            rates[date] = self.rates[date]
         }
         return rates
     }
