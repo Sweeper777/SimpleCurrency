@@ -110,10 +110,11 @@ class ExchangeRatesController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let _ = json["rates"][currencies[indexPath.row - 1]].double {
+        if let _ = json?["rates"][currencies[indexPath.row - 1]].double {
             currencyToPass = Currencies(rawValue: currencies[indexPath.row - 1])
             performSegue(withIdentifier: "showConverter", sender: self)
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
