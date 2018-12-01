@@ -52,6 +52,7 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.allowsSelection = false
         sevenDayChart.delegate = self
         thirtyDayChart.delegate = self
         apiDateFormatter = DateFormatter()
