@@ -48,6 +48,8 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
     
     var apiDateFormatter: DateFormatter!
     
+    var multiplier: Int = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         sevenDayChart.delegate = self
@@ -109,9 +111,6 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
     
     func refreshCharts() {
         func refresh(chart: Chart, with dataArray: [Double]) {
-            let data = ChartSeries(dataArray)
-            data.area = false
-            chart.add(data)
             let min = dataArray.min()!
             let max = dataArray.max()!
             let range = max - min
@@ -119,10 +118,16 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
             let delta = pow(10.0, order) * 0.1
             chart.minY = min - delta  < 0 ? 0 : min - delta
             chart.maxY = max + delta
-//            if chart.maxY! - chart.minY! < 0.01 {
-//                chart.minY! -= 0.005
-//                chart.maxY! += 0.005
-//            }
+            if chart.maxY! - chart.minY! < 0.01 {
+                multiplier = 100
+            } else {
+                multiplier = 1
+            }
+            chart.minY! *= Double(multiplier)
+            chart.maxY! *= Double(multiplier)
+            let data = ChartSeries(dataArray.map { $0 * Double(multiplier) })
+            data.area = false
+            chart.add(data)
             chart.yLabels = Array(stride(from: chart.minY!, through: chart.maxY!, by: (chart.maxY! - chart.minY!) / 10))
             let formatter = NumberFormatter()
             formatter.maximumFractionDigits = 3
