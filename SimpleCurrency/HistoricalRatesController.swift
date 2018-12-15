@@ -115,10 +115,14 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
             let min = dataArray.min()!
             let max = dataArray.max()!
             let range = max - min
-            let order = ceil(log(Double(range)) / M_LN10)
-            let delta = pow(10.0, order) * 0.1
-            chart.minY = min - delta  < 0 ? 0 : min - delta
-            chart.maxY = max + delta
+            let p = range / min
+            let k = 12.0
+            let correctedP = 2 * (atan(p * k) / .pi)
+            let rMin = 0.1
+            let rMax = 0.9
+            let c = range / (2 * (correctedP * rMax + (1 - correctedP) * rMin)) - range / 2
+            chart.minY = min - c < 0 ? 0 : min - c
+            chart.maxY = max + c
             if chart.maxY! - chart.minY! < 0.01 {
                 multiplier = 100
             } else {
