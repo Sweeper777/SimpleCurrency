@@ -35,7 +35,8 @@
     "source_files": [
       "Sources/Extensions/UIKit/*.swift",
       "Sources/Others/UIKit/*.swift",
-      "Sources/AppKit/*.swift"
+      "Sources/AppKit/*.swift",
+      "Sources/Others/macOS/*.swift"
     ]
   }
 }

@@ -67,6 +67,7 @@ Check out the repository to find examples / tests for each feature.
 **Available for macOS:**
 
 - [NSView](#nsview-extension)
+- [SystemUtility - Shell](#system-utility)
 
 ## Available for iOS, macOS, tvOS and watchOS
 
@@ -325,6 +326,30 @@ let lighter = color.lighter()
 // OR
 let darker = color.darker(amount: 0.5)
 let darker = color.darker()
+```
+
+### Data Extension
+
+Initialize from hex string:
+
+```swift
+let hexString = "6261736520313020697320736F2062617369632E206261736520313620697320776865726520697427732061742C20796F2E"
+let data = Data(hexString: hexString)
+```
+
+Get hex string from data:
+
+```swift
+let data = Data(...)
+let string = data.toHexString()
+// string = "6261736520313020697320736F2062617369632E206261736520313620697320776865726520697427732061742C20796F2E" if using previous example value
+```
+
+Get UInt8 Array from data:
+
+```swift
+let data = Data(...)
+let array = data.bytesArray
 ```
 
 ## Date extension
@@ -728,6 +753,26 @@ var string = "test@gmail.com"
 print(string.isEmail) // true
 var string = "test@"
 print(string.isEmail) // false
+```
+
+Check if it's a valid IP address:
+
+```swift
+let ip4 = "1.2.3.4"
+let ip6 = "fc00::"
+let notIPAtAll = "i'll bribe you to say i'm an ip address!"
+
+ip4.isIP4Address //true
+ip4.isIP6Address //false
+ip4.isIPAddress //true
+
+ip6.isIP4Address //false
+ip6.isIP6Address //true
+ip6.isIPAddress //true
+
+notIPAtAll.isIP4Address //false
+notIPAtAll.isIP6Address //false
+notIPAtAll.isIPAddress //false
 ```
 
 Uncamelize a string:
@@ -1268,6 +1313,28 @@ aView.convertLocalizables()
 
 It will iterate on all the subviews of the view, and use the text / placeholder as key in `NSLocalizedString`.
 By settings your localizable key in your xib / storyboard, all yours string will be automatically translated just by calling the above method.
+
+### Shell Utility 
+(macOS only)
+
+Runs a command on a system shell and provides the return code for success, STDOUT, and STDERR.
+
+**STDOUT as one continuous String**
+```
+let (rCode, stdOut, stdErr) = SystemUtility.shell(["ls", "-l", "/"])
+// rCode = 0 (which is "true" in shell)
+// stdOut = "total 13\ndrwxrwxr-x+ 91 root  admin  2912 Feb 11 01:24 Applications" ...  etc
+// stdErr = [""]
+```
+
+**STDOUT as array of Strings separated by newlines**
+```
+let (rCode, stdOut, stdErr) = SystemUtility.shellArrayOut(["ls", "-l", "/"])
+// rCode = 0 (which is "true" in shell)
+// stdOut = ["total 13", "drwxrwxr-x+ 91 root  admin  2912 Feb 11 01:24 Applications" ...  etc]
+// stdErr = [""]
+```
+
 
 ## Installation
 
