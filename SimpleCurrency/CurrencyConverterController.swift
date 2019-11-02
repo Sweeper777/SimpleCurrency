@@ -105,7 +105,7 @@ class CurrencyConverterController: FormViewController, GADInterstitialDelegate {
             row.title = NSLocalizedString("Historical Rates", comment: "")
         }
         .onCellSelection {
-            _ in
+            _,_  in
             self.performSegue(withIdentifier: "showHistorical", sender: self)
         }
         
@@ -127,7 +127,6 @@ class CurrencyConverterController: FormViewController, GADInterstitialDelegate {
         
         interstitialAd = GADInterstitial(adUnitID: adUnitID2)
         let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
         interstitialAd.load(request)
         interstitialAd.delegate = self
     }
@@ -185,7 +184,6 @@ class CurrencyConverterController: FormViewController, GADInterstitialDelegate {
     func interstitialWillDismissScreen(_ ad: GADInterstitial) {
         interstitialAd = GADInterstitial(adUnitID: adUnitID2)
         let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
         interstitialAd.load(request)
         interstitialAd.delegate = self
     }
@@ -193,7 +191,6 @@ class CurrencyConverterController: FormViewController, GADInterstitialDelegate {
     func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
         interstitialAd = GADInterstitial(adUnitID: adUnitID2)
         let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
         interstitialAd.load(request)
         interstitialAd.delegate = self
     }

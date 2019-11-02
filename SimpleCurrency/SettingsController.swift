@@ -31,7 +31,7 @@ class SettingsController: FormViewController {
             row in
             row.title = NSLocalizedString("Select All", comment: "")
         }.onCellSelection {
-            _ in
+            _,_  in
             for currency in Currencies.allValues {
                 if let row: CheckRow = self.form.rowBy(tag: currency.currencyCode) {
                     row.value = true
@@ -45,7 +45,7 @@ class SettingsController: FormViewController {
             row in
             row.title = NSLocalizedString("Deselect All", comment: "")
             }.onCellSelection {
-                _ in
+                _,_  in
                 for currency in Currencies.allValues {
                     if let row: CheckRow = self.form.rowBy(tag: currency.currencyCode) {
                         row.value = false

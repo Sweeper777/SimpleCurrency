@@ -85,7 +85,6 @@ class ExchangeRatesController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ad")!
             let banner = cell.viewWithTag(1) as! GADBannerView
             let request = GADRequest()
-            request.testDevices = [kGADSimulatorID]
             banner.rootViewController = self
             banner.adUnitID = adUnitID1
             banner.load(request)

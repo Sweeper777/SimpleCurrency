@@ -8,7 +8,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         window?.tintColor = UIColor(hex: "3b7b3b")
         UINavigationBar.appearance().barStyle = .black
@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         lastUsedBuild = Int(Bundle.main.appBuild) ?? 0
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [kGADSimulatorID as! String]
         return true
     }
 
