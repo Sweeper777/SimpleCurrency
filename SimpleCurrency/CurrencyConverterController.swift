@@ -5,6 +5,7 @@ import SCLAlertView
 import SwiftyJSON
 import SwiftyUtils
 import GoogleMobileAds
+import SVPullToRefresh
 
 class CurrencyConverterController: FormViewController, GADInterstitialDelegate {
 
@@ -57,7 +58,6 @@ class CurrencyConverterController: FormViewController, GADInterstitialDelegate {
                 resultRow.cell.textField.text = self.formatter.string(from: (value * self.rate) as NSNumber)!
             }
             let randomNumber = arc4random_uniform(100)
-            print(randomNumber)
             if randomNumber < 6 {
                 if self.interstitialAd.isReady && !self.interstitialAd.hasBeenUsed {
                     self.interstitialAd.present(fromRootViewController: self)
@@ -109,19 +109,12 @@ class CurrencyConverterController: FormViewController, GADInterstitialDelegate {
             self.performSegue(withIdentifier: "showHistorical", sender: self)
         }
         
-//        tableView!.es.addPullToRefresh {
-//            [weak self] in
-//            self?.getRate {
-//                self?.reloadRates()
-//                self?.tableView?.es.stopPullToRefresh()
-//            }
-//        }
-        tableView.addPullRefresh {
+        tableView.addPullToRefresh {
             [weak self] in
             self?.getRate(completion: {
                 [weak self] in
                 self?.reloadRates()
-                self?.tableView.stopPullRefreshEver()
+                self?.tableView.pullToRefreshView.stopAnimating()
             })
         }
         
