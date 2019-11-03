@@ -13,11 +13,13 @@ target 'SimpleCurrency' do
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
   pod 'SwiftChart'
-  pod 'PullToRefreshSwift'
-#  target 'ExchangeRates' do
-#      pod 'Alamofire'
-#      pod 'SwiftyUtils', :git => 'https://github.com/tbaranes/SwiftyUtils.git', :commit => '982bffaadf8e831e75d3444dfba56af4d3962224'
-#      pod 'SwiftyJSON'
-#      pod 'SwiftChart'
-#  end
+  pod 'SVPullToRefresh'
 end
+
+target 'ExchangeRates' do
+  use_frameworks!
+  pod 'Alamofire', '4.7.3'
+  pod 'SwiftyUtils', :git => 'https://github.com/tbaranes/SwiftyUtils.git', :commit => 'c8860e783819333743a0f3b9ea791fa0692c9cb1'
+  pod 'SwiftyJSON', '4.2.0'
+  pod 'SwiftChart'
+  end

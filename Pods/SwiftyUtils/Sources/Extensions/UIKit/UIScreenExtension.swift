@@ -22,31 +22,3 @@ extension UIScreen {
     }
 
 }
-
-#if os(iOS)
-
-// MARK: - StatusBar
-
-extension UIScreen {
-
-    public class var statusBarHeight: CGFloat {
-        return UIApplication.shared.statusBarFrame.height
-    }
-
-    public class var heightWithoutStatusBar: CGFloat {
-        return currentOrientation.isPortrait ? height - statusBarHeight :
-            UIScreen.main.bounds.size.width - statusBarHeight
-    }
-
-}
-
-// MARK: - Orientation
-
-extension UIScreen {
-
-    @objc public class var currentOrientation: UIInterfaceOrientation {
-        return UIApplication.shared.statusBarOrientation
-    }
-
-}
-#endif

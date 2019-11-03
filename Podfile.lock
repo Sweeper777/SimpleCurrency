@@ -69,8 +69,8 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
-  - PullToRefreshSwift (3.0.3)
   - SCLAlertView (0.8.1)
+  - SVPullToRefresh (0.4.1)
   - SwiftChart (1.0.1)
   - SwiftyJSON (4.2.0)
   - SwiftyUtils (3.0.0)
@@ -80,8 +80,8 @@ DEPENDENCIES:
   - Eureka (= 4.3.1)
   - Firebase/AdMob
   - Firebase/Core
-  - PullToRefreshSwift
   - SCLAlertView (from `https://github.com/vikmeup/SCLAlertView-Swift.git`, commit `86ea7613c99cd4896765fabfa773b39b40bc8590`)
+  - SVPullToRefresh
   - SwiftChart
   - SwiftyJSON (= 4.2.0)
   - SwiftyUtils (from `https://github.com/tbaranes/SwiftyUtils.git`, commit `c8860e783819333743a0f3b9ea791fa0692c9cb1`)
@@ -102,7 +102,7 @@ SPEC REPOS:
     - GoogleDataTransportCCTSupport
     - GoogleUtilities
     - nanopb
-    - PullToRefreshSwift
+    - SVPullToRefresh
     - SwiftChart
     - SwiftyJSON
 
@@ -137,12 +137,12 @@ SPEC CHECKSUMS:
   GoogleDataTransportCCTSupport: f6ab1962e9dc05ab1fb938b795e5b310209edeec
   GoogleUtilities: f895fde57977df4e0233edda0dbeac490e3703b6
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
-  PullToRefreshSwift: 0743b818072bfd7c9464addc2d1b987b131057ca
   SCLAlertView: f46fff9c4f44cf06bd60e17370b020428a0d964a
+  SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
   SwiftChart: ba767a678d568a5ee22d419e146a0582865e1aff
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   SwiftyUtils: b7097cc60b92a39e0eaa41c703e9ef695a919506
 
-PODFILE CHECKSUM: ae7cb1000a53d28572b73df89002c6abdd67765d
+PODFILE CHECKSUM: 7d340209f98709d1a58cd980ff0770b473ea0a4a
 
 COCOAPODS: 1.7.4

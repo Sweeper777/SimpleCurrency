@@ -25,16 +25,6 @@ extension UIAlertController {
 
 }
 
-// MARK: - Show
-
-extension UIAlertController {
-
-    @objc
-    public func show(animated: Bool = true, completion: (() -> Void)? = nil) {
-        UIApplication.shared.topViewController()?.present(self, animated: animated, completion: completion)
-    }
-
-}
 
 // MARK: - Actions
 

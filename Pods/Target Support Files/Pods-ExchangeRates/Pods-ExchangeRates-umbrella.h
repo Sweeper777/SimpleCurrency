@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double PullToRefreshSwiftVersionNumber;
-FOUNDATION_EXPORT const unsigned char PullToRefreshSwiftVersionString[];
+FOUNDATION_EXPORT double Pods_ExchangeRatesVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_ExchangeRatesVersionString[];
 
