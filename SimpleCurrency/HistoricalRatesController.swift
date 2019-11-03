@@ -3,6 +3,7 @@ import SwiftChart
 import Alamofire
 import SwiftyJSON
 import SCLAlertView
+import SVPullToRefresh
 
 class HistoricalRatesController: UITableViewController, ChartDelegate {
     func didEndTouchingChart(_ chart: Chart) {
@@ -59,11 +60,11 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
         apiDateFormatter.dateFormat = "yyyy-MM-dd"
         getRate(completion: refreshCharts)
         
-        tableView.addPullRefresh {
+        tableView.addPullToRefresh {
             [weak self] in
             self?.getRate(completion: {
                 [weak self] in
-                self?.tableView.stopPullRefreshEver()
+                self?.tableView.pullToRefreshView.stopAnimating()
                 self?.refreshCharts()
             })
         }
