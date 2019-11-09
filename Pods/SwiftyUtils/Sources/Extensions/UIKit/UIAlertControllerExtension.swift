@@ -25,7 +25,6 @@ extension UIAlertController {
 
 }
 
-
 // MARK: - Actions
 
 extension UIAlertController {

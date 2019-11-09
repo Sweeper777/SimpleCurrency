@@ -1,24 +1,24 @@
 PODS:
-  - Alamofire (4.7.3)
-  - Eureka (4.3.1)
-  - Firebase/AdMob (6.11.0):
+  - Alamofire (4.9.1)
+  - Eureka (5.1.0)
+  - Firebase/AdMob (6.12.0):
     - Firebase/CoreOnly
     - Google-Mobile-Ads-SDK (~> 7.50)
-  - Firebase/Core (6.11.0):
+  - Firebase/Core (6.12.0):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (= 6.1.3)
-  - Firebase/CoreOnly (6.11.0):
-    - FirebaseCore (= 6.3.2)
-  - FirebaseAnalytics (6.1.3):
+    - FirebaseAnalytics (= 6.1.5)
+  - Firebase/CoreOnly (6.12.0):
+    - FirebaseCore (= 6.3.3)
+  - FirebaseAnalytics (6.1.5):
     - FirebaseCore (~> 6.3)
     - FirebaseInstanceID (~> 4.2)
-    - GoogleAppMeasurement (= 6.1.3)
+    - GoogleAppMeasurement (= 6.1.5)
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
     - GoogleUtilities/Network (~> 6.0)
     - "GoogleUtilities/NSData+zlib (~> 6.0)"
-    - nanopb (~> 0.3.901)
-  - FirebaseCore (6.3.2):
+    - nanopb (= 0.3.9011)
+  - FirebaseCore (6.3.3):
     - FirebaseCoreDiagnostics (~> 1.0)
     - FirebaseCoreDiagnosticsInterop (~> 1.0)
     - GoogleUtilities/Environment (~> 6.2)
@@ -29,19 +29,19 @@ PODS:
     - GoogleUtilities/Environment (~> 6.2)
     - GoogleUtilities/Logger (~> 6.2)
     - nanopb (~> 0.3.901)
-  - FirebaseCoreDiagnosticsInterop (1.0.0)
-  - FirebaseInstanceID (4.2.6):
+  - FirebaseCoreDiagnosticsInterop (1.1.0)
+  - FirebaseInstanceID (4.2.7):
     - FirebaseCore (~> 6.0)
     - GoogleUtilities/Environment (~> 6.0)
     - GoogleUtilities/UserDefaults (~> 6.0)
-  - Google-Mobile-Ads-SDK (7.51.0):
+  - Google-Mobile-Ads-SDK (7.52.0):
     - GoogleAppMeasurement (~> 6.0)
-  - GoogleAppMeasurement (6.1.3):
+  - GoogleAppMeasurement (6.1.5):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
     - GoogleUtilities/Network (~> 6.0)
     - "GoogleUtilities/NSData+zlib (~> 6.0)"
-    - nanopb (~> 0.3.901)
+    - nanopb (= 0.3.9011)
   - GoogleDataTransport (3.0.1)
   - GoogleDataTransportCCTSupport (1.2.1):
     - GoogleDataTransport (~> 3.0)
@@ -72,19 +72,19 @@ PODS:
   - SCLAlertView (0.8.1)
   - SVPullToRefresh (0.4.1)
   - SwiftChart (1.0.1)
-  - SwiftyJSON (4.2.0)
-  - SwiftyUtils (3.0.0)
+  - SwiftyJSON (5.0.0)
+  - SwiftyUtils (4.0.0)
 
 DEPENDENCIES:
-  - Alamofire (= 4.7.3)
-  - Eureka (= 4.3.1)
+  - Alamofire
+  - Eureka (= 5.1.0)
   - Firebase/AdMob
   - Firebase/Core
-  - SCLAlertView (from `https://github.com/vikmeup/SCLAlertView-Swift.git`, commit `86ea7613c99cd4896765fabfa773b39b40bc8590`)
+  - SCLAlertView (from `https://github.com/vikmeup/SCLAlertView-Swift.git`)
   - SVPullToRefresh
   - SwiftChart
-  - SwiftyJSON (= 4.2.0)
-  - SwiftyUtils (from `https://github.com/tbaranes/SwiftyUtils.git`, commit `c8860e783819333743a0f3b9ea791fa0692c9cb1`)
+  - SwiftyJSON
+  - SwiftyUtils (from `https://github.com/tbaranes/SwiftyUtils.git`, commit `adf37824622a46190aef33be686163311888a3c9`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -108,41 +108,40 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   SCLAlertView:
-    :commit: 86ea7613c99cd4896765fabfa773b39b40bc8590
     :git: https://github.com/vikmeup/SCLAlertView-Swift.git
   SwiftyUtils:
-    :commit: c8860e783819333743a0f3b9ea791fa0692c9cb1
+    :commit: adf37824622a46190aef33be686163311888a3c9
     :git: https://github.com/tbaranes/SwiftyUtils.git
 
 CHECKOUT OPTIONS:
   SCLAlertView:
-    :commit: 86ea7613c99cd4896765fabfa773b39b40bc8590
+    :commit: d98c3e647ad77ed537d021e7d6ad07bb71f83186
     :git: https://github.com/vikmeup/SCLAlertView-Swift.git
   SwiftyUtils:
-    :commit: c8860e783819333743a0f3b9ea791fa0692c9cb1
+    :commit: adf37824622a46190aef33be686163311888a3c9
     :git: https://github.com/tbaranes/SwiftyUtils.git
 
 SPEC CHECKSUMS:
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  Eureka: 28ea296f06710f6745266b71f17862048941a32d
-  Firebase: bc9cfc7a96c73268656d5aaab453ff1b4b530e0e
-  FirebaseAnalytics: 0e3ecff2c5d86070f7d4325e21f1edabfbd558dc
-  FirebaseCore: beeff42c07c30ea94702471d99db2089b594fbbd
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Eureka: 18a5076dcf0c41f9cd9748aa1c42f4d11434bdae
+  Firebase: da031bc7012374e3bed17a6731b89327b29863b9
+  FirebaseAnalytics: 4e53a7eb7b76bc703c4d9239bc964545e9b23361
+  FirebaseCore: bcd6c112429249d7921e907d661e8955a3549e26
   FirebaseCoreDiagnostics: af29e43048607588c050889d19204f4d7b758c9f
-  FirebaseCoreDiagnosticsInterop: 6829da2b8d1fc795ff1bd99df751d3788035d2cb
-  FirebaseInstanceID: d0eafcd8bdbd3447cd694594734078c3e3e77d8b
-  Google-Mobile-Ads-SDK: 5c625884f0788d22b48e3bb641e1d65c673dc7a5
-  GoogleAppMeasurement: 434cc7be25e71dc04b8d0e3079125127b330e84a
+  FirebaseCoreDiagnosticsInterop: e9b1b023157e3a2fc6418b5cb601e79b9af7b3a0
+  FirebaseInstanceID: ebd2ea79ee38db0cb5f5167b17a0d387e1cc7b6e
+  Google-Mobile-Ads-SDK: 62f6244637306cb60a1b4adda067f53224c7a860
+  GoogleAppMeasurement: 037f46d1d8ae8b312720f1042585ab961a1289e3
   GoogleDataTransport: 166f9b9f82cbf60a204e8fe2daa9db3e3ec1fb15
   GoogleDataTransportCCTSupport: f6ab1962e9dc05ab1fb938b795e5b310209edeec
   GoogleUtilities: f895fde57977df4e0233edda0dbeac490e3703b6
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
-  SCLAlertView: f46fff9c4f44cf06bd60e17370b020428a0d964a
+  SCLAlertView: 776813fb1f62248965f37cb7edf4088ee6394460
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
   SwiftChart: ba767a678d568a5ee22d419e146a0582865e1aff
-  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
-  SwiftyUtils: b7097cc60b92a39e0eaa41c703e9ef695a919506
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  SwiftyUtils: e2c0b1fd674684e1083c894f6a71a64bb9617402
 
-PODFILE CHECKSUM: 7d340209f98709d1a58cd980ff0770b473ea0a4a
+PODFILE CHECKSUM: 1e49d662e28db0611f95b22ad7344c7f77f42aad
 
-COCOAPODS: 1.7.4
+COCOAPODS: 1.7.5
