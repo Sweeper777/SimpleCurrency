@@ -68,6 +68,16 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
                 self?.refreshCharts()
             })
         }
+        
+        if #available(iOS 13.0, *) {
+            isModalInPresentation = true
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        view.gestureRecognizers?.first(where: { type(of: $0) == UIPanGestureRecognizer.self })?.isEnabled = false
     }
     
     @IBAction func done() {
