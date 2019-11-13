@@ -15,13 +15,13 @@ class SettingsController: FormViewController {
         <<< CurrencySelectorRow(tag: tagBaseCurrency) {
             row in
             row.title = NSLocalizedString("Base Currency", comment: "")
-            row.value = Currencies(rawValue: UserDefaults.standard.string(forKey: "baseCurrency")!)!
+            row.value = Currencies(rawValue: UserDefaults.shared.string(forKey: "baseCurrency")!)!
         }
         
         <<< DecimalRow(tagBaseAmount) {
             row in
             row.title = NSLocalizedString("Base Amount", comment: "")
-            row.value = UserDefaults.standard.double(forKey: "baseAmount")
+            row.value = UserDefaults.shared.double(forKey: "baseAmount")
         }
         
         let section = Section(NSLocalizedString("Currencies", comment: ""))
@@ -58,7 +58,7 @@ class SettingsController: FormViewController {
         for currency in Currencies.allValues {
             section <<< CheckRow(currency.currencyCode) {
                 $0.title = "\(currency.currencyCode) (\(currency.symbol))"
-                $0.value = (UserDefaults.standard.array(forKey: "currencies") as! [String]).contains(currency.currencyCode)
+                $0.value = (UserDefaults.shared.array(forKey: "currencies") as! [String]).contains(currency.currencyCode)
                 $0.cellStyle = .subtitle
                 $0.baseCell.imageView!.image = UIImage(named: currency.currencyCode)
                 $0.hidden = Condition.function([tagBaseCurrency]) {
@@ -119,16 +119,16 @@ class SettingsController: FormViewController {
         var baseAmountChanged = false
         var currenciesChanged = false
         if let baseCurrency = values[tagBaseCurrency] as? Currencies {
-            if baseCurrency.currencyCode != UserDefaults.standard.string(forKey: "baseCurrency") {
+            if baseCurrency.currencyCode != UserDefaults.shared.string(forKey: "baseCurrency") {
                 baseCurrencyChanged = true
-                UserDefaults.standard.set(baseCurrency.currencyCode, forKey: "baseCurrency")
+                UserDefaults.shared.set(baseCurrency.currencyCode, forKey: "baseCurrency")
             }
         }
         
         if let baseAmount = values[tagBaseAmount] as? Double {
-            if baseAmount != UserDefaults.standard.double(forKey: "baseAmount") && baseAmount != 0 {
+            if baseAmount != UserDefaults.shared.double(forKey: "baseAmount") && baseAmount != 0 {
                 baseAmountChanged = true
-                UserDefaults.standard.set(baseAmount, forKey: "baseAmount")
+                UserDefaults.shared.set(baseAmount, forKey: "baseAmount")
             }
         }
         
@@ -136,7 +136,7 @@ class SettingsController: FormViewController {
         let oldArray = UserDefaults.standard.array(forKey: "currencies") as! [String]
         if !(oldArray.allSatisfy(currencies.contains) && currencies.count == oldArray.count) {
             currenciesChanged = true
-            UserDefaults.standard.set(currencies, forKey: "currencies")
+            UserDefaults.shared.set(currencies, forKey: "currencies")
         }
         
         settingsHasChanged = baseCurrencyChanged || baseAmountChanged || currenciesChanged
