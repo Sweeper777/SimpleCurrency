@@ -75,7 +75,7 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
     }
 
     func getRate(completion: (() -> Void)! = nil) {
-        let baseCurrency = UserDefaults.standard.string(forKey: "baseCurrency")
+        let baseCurrency = UserDefaults.shared.string(forKey: "baseCurrency")
 
         let startDateString = apiDateFormatter.string(from: last30Days.first!)
         let endDateString = apiDateFormatter.string(from: last30Days.last!)
@@ -180,7 +180,7 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
         if let value = chart.valueForSeries(0, atIndex: indexes[0]) {
             label.isHidden = false
             let labelLeadingMarginInitialConstant = CGFloat(0)
-            let baseCurrency = UserDefaults.standard.string(forKey: "baseCurrency")
+            let baseCurrency = UserDefaults.shared.string(forKey: "baseCurrency")
             let numberFormatter = NumberFormatter()
             numberFormatter.maximumFractionDigits = 5
             label.text = "\(formatter.string(from: days[indexes[0]!])): \(multiplier) \(baseCurrency!) = \(numberFormatter.string(from: value as NSNumber)!) \(currency.currencyCode)"
