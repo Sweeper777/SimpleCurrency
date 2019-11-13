@@ -13,10 +13,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.tintColor = UIColor(hex: "3b7b3b")
         UINavigationBar.appearance().barStyle = .black
         if lastUsedBuild == 0 {
-            UserDefaults.standard.set("USD", forKey: "baseCurrency")
-            UserDefaults.standard.set(1.0, forKey: "baseAmount")
+            UserDefaults.shared.set("USD", forKey: "baseCurrency")
+            UserDefaults.shared.set(1.0, forKey: "baseAmount")
             let currencies: [String] = [Currencies.EUR, .JPY, .GBP, .AUD, .CAD].map { $0.currencyCode }
-            UserDefaults.standard.set(currencies, forKey: "currencies")
+            UserDefaults.shared.set(currencies, forKey: "currencies")
         }
         
         lastUsedBuild = Int(Bundle.main.appBuild) ?? 0
@@ -50,6 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 var lastUsedBuild: Int {
-get { return UserDefaults.standard.integer(forKey: "lastUsedBuild") }
-set { UserDefaults.standard.set(newValue, forKey: "lastUsedBuild") }
+get { return UserDefaults.shared.integer(forKey: "lastUsedBuild") }
+set { UserDefaults.shared.set(newValue, forKey: "lastUsedBuild") }
 }
