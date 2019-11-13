@@ -15,7 +15,7 @@ class ExchangeRatesController: UITableViewController {
     
     override func viewDidLoad() {
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        if let cache = UserDefaults.standard.data(forKey: "lastData") {
+        if let cache = UserDefaults.shared.data(forKey: "lastData") {
             json = try! JSON(data: cache)
         }
         loadSettings()
@@ -32,9 +32,9 @@ class ExchangeRatesController: UITableViewController {
     }
     
     func loadSettings() {
-        currencies = UserDefaults.standard.array(forKey: "currencies")!.map { $0 as! String }
-        baseCurrency = UserDefaults.standard.string(forKey: "baseCurrency")
-        baseAmount = UserDefaults.standard.double(forKey: "baseAmount")
+        currencies = UserDefaults.shared.array(forKey: "currencies")!.map { $0 as! String }
+        baseCurrency = UserDefaults.shared.string(forKey: "baseCurrency")
+        baseAmount = UserDefaults.shared.double(forKey: "baseAmount")
     }
     
     func requestData(completion: (() -> Void)?) {
@@ -59,7 +59,7 @@ class ExchangeRatesController: UITableViewController {
                 return
             }
             self?.json = json
-            UserDefaults.standard.set(try? json.rawData(), forKey: "lastData")
+            UserDefaults.shared.set(try? json.rawData(), forKey: "lastData")
             _ = Timer.after(0.1) {
                 DispatchQueue.main.async {
                     completion?()
