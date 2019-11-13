@@ -17,7 +17,7 @@ class CurrencySelectorController: UITableViewController, TypedRowControllerType 
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Currencies.allValues.count
+        return Currencies.allCases.count + (allowNilValue ? 1 : 0)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

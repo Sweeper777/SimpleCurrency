@@ -32,7 +32,7 @@ class SettingsController: FormViewController {
             row.title = NSLocalizedString("Select All", comment: "")
         }.onCellSelection {
             _,_  in
-            for currency in Currencies.allValues {
+            for currency in Currencies.allCases {
                 if let row: CheckRow = self.form.rowBy(tag: currency.currencyCode) {
                     row.value = true
                     row.updateCell()
@@ -46,7 +46,7 @@ class SettingsController: FormViewController {
             row.title = NSLocalizedString("Deselect All", comment: "")
             }.onCellSelection {
                 _,_  in
-                for currency in Currencies.allValues {
+                for currency in Currencies.allCases {
                     if let row: CheckRow = self.form.rowBy(tag: currency.currencyCode) {
                         row.value = false
                         row.updateCell()
@@ -55,7 +55,7 @@ class SettingsController: FormViewController {
         }
         section <<< deselectButton
         
-        for currency in Currencies.allValues {
+        for currency in Currencies.allCases {
             section <<< CheckRow(currency.currencyCode) {
                 $0.title = "\(currency.currencyCode) (\(currency.symbol))"
                 $0.value = (UserDefaults.shared.array(forKey: "currencies") as! [String]).contains(currency.currencyCode)
@@ -71,12 +71,12 @@ class SettingsController: FormViewController {
             }
         }
         
-        var dependentRowTags = Currencies.allValues.map { $0.currencyCode }
+        var dependentRowTags = Currencies.allCases.map { $0.currencyCode }
         dependentRowTags.append(tagBaseCurrency)
         selectButton.hidden = Condition.function(dependentRowTags) {
             form in
             let baseCurrency = (form.rowBy(tag: tagBaseCurrency) as! CurrencySelectorRow).value
-            for currency in Currencies.allValues where currency != baseCurrency {
+            for currency in Currencies.allCases where currency != baseCurrency {
                 guard let row: CheckRow = form.rowBy(tag: currency.currencyCode) else {
                     return false
                 }
@@ -94,7 +94,7 @@ class SettingsController: FormViewController {
         deselectButton.hidden = Condition.function(dependentRowTags) {
             form in
             let baseCurrency = (form.rowBy(tag: tagBaseCurrency) as! CurrencySelectorRow).value
-            for currency in Currencies.allValues where currency != baseCurrency {
+            for currency in Currencies.allCases where currency != baseCurrency {
                 guard let row: CheckRow = form.rowBy(tag: currency.currencyCode) else {
                     return false
                 }
@@ -132,8 +132,8 @@ class SettingsController: FormViewController {
             }
         }
         
-        let currencies = Currencies.allValues.filter { (values[$0.currencyCode] as? Bool) == true }.map { $0.currencyCode }
-        let oldArray = UserDefaults.standard.array(forKey: "currencies") as! [String]
+        let currencies = Currencies.allCases.filter { (values[$0.currencyCode] as? Bool) == true }.map { $0.currencyCode }
+        let oldArray = UserDefaults.shared.array(forKey: "currencies") as! [String]
         if !(oldArray.allSatisfy(currencies.contains) && currencies.count == oldArray.count) {
             currenciesChanged = true
             UserDefaults.shared.set(currencies, forKey: "currencies")
