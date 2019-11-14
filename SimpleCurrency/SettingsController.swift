@@ -10,6 +10,14 @@ class SettingsController: FormViewController {
         title = NSLocalizedString("Settings", comment: "")
         self.navigationController?.navigationBar.tintColor = UIColor.white
         
+        form +++ ButtonRow(tagTodayExtensionSettings) {
+            row in
+            row.title = NSLocalizedString("Today View Settings", comment: "")
+        }
+        .onCellSelection({ [weak self] (_, _) in
+            self?.performSegue(withIdentifier: "showTodayExtensionSettings", sender: nil)
+        })
+        
         form +++ Section()
         
         <<< CurrencySelectorRow(tag: tagBaseCurrency) {
