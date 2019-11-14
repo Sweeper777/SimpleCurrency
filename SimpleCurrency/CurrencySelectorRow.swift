@@ -10,7 +10,7 @@ final class CurrencySelectorRow: SelectorRow<PushSelectorCell<Currencies>>, RowT
 //            _ in
 //        })
         displayValueFor = {
-            guard let currency = $0 else { return "" }
+            guard let currency = $0 else { return NSLocalizedString("None", comment: "") }
             return currency.currencyCode
         }
     }
