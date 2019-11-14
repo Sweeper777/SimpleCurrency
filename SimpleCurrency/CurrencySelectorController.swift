@@ -43,7 +43,15 @@ class CurrencySelectorController: UITableViewController, TypedRowControllerType 
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        row.value = Currencies.allValues[indexPath.row]
+        if allowNilValue {
+            if indexPath.row == 0 {
+                row.value = nil
+            } else {
+                row.value = Currencies.allCases[indexPath.row - 1]
+            }
+        } else {
+            row.value = Currencies.allCases[indexPath.row]
+        }
         self.navigationController!.popViewController(animated: true)
         onDismissCallback?(self)
     }
