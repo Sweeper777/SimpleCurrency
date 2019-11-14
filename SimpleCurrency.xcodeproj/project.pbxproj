@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B637105003EEBB23BB3843D /* Pods_ExchangeRates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DCCC51541CCA69CB675FD2F /* Pods_ExchangeRates.framework */; };
+		5A06111823781A8A00929675 /* TodayExtensionSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A06111723781A8A00929675 /* TodayExtensionSettingsController.swift */; };
 		5A18D5D41E6D9C8B0026AF76 /* CurrencyConverterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A18D5D31E6D9C8B0026AF76 /* CurrencyConverterController.swift */; };
 		5A191C7A1E5C335C00ECC13B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A191C791E5C335C00ECC13B /* AppDelegate.swift */; };
 		5A191C7C1E5C335C00ECC13B /* ExchangeRatesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A191C7B1E5C335C00ECC13B /* ExchangeRatesController.swift */; };
@@ -59,6 +60,8 @@
 
 /* Begin PBXFileReference section */
 		2336DA63D22E48873C5112B4 /* Pods-SimpleCurrency-ExchangeRates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCurrency-ExchangeRates.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCurrency-ExchangeRates/Pods-SimpleCurrency-ExchangeRates.release.xcconfig"; sourceTree = "<group>"; };
+		5A06111723781A8A00929675 /* TodayExtensionSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayExtensionSettingsController.swift; sourceTree = "<group>"; };
+		5A06111923781ABD00929675 /* ExchangeRates.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ExchangeRates.entitlements; sourceTree = "<group>"; };
 		5A18D5D31E6D9C8B0026AF76 /* CurrencyConverterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyConverterController.swift; sourceTree = "<group>"; };
 		5A191C761E5C335C00ECC13B /* SimpleCurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleCurrency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A191C791E5C335C00ECC13B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +172,7 @@
 				5A18D5D31E6D9C8B0026AF76 /* CurrencyConverterController.swift */,
 				5A208A311E7E77F100B1E68D /* MySplitViewController.swift */,
 				5A19660F1E89382E00A09AC6 /* HistoricalRatesController.swift */,
+				5A06111723781A8A00929675 /* TodayExtensionSettingsController.swift */,
 				5A1D7B701E65F86800BCD3B8 /* CurrencySelectorRow.swift */,
 				5A1A86011E73EB4900565278 /* CurrencyConverterRow.swift */,
 				5A191C8B1E5CAA1200ECC13B /* Currencies.swift */,
@@ -187,6 +191,7 @@
 		5A4E5A3A236D871800E84A46 /* ExchangeRates */ = {
 			isa = PBXGroup;
 			children = (
+				5A06111923781ABD00929675 /* ExchangeRates.entitlements */,
 				5A4E5A3B236D871800E84A46 /* TodayViewController.swift */,
 				5A4E5A3D236D871800E84A46 /* MainInterface.storyboard */,
 				5A4E5A40236D871800E84A46 /* Info.plist */,
@@ -419,6 +424,7 @@
 				5A1D7B731E65F8C300BCD3B8 /* CurrencySelectorController.swift in Sources */,
 				5A1CFCB71EAE0D6D00EAF8A7 /* SecretStuff.swift in Sources */,
 				5A191C7A1E5C335C00ECC13B /* AppDelegate.swift in Sources */,
+				5A06111823781A8A00929675 /* TodayExtensionSettingsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +667,7 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = ExchangeRates/ExchangeRates.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E9MW74DJ4Y;
@@ -694,6 +701,7 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = ExchangeRates/ExchangeRates.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E9MW74DJ4Y;
