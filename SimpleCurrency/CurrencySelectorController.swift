@@ -6,6 +6,7 @@ class CurrencySelectorController: UITableViewController, TypedRowControllerType 
     
     var onDismissCallback: ((UIViewController) -> ())?
     var row: RowOf<Currencies>!
+    var allowNilValue = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
