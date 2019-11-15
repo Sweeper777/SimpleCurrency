@@ -3,8 +3,6 @@ import Eureka
 
 class TodayExtensionSettingsController : FormViewController {
     
-    var selectedRow: RowOf<Currencies>?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
