@@ -20,7 +20,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view from its nib.
+        if #available(iOSApplicationExtension 13.0, *) {
+            blur.effect = UIVibrancyEffect.widgetEffect(forVibrancyStyle: .label)
+        } else {
+            blur.effect = UIVibrancyEffect.widgetPrimary()
+        }
     }
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
