@@ -35,6 +35,24 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If there's an update, use NCUpdateResult.NewData
         
         completionHandler(NCUpdateResult.newData)
+    
+    private func loadUserDefaults() {
+        baseCurrency = UserDefaults.shared.string(forKey: "baseCurrency").flatMap(Currencies.init)
+        baseAmount = UserDefaults.shared.double(forKey: "baseAmount")
+        displayedCurrencies = []
+        let defaultsKeys = (0..<3).map { "todayExtensionCurrency\($0)" }
+        for (key, label) in zip(defaultsKeys, [currencyLabel1, currencyLabel2, currencyLabel3]) {
+            if let currency = UserDefaults.shared.string(forKey: key) {
+                if currency == baseCurrency.currencyCode {
+                    label?.isHidden = true
+                } else {
+                    displayedCurrencies.append(Currencies(rawValue: currency)!)
+                    label?.isHidden = false
+                }
+            } else {
+                label?.isHidden = true
+            }
+        }
     }
     
 }
