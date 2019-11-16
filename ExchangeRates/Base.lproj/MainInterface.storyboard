@@ -73,6 +73,13 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="144"/>
+                    <connections>
+                        <outlet property="baseCurrencyLabel" destination="xc3-Am-suc" id="Wrp-OT-M05"/>
+                        <outlet property="blur" destination="GJQ-D9-sk0" id="7wX-AF-G1g"/>
+                        <outlet property="currencyLabel1" destination="G8p-pW-CKL" id="ToO-Xe-Qw3"/>
+                        <outlet property="currencyLabel2" destination="l0b-Kj-32g" id="L45-77-9jO"/>
+                        <outlet property="currencyLabel3" destination="UTG-1i-qF8" id="NN3-bd-hpd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

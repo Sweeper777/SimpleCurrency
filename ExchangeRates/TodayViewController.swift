@@ -1,16 +1,16 @@
-//
-//  TodayViewController.swift
-//  ExchangeRates
-//
-//  Created by Mulang Su on 02/11/2019.
-//  Copyright © 2019 Mulang Su. All rights reserved.
-//
-
 import UIKit
 import NotificationCenter
+import Alamofire
+import SwiftyJSON
 
 class TodayViewController: UIViewController, NCWidgetProviding {
-        
+    
+    @IBOutlet var baseCurrencyLabel: UILabel!
+    @IBOutlet var currencyLabel1: UILabel!
+    @IBOutlet var currencyLabel2: UILabel!
+    @IBOutlet var currencyLabel3: UILabel!
+    @IBOutlet var blur: UIVisualEffectView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
