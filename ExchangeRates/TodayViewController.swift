@@ -11,6 +11,13 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet var currencyLabel3: UILabel!
     @IBOutlet var blur: UIVisualEffectView!
     
+    var displayedCurrencies: [Currencies] = []
+    var baseCurrency: Currencies!
+    var baseAmount: Double!
+    
+    var json: JSON!
+    var rates: [Currencies: Double] = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
