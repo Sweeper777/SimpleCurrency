@@ -55,4 +55,26 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
     
+    private func requestData(completion: ((Bool) -> Void)?) {
+        let url = "https://api.exchangeratesapi.io/latest?base=\(baseCurrency.currencyCode)&symbols=\(displayedCurrencies.map { $0.currencyCode }.joined(separator: ","))&amount=\(baseAmount!)"
+        Alamofire.request(url).responseString {
+            [weak self]
+            response in
+            if let _ = response.error {
+                completion?(false)
+                return
+            }
+            
+            let json = JSON(parseJSON: response.value!)
+            if let _ = json["error"].string {
+                completion?(false)
+                return
+            }
+            self?.json = json
+            DispatchQueue.main.async {
+                completion?(true)
+            }
+        }
+    }
+    
 }
