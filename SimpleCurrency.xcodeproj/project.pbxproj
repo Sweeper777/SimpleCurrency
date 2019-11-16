@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1B637105003EEBB23BB3843D /* Pods_ExchangeRates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DCCC51541CCA69CB675FD2F /* Pods_ExchangeRates.framework */; };
 		5A06111823781A8A00929675 /* TodayExtensionSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A06111723781A8A00929675 /* TodayExtensionSettingsController.swift */; };
+		5A0D16FB237FEDAD001303D7 /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A191C8B1E5CAA1200ECC13B /* Currencies.swift */; };
+		5A0D16FD237FEE1F001303D7 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D16FC237FEE1F001303D7 /* UserDefaultsExtension.swift */; };
+		5A0D16FE237FEE27001303D7 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D16FC237FEE1F001303D7 /* UserDefaultsExtension.swift */; };
 		5A18D5D41E6D9C8B0026AF76 /* CurrencyConverterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A18D5D31E6D9C8B0026AF76 /* CurrencyConverterController.swift */; };
 		5A191C7A1E5C335C00ECC13B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A191C791E5C335C00ECC13B /* AppDelegate.swift */; };
 		5A191C7C1E5C335C00ECC13B /* ExchangeRatesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A191C7B1E5C335C00ECC13B /* ExchangeRatesController.swift */; };
@@ -62,6 +65,7 @@
 		2336DA63D22E48873C5112B4 /* Pods-SimpleCurrency-ExchangeRates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCurrency-ExchangeRates.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCurrency-ExchangeRates/Pods-SimpleCurrency-ExchangeRates.release.xcconfig"; sourceTree = "<group>"; };
 		5A06111723781A8A00929675 /* TodayExtensionSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayExtensionSettingsController.swift; sourceTree = "<group>"; };
 		5A06111923781ABD00929675 /* ExchangeRates.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ExchangeRates.entitlements; sourceTree = "<group>"; };
+		5A0D16FC237FEE1F001303D7 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		5A18D5D31E6D9C8B0026AF76 /* CurrencyConverterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyConverterController.swift; sourceTree = "<group>"; };
 		5A191C761E5C335C00ECC13B /* SimpleCurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleCurrency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A191C791E5C335C00ECC13B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 				5A191C8B1E5CAA1200ECC13B /* Currencies.swift */,
 				5A1D7B6E1E655C9400BCD3B8 /* FormTags.swift */,
 				5A1CFCB61EAE0D6D00EAF8A7 /* SecretStuff.swift */,
+				5A0D16FC237FEE1F001303D7 /* UserDefaultsExtension.swift */,
 				5A191C7D1E5C335C00ECC13B /* Main.storyboard */,
 				5A191C801E5C335C00ECC13B /* Assets.xcassets */,
 				5A191C821E5C335C00ECC13B /* LaunchScreen.storyboard */,
@@ -424,6 +429,7 @@
 				5A1D7B731E65F8C300BCD3B8 /* CurrencySelectorController.swift in Sources */,
 				5A1CFCB71EAE0D6D00EAF8A7 /* SecretStuff.swift in Sources */,
 				5A191C7A1E5C335C00ECC13B /* AppDelegate.swift in Sources */,
+				5A0D16FD237FEE1F001303D7 /* UserDefaultsExtension.swift in Sources */,
 				5A06111823781A8A00929675 /* TodayExtensionSettingsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +438,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A0D16FB237FEDAD001303D7 /* Currencies.swift in Sources */,
+				5A0D16FE237FEE27001303D7 /* UserDefaultsExtension.swift in Sources */,
 				5A4E5A3C236D871800E84A46 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
