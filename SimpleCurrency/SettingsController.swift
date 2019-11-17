@@ -12,7 +12,7 @@ class SettingsController: FormViewController {
         
         form +++ ButtonRow(tagTodayExtensionSettings) {
             row in
-            row.title = NSLocalizedString("Today View Settings", comment: "")
+            row.title = NSLocalizedString("Today View Currencies", comment: "")
         }
         .onCellSelection({ [weak self] (_, _) in
             self?.performSegue(withIdentifier: "showTodayExtensionSettings", sender: nil)
