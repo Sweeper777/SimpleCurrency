@@ -164,6 +164,9 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
                 }
             }
             chart.labelFont = UIFont.systemFont(ofSize: 10)
+            if #available(iOS 13.0, *) {
+                chart.labelColor = UIColor.label
+            }
             chart.setNeedsDisplay()
         }
         
