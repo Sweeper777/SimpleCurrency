@@ -127,7 +127,7 @@
                     <connections>
                         <segue destination="qr7-la-VnC" kind="unwind" identifier="unwindToExchangeRates" unwindAction="unwindFromSettings:" id="3QK-cZ-zFP"/>
                         <segue destination="aG0-vw-WVY" kind="show" identifier="showCurrencySelector" id="2cu-Pc-dTo"/>
-                        <segue destination="0uY-IU-yIX" kind="show" identifier="showTodayExtensionSettings" id="gst-qu-zik"/>
+                        <segue destination="TVM-bF-lS3" kind="show" identifier="showTodayExtensionSettings" id="D5z-dn-wYG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jvf-A5-ftL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -135,26 +135,49 @@
             <point key="canvasLocation" x="-230" y="-443"/>
         </scene>
         <!--Today View-->
-        <scene sceneID="at7-68-ZnW">
+        <scene sceneID="w0v-2P-B9K">
             <objects>
-                <viewController id="0uY-IU-yIX" customClass="TodayExtensionSettingsController" customModule="SimpleCurrency" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7Nc-gf-EgK"/>
-                        <viewControllerLayoutGuide type="bottom" id="xUe-0X-YyI"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="vDz-dF-jvT">
+                <tableViewController id="TVM-bF-lS3" customClass="TodayExtensionSettingsController" customModule="SimpleCurrency" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3bK-S7-2Ld">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Today View" id="VKv-Hc-Udj"/>
-                    <connections>
-                        <segue destination="aG0-vw-WVY" kind="show" identifier="showCurrencySelector" id="PFA-OH-dx3"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ve3-Te-a7O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="zTD-Iq-scy" detailTextLabel="JOu-hD-uDf" style="IBUITableViewCellStyleSubtitle" id="0gw-sZ-0Pb">
+                                <rect key="frame" x="0.0" y="28" width="375" height="55.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0gw-sZ-0Pb" id="KDc-Er-Lxz">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zTD-Iq-scy">
+                                            <rect key="frame" x="16" y="10" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JOu-hD-uDf">
+                                            <rect key="frame" x="16" y="31.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="TVM-bF-lS3" id="hQp-bI-eSz"/>
+                            <outlet property="delegate" destination="TVM-bF-lS3" id="cql-0G-Pug"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Today View" prompt="Select up to 3 currencies to show in today view" id="w31-Ag-Iez"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xas-YF-aLC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="553" y="-443"/>
+            <point key="canvasLocation" x="554" y="-443"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RW4-bR-AF3">
@@ -314,7 +337,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Historical Rates" id="XI3-jE-eCu">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="C1a-Z3-7ZD">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="C1a-Z3-7ZD">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="done" destination="pQE-2U-04w" id="mmA-zl-Cw3"/>
@@ -404,6 +427,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="7Pi-Su-Yd6"/>
-        <segue reference="PFA-OH-dx3"/>
     </inferredMetricsTieBreakers>
 </document>
