@@ -77,4 +77,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
     
+    private func resetLabelText() {
+        let shownLabels = [currencyLabel1, currencyLabel2, currencyLabel3].filter { !$0!.isHidden }
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 3
+        for (currency, label) in zip(displayedCurrencies, shownLabels) {
+            let rate = rates[currency]!
+            label?.text = "\(formatter.string(from: rate as NSNumber)!) \(currency.currencyCode)"
+        }
+        baseCurrencyLabel.text = "\(formatter.string(from: baseAmount as NSNumber)!) \(baseCurrency.currencyCode) = "
+    }
 }
