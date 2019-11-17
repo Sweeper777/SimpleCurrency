@@ -36,6 +36,21 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         completionHandler(NCUpdateResult.newData)
     
+    func reload(completion: ((Bool) -> Void)?) {
+        loadUserDefaults()
+        requestData { [weak self] (success) in
+            guard let `self` = self else { return }
+            guard success else {
+                completion?(false)
+                return
+            }
+            for currency in self.displayedCurrencies {
+                self.rates[currency] = self.json["rates"][currency.currencyCode].double
+            }
+            self.resetLabelText()
+        }
+    }
+    
     private func loadUserDefaults() {
         baseCurrency = UserDefaults.shared.string(forKey: "baseCurrency").flatMap(Currencies.init)
         baseAmount = UserDefaults.shared.double(forKey: "baseAmount")
