@@ -17,9 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.shared.set(1.0, forKey: "baseAmount")
             let currencies: [String] = [Currencies.EUR, .JPY, .GBP, .AUD, .CAD].map { $0.currencyCode }
             UserDefaults.shared.set(currencies, forKey: "currencies")
-            for (index, currency) in [Currencies.EUR, .JPY, .GBP].enumerated() {
-                UserDefaults.shared.set(currency.currencyCode, forKey: "todayExtensionCurrency\(index)")
-            }
+            UserDefaults.shared.set([Currencies.EUR, .JPY, .GBP].map { $0.currencyCode }, forKey: "todayExtensionCurrencies")
         }
         
         lastUsedBuild = Int(Bundle.main.appBuild) ?? 0
