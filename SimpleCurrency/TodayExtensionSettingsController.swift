@@ -35,6 +35,16 @@ class TodayExtensionSettingsController : UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let index = selectedCurrencyIndices.firstIndex(of: indexPath.row) {
+            selectedCurrencyIndices.remove(at: index)
+            tableView.cellForRow(at: indexPath)?.accessoryType = .none
+        } else if selectedCurrencyIndices.count < 3 {
+            selectedCurrencyIndices.append(indexPath.row)
+            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }
+        let selectedCurrencies = selectedCurrencyIndices.map { availableCurrencies[$0].currencyCode }
+        UserDefaults.shared.set(selectedCurrencies, forKey: "todayExtensionCurrencies")
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
