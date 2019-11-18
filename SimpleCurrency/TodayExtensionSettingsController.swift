@@ -22,7 +22,17 @@ class TodayExtensionSettingsController : UITableViewController {
         return availableCurrencies.count
     }
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel!.text = "\(Currencies.allCases[indexPath.row].currencyCode) (\(Currencies.allCases[indexPath.row].symbol))"
+        cell.imageView!.image = UIImage(named: Currencies.allCases[indexPath.row].currencyCode)
+        cell.detailTextLabel!.text = Currencies.allCases[indexPath.row].fullName
+        if let _ = selectedCurrencyIndices.firstIndex(of: indexPath.row) {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
         }
+        return cell
     }
     
         }
