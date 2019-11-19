@@ -26,3 +26,6 @@
 "XI3-jE-eCu.title" = "歷史匯率";
 "FDb-jb-NZT.headerTitle" = "過去7日";
 "TVt-9F-TTb.headerTitle" = "過去30日";
+
+"w31-Ag-Iez.title" = "「今天」視圖";
+"w31-Ag-Iez.prompt" = "選擇要在「今天」視圖顯示的貨幣 (最多三種)";
