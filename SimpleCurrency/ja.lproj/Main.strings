@@ -26,3 +26,6 @@
 "XI3-jE-eCu.title" = "過去のレート";
 "FDb-jb-NZT.headerTitle" = "過去7日間";
 "TVt-9F-TTb.headerTitle" = "過去30日間";
+
+"w31-Ag-Iez.title" = "「今日」の表示";
+"w31-Ag-Iez.prompt" = "「今日」の表示で表示する通貨を三つまで選択することができます";
