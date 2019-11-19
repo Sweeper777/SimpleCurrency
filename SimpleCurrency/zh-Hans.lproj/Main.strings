@@ -26,3 +26,6 @@
 "XI3-jE-eCu.title" = "历史汇率";
 "FDb-jb-NZT.headerTitle" = "过去7日";
 "TVt-9F-TTb.headerTitle" = "过去30日";
+
+"w31-Ag-Iez.title" = "“今天”视图";
+"w31-Ag-Iez.prompt" = "选择要在“今天”视图显示的货币 (最多三种)";
