@@ -1,6 +1,6 @@
 "Error" = "エラー";
 "OK" = "OK";
-"Unable to get exchange rates." = "為替レートを取得できません";
+"Unable to get exchange rates." = "為替相場を取得できません";
 
 "Settings" = "設定";
 "Base Currency" = "基本通貨";
@@ -44,6 +44,6 @@
 
 "Please select a currency!" = "通貨を選んでください";
 
-"Historical Rates" = "過去のレート";
+"Historical Rates" = "過去の相場";
 
 "Today View Currencies" = "「今日」の表示の通貨";

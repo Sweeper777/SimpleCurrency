@@ -9,7 +9,7 @@
 "OF3-mL-bC7.title" = " ";
 
 /* Class = "UINavigationItem"; title = "Exchange Rates"; ObjectID = "VcW-Iu-dPu"; */
-"VcW-Iu-dPu.title" = "為替レート";
+"VcW-Iu-dPu.title" = "為替相場";
 
 /* Class = "UILabel"; text = "Subtitle"; ObjectID = "dvO-VH-wrw"; */
 "dvO-VH-wrw.text" = "Subtitle";
@@ -23,7 +23,7 @@
 /* Class = "UILabel"; text = "Title"; ObjectID = "pV3-FL-SSs"; */
 "pV3-FL-SSs.text" = "Title";
 
-"XI3-jE-eCu.title" = "過去のレート";
+"XI3-jE-eCu.title" = "過去の相場";
 "FDb-jb-NZT.headerTitle" = "過去7日間";
 "TVt-9F-TTb.headerTitle" = "過去30日間";
 
