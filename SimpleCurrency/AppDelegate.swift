@@ -12,7 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         window?.tintColor = UIColor(hex: "3b7b3b")
         UINavigationBar.appearance().barStyle = .black
-        if lastUsedBuild == 0 {
+        if lastUsedBuild < 8 {
             UserDefaults.shared.set("USD", forKey: "baseCurrency")
             UserDefaults.shared.set(1.0, forKey: "baseAmount")
             let currencies: [String] = [Currencies.EUR, .JPY, .GBP, .AUD, .CAD].map { $0.currencyCode }
