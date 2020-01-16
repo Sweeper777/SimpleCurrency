@@ -24,9 +24,9 @@ class TodayExtensionSettingsController : UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel!.text = "\(Currencies.allCases[indexPath.row].currencyCode) (\(Currencies.allCases[indexPath.row].symbol))"
-        cell.imageView!.image = UIImage(named: Currencies.allCases[indexPath.row].currencyCode)
-        cell.detailTextLabel!.text = Currencies.allCases[indexPath.row].fullName
+        cell.textLabel!.text = "\(availableCurrencies[indexPath.row].currencyCode) (\(availableCurrencies[indexPath.row].symbol))"
+        cell.imageView!.image = UIImage(named: availableCurrencies[indexPath.row].currencyCode)
+        cell.detailTextLabel!.text = availableCurrencies[indexPath.row].fullName
         if let _ = selectedCurrencyIndices.firstIndex(of: indexPath.row) {
             cell.accessoryType = .checkmark
         } else {
