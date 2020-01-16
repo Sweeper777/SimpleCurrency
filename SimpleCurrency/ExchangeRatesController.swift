@@ -94,17 +94,21 @@ class ExchangeRatesController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
         cell.imageView!.image = UIImage(named: currencies[indexPath.row - 1])
+//        cell.imageView!.image = UIImage(named: currencies[indexPath.row])
         cell.textLabel!.text = NSLocalizedString("No Data", comment: "")
         cell.detailTextLabel!.text = Currencies(rawValue: currencies[indexPath.row - 1])!.fullName
+//        cell.detailTextLabel!.text = Currencies(rawValue: currencies[indexPath.row])!.fullName
         
         guard let json = self.json else { return cell }
         guard let rate = json["rates"][currencies[indexPath.row - 1]].double else { return cell }
+//        guard let rate = json["rates"][currencies[indexPath.row]].double else { return cell }
         
         let formatter = NumberFormatter()
         formatter.maximumSignificantDigits = 5
         let rateString = formatter.string(from: rate as NSNumber)!
         
         cell.textLabel!.text = "\(rateString) \(currencies[indexPath.row - 1]) (\(Currencies(rawValue: currencies[indexPath.row - 1])!.symbol))"
+//        cell.textLabel!.text = "\(rateString) \(currencies[indexPath.row]) (\(Currencies(rawValue: currencies[indexPath.row])!.symbol))"
         
         return cell
     }
@@ -112,6 +116,8 @@ class ExchangeRatesController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let _ = json?["rates"][currencies[indexPath.row - 1]].double {
             currencyToPass = Currencies(rawValue: currencies[indexPath.row - 1])
+//        if let _ = json?["rates"][currencies[indexPath.row]].double {
+//            currencyToPass = Currencies(rawValue: currencies[indexPath.row])
             performSegue(withIdentifier: "showConverter", sender: self)
         }
         tableView.deselectRow(at: indexPath, animated: true)
