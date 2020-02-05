@@ -132,7 +132,16 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         formatter.maximumFractionDigits = 3
         for (currency, label) in zip(displayedCurrencies, shownLabels) {
             let rate = rates[currency]!
-            label?.text = "\(formatter.string(from: rate as NSNumber)!) \(currency.currencyCode)"
+            let rateYesterday = ratesYesterday[currency]!
+            let deltaString: String
+            if rateYesterday - rate > 0.01 {
+                deltaString = "⬇︎"
+            } else if rate - rateYesterday > 0.01 {
+                deltaString = "⬆︎"
+            } else {
+                deltaString = ""
+            }
+            label?.text = "\(formatter.string(from: rate as NSNumber)!) \(currency.currencyCode) \(deltaString)"
         }
         baseCurrencyLabel.text = "\(formatter.string(from: baseAmount as NSNumber)!) \(baseCurrency.currencyCode) = "
     }
