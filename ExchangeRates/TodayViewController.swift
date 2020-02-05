@@ -49,7 +49,17 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             for currency in self.displayedCurrencies {
                 self.rates[currency] = self.json["rates"][currency.currencyCode].double
             }
-            self.resetLabelText()
+            self.requestYesterdayData { [weak self] (success) in
+                guard let `self` = self else { return }
+                guard success else {
+                    completion?(false)
+                    return
+                }
+                for currency in self.displayedCurrencies {
+                    self.ratesYesterday[currency] = self.json["rates"][currency.currencyCode].double
+                }
+                self.resetLabelText()
+            }
         }
     }
     
