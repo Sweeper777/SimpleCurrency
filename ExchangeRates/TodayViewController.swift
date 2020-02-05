@@ -19,6 +19,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     var rates: [Currencies: Double] = [:]
     var ratesYesterday: [Currencies: Double] = [:]
     
+    var lastRequestTime: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
