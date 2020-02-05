@@ -40,7 +40,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     func reload(completion: ((Bool) -> Void)?) {
         loadUserDefaults()
-        requestData { [weak self] (success) in
+        requestLatestData { [weak self] (success) in
             guard let `self` = self else { return }
             guard success else {
                 completion?(false)
@@ -67,7 +67,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
     
-    private func requestData(completion: ((Bool) -> Void)?) {
+    private func requestLatestData(completion: ((Bool) -> Void)?) {
         let url = "https://api.exchangeratesapi.io/latest?base=\(baseCurrency.currencyCode)&symbols=\(displayedCurrencies.map { $0.currencyCode }.joined(separator: ","))&amount=\(baseAmount!)"
         Alamofire.request(url).responseString {
             [weak self]
