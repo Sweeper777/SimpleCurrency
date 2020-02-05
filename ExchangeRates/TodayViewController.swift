@@ -17,6 +17,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     var json: JSON!
     var rates: [Currencies: Double] = [:]
+    var ratesYesterday: [Currencies: Double] = [:]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
