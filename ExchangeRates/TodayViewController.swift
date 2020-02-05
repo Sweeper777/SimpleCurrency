@@ -31,6 +31,16 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
+        loadUserDefaults()
+        if let lastRequestTime = self.lastRequestTime {
+            if Date().timeIntervalSince(lastRequestTime) < 60 * 60 &&
+                Set(rates.keys).isSuperset(of: displayedCurrencies) &&
+                Set(ratesYesterday.keys).isSuperset(of: displayedCurrencies) {
+                resetLabelText()
+                completionHandler(.noData)
+                return
+            }
+        }
         reload { (success) in
             if !success {
                 print("failed!")
@@ -40,7 +50,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func reload(completion: ((Bool) -> Void)?) {
-        loadUserDefaults()
+        lastRequestTime = Date()
         requestLatestData { [weak self] (success) in
             guard let `self` = self else { return }
             guard success else {
