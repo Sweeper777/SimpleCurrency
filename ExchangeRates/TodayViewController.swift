@@ -45,7 +45,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             if !success {
                 print("failed!")
             }
-            completionHandler(success ? .newData : .noData)
+            completionHandler(success ? .newData : .failed)
         }
     }
     
