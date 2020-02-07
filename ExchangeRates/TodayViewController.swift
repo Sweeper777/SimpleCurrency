@@ -49,6 +49,21 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
     
+    func loadCache() {
+        guard let latestData = UserDefaults.shared.data(forKey: "todayExtensionLastLatestData") else { return }
+        guard let latestJSON =  try? JSON(data: latestData) else { return }
+        guard let yesterdayData = UserDefaults.shared.data(forKey: "todayExtensionLastYesterdayData") else { return }
+        guard let yesterdayJSON =  try? JSON(data: yesterdayData) else { return }
+        guard yesterdayJSON["base"].string == baseCurrency.currencyCode else { return }
+        
+        for currency in self.displayedCurrencies {
+            self.rates[currency] = latestJSON["rates"][currency.currencyCode].double
+            self.ratesYesterday[currency] = yesterdayJSON["rates"][currency.currencyCode].double
+        }
+        
+        lastRequestTime = Date(timeIntervalSince1970: UserDefaults.shared.double(forKey: "todayExtensionLastRequestTime"))
+    }
+    
     func reload(completion: ((Bool) -> Void)?) {
         lastRequestTime = Date()
         requestLatestData { [weak self] (success) in
