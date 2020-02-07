@@ -147,10 +147,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             let deltaString: String
             let deltaStringColor: UIColor
             if rateYesterday - rate > 0.01 {
-                deltaString = "⬇︎"
+                deltaString = "􀄉"
                 deltaStringColor = .red
             } else if rate - rateYesterday > 0.01 {
-                deltaString = "⬆︎"
+                deltaString = "􀄇"
                 deltaStringColor = .green
             } else {
                 deltaString = ""
