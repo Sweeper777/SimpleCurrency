@@ -64,6 +64,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         lastRequestTime = Date(timeIntervalSince1970: UserDefaults.shared.double(forKey: "todayExtensionLastRequestTime"))
     }
     
+    func saveCache(latestJSON: JSON, yesterdayJSON: JSON) {
+        guard let latestData = try? latestJSON.rawData() else { return }
+        guard let yesterdayData = try? yesterdayJSON.rawData() else { return }
+        UserDefaults.shared.set(latestData, forKey: "todayExtensionLastLatestData")
+        UserDefaults.shared.set(yesterdayData, forKey: "todayExtensionLastYesterdayData")
+        UserDefaults.shared.set(Date().timeIntervalSince1970, forKey: "todayExtensionLastRequestTime")
+    }
+    
     func reload(completion: ((Bool) -> Void)?) {
         lastRequestTime = Date()
         requestLatestData { [weak self] (success) in
