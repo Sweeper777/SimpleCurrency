@@ -145,12 +145,20 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             let rate = rates[currency]!
             let rateYesterday = ratesYesterday[currency]!
             let deltaString: String
+            let deltaStringColor: UIColor
             if rateYesterday - rate > 0.01 {
                 deltaString = "⬇︎"
+                deltaStringColor = .red
             } else if rate - rateYesterday > 0.01 {
                 deltaString = "⬆︎"
+                deltaStringColor = .green
             } else {
                 deltaString = ""
+                if #available(iOSApplicationExtension 13.0, *) {
+                    deltaStringColor = .label
+                } else {
+                    deltaStringColor = .black
+                }
             }
             label?.text = "\(formatter.string(from: rate as NSNumber)!) \(currency.currencyCode) \(deltaString)"
         }
