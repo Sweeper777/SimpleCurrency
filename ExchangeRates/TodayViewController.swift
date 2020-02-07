@@ -19,7 +19,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     var rates: [Currencies: Double] = [:]
     var ratesYesterday: [Currencies: Double] = [:]
     
-    var lastRequestTime: Date?
+    var lastRequestTime: Date!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,14 +32,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         loadUserDefaults()
-        if let lastRequestTime = self.lastRequestTime {
-            if Date().timeIntervalSince(lastRequestTime) < 60 * 60 &&
-                Set(rates.keys).isSuperset(of: displayedCurrencies) &&
-                Set(ratesYesterday.keys).isSuperset(of: displayedCurrencies) {
-                resetLabelText()
-                completionHandler(.noData)
-                return
-            }
+        if Date().timeIntervalSince(lastRequestTime) < 60 * 60 &&
+            Set(rates.keys).isSuperset(of: displayedCurrencies) &&
+            Set(ratesYesterday.keys).isSuperset(of: displayedCurrencies) {
+            resetLabelText()
+            completionHandler(.noData)
+            return
         }
         reload { (success) in
             if !success {
