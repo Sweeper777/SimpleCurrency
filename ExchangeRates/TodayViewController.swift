@@ -160,7 +160,16 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                     deltaStringColor = .black
                 }
             }
-            label?.text = "\(formatter.string(from: rate as NSNumber)!) \(currency.currencyCode) \(deltaString)"
+            let attributedString = NSMutableAttributedString(
+                string: "\(formatter.string(from: rate as NSNumber)!) \(currency.currencyCode) ",
+                attributes: [.font: UIFont(name: "SFProText-Regular", size: 23)!])
+            attributedString.append(NSAttributedString(
+                string: deltaString,
+                attributes: [
+                    .font: UIFont(name: "SFProText-Regular", size: 23)!,
+                    .foregroundColor: deltaStringColor
+            ]))
+            label?.attributedText = attributedString
         }
         baseCurrencyLabel.text = "\(formatter.string(from: baseAmount as NSNumber)!) \(baseCurrency.currencyCode) = "
     }
