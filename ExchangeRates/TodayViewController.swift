@@ -132,10 +132,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     private func requestYesterdayData(completion: ((Bool) -> Void)?) {
-        let yesterday = Date().addingTimeInterval(60 * 60 * -24)
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
+        guard let today = (json["date"].string.flatMap { formatter.date(from: $0) }) else {
+            completion?(false)
+            return
+        }
+        let yesterday = today.addingTimeInterval(-86400)
         let yesterdayString = formatter.string(from: yesterday)
+        
         let url = "https://api.exchangeratesapi.io/\(yesterdayString)?base=\(baseCurrency.currencyCode)&symbols=\(displayedCurrencies.map { $0.currencyCode }.joined(separator: ","))&amount=\(baseAmount!)"
         Alamofire.request(url).responseString {
             [weak self]
