@@ -32,6 +32,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         loadUserDefaults()
+        loadCache()
         if Date().timeIntervalSince(lastRequestTime) < 60 * 60 &&
             Set(rates.keys).isSuperset(of: displayedCurrencies) &&
             Set(ratesYesterday.keys).isSuperset(of: displayedCurrencies) {
@@ -71,7 +72,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func reload(completion: ((Bool) -> Void)?) {
-        lastRequestTime = Date()
         requestLatestData { [weak self] (success) in
             guard let `self` = self else { return }
             guard success else {
@@ -81,6 +81,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             for currency in self.displayedCurrencies {
                 self.rates[currency] = self.json["rates"][currency.currencyCode].double
             }
+            let latestJSON = self.json!
             self.requestYesterdayData { [weak self] (success) in
                 guard let `self` = self else { return }
                 guard success else {
@@ -90,7 +91,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 for currency in self.displayedCurrencies {
                     self.ratesYesterday[currency] = self.json["rates"][currency.currencyCode].double
                 }
+                self.lastRequestTime = Date()
                 self.resetLabelText()
+                let yesterdayJSON = self.json!
+                self.saveCache(latestJSON: latestJSON, yesterdayJSON: yesterdayJSON)
             }
         }
     }
