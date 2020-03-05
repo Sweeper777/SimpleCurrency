@@ -170,16 +170,17 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         let shownLabels = [currencyLabel1, currencyLabel2, currencyLabel3].filter { !$0!.isHidden }
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 3
+        formatter.maximumSignificantDigits = 5
         for (currency, label) in zip(displayedCurrencies, shownLabels) {
             let rate = rates[currency]!
             let rateYesterday = ratesYesterday[currency]!
             let deltaString: String
             let deltaStringColor: UIColor
-            if rateYesterday - rate > 0.01 {
+            let percentageChange = (rateYesterday - rate) / rateYesterday
+            if percentageChange > 0.005 {
                 deltaString = "􀄉"
                 deltaStringColor = .red
-            } else if rate - rateYesterday > 0.01 {
+            } else if -percentageChange > 0.005 {
                 deltaString = "􀄇"
                 deltaStringColor = .green
             } else {
