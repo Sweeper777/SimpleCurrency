@@ -24,8 +24,7 @@ class CurrencyConverterController: FormViewController, GADInterstitialDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        formatter.maximumFractionDigits = 3
-        formatter.minimumFractionDigits = 3
+        formatter.maximumSignificantDigits = 5
         formatter.numberStyle = .decimal
         if shouldBeEmpty {
             form +++ LabelRow(tagNothing) {
