@@ -38,12 +38,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             Set(ratesYesterday.keys).isSuperset(of: displayedCurrencies) {
             resetLabelText()
             completionHandler(.noData)
+            print("no data")
             return
         }
         reload { (success) in
             if !success {
                 print("failed!")
             }
+            print("reloaded")
             completionHandler(success ? .newData : .failed)
         }
     }
