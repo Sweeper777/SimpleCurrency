@@ -104,6 +104,7 @@ class ExchangeRatesController: UITableViewController {
 //        guard let rate = json["rates"][currencies[indexPath.row]].double else { return cell }
         
         let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
         formatter.maximumSignificantDigits = 5
         let rateString = formatter.string(from: rate as NSNumber)!
         
