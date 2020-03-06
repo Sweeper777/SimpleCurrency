@@ -146,7 +146,8 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
             chart.add(data)
             chart.yLabels = Array(stride(from: chart.minY!, through: chart.maxY!, by: (chart.maxY! - chart.minY!) / 10))
             let formatter = NumberFormatter()
-            formatter.maximumFractionDigits = 3
+            formatter.numberStyle = .decimal
+            formatter.maximumSignificantDigits = 5
             chart.yLabelsFormatter = { _, float in return formatter.string(from: float as NSNumber)! }
             if dataArray.count == 7 {
                 chart.xLabels = Array(stride(from: 0.0, to: Double(dataArray.count), by: 1))
@@ -195,7 +196,7 @@ class HistoricalRatesController: UITableViewController, ChartDelegate {
             let labelLeadingMarginInitialConstant = CGFloat(0)
             let baseCurrency = UserDefaults.shared.string(forKey: "baseCurrency")
             let numberFormatter = NumberFormatter()
-            numberFormatter.maximumFractionDigits = 5
+            numberFormatter.maximumSignificantDigits = 7
             label.text = "\(formatter.string(from: days[indexes[0]!])): \(multiplier) \(baseCurrency!) = \(numberFormatter.string(from: value as NSNumber)!) \(currency.currencyCode)"
             
             // Align the label to the touch left position, centered
