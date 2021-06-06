@@ -5,10 +5,11 @@
 
 import Foundation
 
-public struct UITesting {
+public enum UITesting {
 
+    /// Check if interface tests are running or not.
     public static var isRunning: Bool {
-        return ProcessInfo.processInfo.arguments.contains("-ui_testing")
+        ProcessInfo.processInfo.arguments.contains("-ui_testing")
     }
 
 }

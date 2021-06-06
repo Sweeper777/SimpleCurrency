@@ -5,21 +5,21 @@ target 'SimpleCurrency' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'SwiftyUtils', :git => 'https://github.com/tbaranes/SwiftyUtils.git', :commit => 'adf37824622a46190aef33be686163311888a3c9'
+  pod 'SwiftyUtils'
   pod 'Alamofire'
   pod 'SCLAlertView', :git => 'https://github.com/vikmeup/SCLAlertView-Swift.git'
-  pod 'Eureka', '5.1.0'
+  pod 'Eureka'
   pod 'SwiftyJSON'
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
   pod 'SwiftChart'
   pod 'SVPullToRefresh'
+  pod 'Google-Mobile-Ads-SDK'
 end
 
 target 'ExchangeRates' do
   use_frameworks!
   pod 'Alamofire'
-  pod 'SwiftyUtils', :git => 'https://github.com/tbaranes/SwiftyUtils.git', :commit => 'adf37824622a46190aef33be686163311888a3c9'
   pod 'SwiftyJSON'
   pod 'SwiftChart'
   end

@@ -1,6 +1,7 @@
 import UIKit
 import SwiftyUtils
 import Firebase
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
